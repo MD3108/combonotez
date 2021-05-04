@@ -1,0 +1,49 @@
+.form{
+    &__part{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        &.--fighter{
+            .form__fighters{
+                .fighters{
+                    &__select{
+                        .f-select__fighter{
+                            max-width: 9.090909090909091%;
+                            & img{
+                                max-width: 90px;
+                                height: auto;
+                            }
+                        }
+                    }
+                    &__chosen{
+                        
+                        .f-chosen{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            flex-wrap: nowrap;
+                            &__el{
+
+                                &.--main{
+
+                                }
+                                &.--a1{
+
+                                }
+                                &.--a2{
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.progression{
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}

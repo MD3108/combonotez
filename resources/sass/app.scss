@@ -1,0 +1,23 @@
+// * Fonts * //
+@import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&family=Saira:ital,wght@0,400;0,700;1,400&display=swap');
+
+
+// * Bootstrap * //
+@import '~bootstrap/scss/bootstrap';
+// * MyVariables * //
+@import 'utils/variables';
+@import 'bootstrap/button';
+@import 'bootstrap/card';
+@import 'bootstrap/nav';
+@import 'bootstrap/progressbar';
+
+
+
+// * Components * //
+@import 'components/layout';
+@import 'components/animation';
+@import 'components/form';
+@import 'components/grid';
+@import 'components/list';
+@import 'components/type';
+@import 'components/icon';

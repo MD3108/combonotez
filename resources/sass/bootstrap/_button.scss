@@ -1,0 +1,22 @@
+.btn{
+    transition: all .25s ease-out;
+    box-shadow: $box-shadow;
+    &:hover{
+        transform: translateY(.025rem);
+        box-shadow: 0 0.222rem 0.333rem rgb(6 28 45 / 15%);
+    }
+    &.--vod{
+        position: relative;
+        background-color: $dark-blue;
+        color: $blue;
+        height: 2.25rem;
+        width: 2.25rem;
+        flex-basis: 2.25rem;
+        border-radius: 1.125rem;
+    }
+    &-close{
+        position: absolute;
+        top: calc(0% + 1.125rem);
+        right: calc(0% + 1.125rem);
+    }
+}

@@ -1,0 +1,9 @@
+.grid{
+    &-item{
+        margin-bottom: 1.25rem;
+        // TODO Adjust the width
+        //width: calc( (100% / 3) - 0.94% );
+        max-width: 450px;
+        width: 33.333%;
+    }
+}

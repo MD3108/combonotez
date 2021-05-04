@@ -1,0 +1,43 @@
+.nav{
+    &bar{
+        &-brand{
+            white-space: nowrap;
+            text-indent: 100%;
+            overflow: hidden;
+            display: block;
+            width: 60px;
+            height: 60px;
+            background-image: url('/storage/images/logo.png');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-left: 1.25rem;
+            margin-right: inherit;
+        }
+        &-light{
+            & a.logo-letters{
+                padding-left: .3125rem;
+                &:hover{
+                    text-decoration: none;
+                    .logo-letters__part{
+                        color: darken($dark-blue, 1.0);
+                    }
+                }
+            }
+            .navbar-nav{
+                .nav-link{
+                    color: rgba($dark-blue, .8);
+                    margin-left: 2rem;
+                    &:hover{
+                        color: rgba($dark-blue, 1.0);
+                    }
+                }
+                .nav-item{
+                    .btn-primary{
+                        margin-right: 1.25rem;
+                    }
+                }
+            }
+        }
+    }
+}

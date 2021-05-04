@@ -1,0 +1,45 @@
+// Body
+$body-bg: $blue;
+$text-color: $dark-blue;
+
+// Typography
+$font-family-sans-serif: 'Saira', sans-serif;
+$font-family-sans-serif-condensed: 'Saira Condensed', condensed;
+$font-size-base: 1.125rem;
+$line-height-base: 1.388;
+$font-weight-bold: 700;
+
+$font-size-title-h1: 3.8125rem; //61px
+$font-size-title-h2: 3.0625rem; //49px
+$font-size-big: 2.4375rem; //49px
+$font-size-title-h3: 2rem;
+$font-size-title-sub: 1.5625rem;
+
+//paddings and margins
+$m-section: 4.375rem;
+$mr-fighter-note: 0.625rem;
+$mb-fighter-note: 2.5rem;
+$ml-assist-note: 0.625rem;
+$ml-cb-footer-interactions: .625rem;
+$ml-icon-text: .3125rem;
+
+$p-section: 4.375rem;
+$p-cb-combo-notation : 0.625rem;
+$p-form-form: 2.5rem;
+
+
+$m-h2: 1.875rem;
+
+// Colors
+$cta : $orange;
+
+//**Border**//
+$border-color: transparent;
+$border-radius: .4rem !default;
+$border-radius-lg: .4rem !default;
+$border-radius-sm: 0.222rem;
+
+//**Box shadow**//
+$box-shadow-sm: 0 0.333rem 0.444rem rgba($dark-blue, .1);
+$box-shadow: 0 0.333rem 0.444rem rgba($dark-blue, .1);
+$box-shadow-lg: 0 0.333rem 0.444rem rgba($dark-blue, .1);
