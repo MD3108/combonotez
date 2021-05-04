@@ -39,7 +39,7 @@
                                                     <div class="assist">
                                                         <div class="assist __container --one">
                                                             <img src="{{ asset('/storage'. $note->fighters[1]->image_path ) }}" alt="{{ $note->fighters[1]->name }}">
-                                                            <div class="assist __move">
+                                                            <div class="assist __move --{{ $note->assistOne }}">
                                                                 <span>
                                                                     {{ $note->assistOne }}
                                                                 </span>
@@ -47,7 +47,7 @@
                                                         </div>
                                                         <div class="assist __container --two">
                                                             <img src="{{ asset('/storage/'. $note->fighters[2]->image_path ) }}" alt="{{ $note->fighters[2]->name }}">
-                                                            <div class="assist __move">
+                                                            <div class="assist __move --{{ $note->assistTwo }}">
                                                                 <span>
                                                                     {{ $note->assistTwo }}
                                                                 </span>
