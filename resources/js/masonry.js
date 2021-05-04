@@ -1,17 +1,19 @@
 'use strict';
-var grid = document.querySelector('.grid' + '.--notes');
+var grid = document.querySelector('.grid');
 var msnry = new Masonry( grid, {
-  percentPosition: true,
+  //percentPosition: true,
   itemSelector: '.grid-item',
   gutter: 20,
 });
 
-let elem = document.querySelector('.grid' + '.--notes');
-let infScroll = new InfiniteScroll( elem, {
-  // options
-  path: '?page={{#}}',
-  append: '.grid-item',
-  outlayer: msnry,
-  status: '.page-load-status',
-  history: false,
-});
+let elem = document.querySelector('.grid');
+console.log(elem);
+
+//let infScroll = new InfiniteScroll( elem, {
+//  // options
+//  path: '?page={{#}}',
+//  append: '.grid-item',
+//  outlayer: msnry,
+//  status: '.page-load-status',
+//  history: false,
+//});

@@ -17,12 +17,13 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             
             FighterSeeder::class,
+            CategorySeeder::class,
             //FighterNoteSeeder::class,
-
+            //CategoryNoteSeeder::class,
             NoteSeeder::class,
 
-            CategorySeeder::class,
-            CategoryNoteSeeder::class,
+            
+            
 
             LikeSeeder::class,
             LikeNoteSeeder::class,

@@ -26,7 +26,6 @@ class NotesController extends Controller
     public function index()
     {
         $notes = Note::orderBy('updated_at', 'DESC')->paginate(12);
-        //dd($notes); 
         abort_if($notes->isEmpty(), 204);
         
         return view('note.index', [
