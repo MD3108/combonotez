@@ -21,7 +21,7 @@ class NoteSeeder extends Seeder
         Note::factory()->count(24)->create();
         
         foreach(Note::all() as $note){
-            $fighters = Fighter::inRandomOrder()->take(rand(1,43))->pluck('id');
+            $fighters = Fighter::inRandomOrder()->take(rand(1,3))->pluck('id');
             $note->fighters()->sync($fighters);
         }
 

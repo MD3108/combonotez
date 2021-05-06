@@ -37,7 +37,7 @@
                                                         <div class="fighter">
                                                             <img src="{{ asset('/storage'. $note->fighters[$i]->image_path ) }}" alt="{{ $note->fighters[$i]->name }}">
                                                         </div>
-                                                        @else
+                                                        @elseif(!empty($note->fighters[$i]) )
                                                         <div class="assist">
                                                             <div class="assist __container --{{ $i }}">
                                                                 <img src="{{ asset('/storage'. $note->fighters[$i]->image_path ) }}" alt="{{ $note->fighters[$i]->name }}">
