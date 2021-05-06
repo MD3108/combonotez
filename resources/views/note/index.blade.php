@@ -107,11 +107,14 @@
                                                 <H3 class="title --note">
                                                     {{ $note->name }}
                                                 </H3>
-                                                <button type="button" class="btn btn-primary --vod">
-                                                    <svg class="icon icon-play">
-                                                        <use xlink:href="#icon-play"></use>
-                                                    </svg>
-                                                </button>
+                                                @if (!empty($note->youtube_url))
+                                                    <button type="button" class="btn btn-primary --vod">
+                                                        <svg class="icon icon-play">
+                                                            <use xlink:href="#icon-play"></use>
+                                                        </svg>
+                                                    </button>
+                                                @endif
+                                                
                                             </div>
                                             <div class="body __main">
                                                 <div class="notation">
@@ -195,6 +198,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                @if (!empty($note->youtube_url))
                                 <div class="card --vod hide">
                                     <div class="card __content --vod">
                                         <iframe 
@@ -211,6 +215,7 @@
                                         </button>
                                     </div>
                                 </div>
+                                @endif
                             </div>
                         @endforeach
                     </div>

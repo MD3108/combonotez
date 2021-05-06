@@ -96,11 +96,7 @@ class NotesController extends Controller
        foreach( $request->categories as $category){
            $note->categories()->attach((int)$category);
        }
-       dd([
-           $note,
-           $request->fighters,
-           $request->categories,
-       ]);
+       
 
        return redirect('/note')
             ->with('message', 'Your Note has been created');
