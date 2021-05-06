@@ -6,15 +6,29 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name') }} - Create</title>
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Favicon 
+    TODO fix path -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ URL('/storage/images/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ URL('/storage/images/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ URL('/storage/images/favicon/favicon-16x16.png') }}">
+    <!--<link rel="manifest" href="{{ URL('/storage/images/favicon/site.webmanifest') }}"> -->
+    <link rel="mask-icon" href="{{ URL('/storage/images/favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <link rel="shortcut icon" href="{{ URL('/storage/images/favicon/favicon.ico') }}">
+    <meta name="msapplication-TileColor" content="#ebf6ff">
+    <meta name="msapplication-config" content="{{ URL('/storage/images/favicon/browserconfig.xml') }}">
+    <meta name="theme-color" content="#ebf6ff">
+    
+    <!-- Google meta  https://anthonypauwels.be/quarantedeux/metadatas/?fbclid=IwAR18PR20_19YlCS2LlEVodSXnXkVtamNtd_M_be1wHOCaw3Q4bUMxauMPuU
+    TODO add them-->
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&family=Saira:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -59,18 +73,21 @@
                             <h1 class="title --main text-center">
                                 Create your Combo Note
                             </h1>
+
                             @if ($errors->any())
                                 <div class="mb-3">
-                                     @foreach ($errors->all() as $error)
-                                     <div>
-                                         <span>
-                                            {{ $error }}
-                                         </span>
+                                    <div class="alert alert-danger" role="alert">
+                                        <ul>
+                                             @foreach ($errors->all() as $error)
+                                            <li>
+                                                {{ $error }}
+                                            </li>
+                                            @endforeach
+                                         </ul>
                                      </div>
-                                    @endforeach
                                 </div>
-                               
                             @endif
+
                             <form class="form"
                                 action="/note" 
                                 method="POST">
@@ -105,17 +122,14 @@
                                                         fighter 2
                                                     </div>
                                                     <div>
-                                                        <select name="assist-1" id="a1">
-                                                            <option value="A">
-                                                                A
-                                                            </option>
-                                                            <option value="B">
-                                                                B
-                                                            </option>
-                                                            <option value="C">
-                                                                C
-                                                            </option>
-                                                        </select>
+                                                        @foreach ( config('enum.assists') as $key=>$assist )
+                                                        <div>
+                                                                <label class="assist-1" for="a1-{{ $assist }}" >
+                                                                {{ $assist }}
+                                                            </label>
+                                                            <input type="radio" name="assist-1" id="a1-{{ $assist }}" value="{{ $key }}">
+                                                        </div>
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                                 <div class="f-chosen__el --a2">
@@ -123,17 +137,14 @@
                                                         fighter 3
                                                     </div>
                                                     <div>
-                                                        <select name="assist-2" id="a2">
-                                                            <option value="A">
-                                                                A
-                                                            </option>
-                                                            <option value="B">
-                                                                B
-                                                            </option>
-                                                            <option value="C">
-                                                                C
-                                                            </option>
-                                                        </select>
+                                                        @foreach ( config('enum.assists') as $key=>$assist )
+                                                        <div>
+                                                            <label class="assist-2" for="a2-{{ $assist }}" >
+                                                                {{ $assist }}
+                                                            </label>
+                                                            <input type="radio" name="assist-2" id="a2-{{ $assist }}" value="{{ $key }}">
+                                                        </div>
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             </div>
@@ -182,7 +193,7 @@
                                             <label for="ki-end" class="form-label">
                                                 How many Ki-bar(s) at end
                                             </label>
-                                            <input name="ki-end" type="number" step=".1" min="-7" max="7" class="form-control" id="ki-end" placeholder="0.5">
+                                            <input name="ki-end" type="number" step=".1" min="0" max="7" class="form-control" id="ki-end" placeholder="0.5">
                                         </div>
                                     </div>
                                     <div>
@@ -198,36 +209,20 @@
                                         </div>
                                     </div>
                                     <div>
+                                        @foreach (config('enum.difficulties') as $key=>$difficulty)
                                         <div>
-                                            <label class="" for="easy" >
-                                                Easy
+                                            <label class="difficulty" for="{{ $difficulty }}" >
+                                                {{ $difficulty }}
                                             </label>
-                                            <input type="radio" name="difficulty" id="easy" value="easy">
+                                            <input type="radio" name="difficulty" id="{{ $difficulty }}" value="{{ $key }}">
                                         </div>
-                                        <div>
-                                            <label class="" for="average" >
-                                                Average
-                                            </label>
-                                            <input type="radio" name="difficulty" id="average" value="average">
-                                        </div><div>
-                                            <label class="" for="hard" >
-                                                Hard
-                                            </label>
-                                            <input type="radio" name="difficulty" id="hard" value="hard">
-                                        </div>
-                                        <div>
-                                            <!--Scarlet-photon LvL-->
-                                            <label class="" for="expert" >
-                                                Expert
-                                            </label>
-                                            <input type="radio" name="difficulty" id="expert" value="expert">
-                                        </div>
+                                        @endforeach
                                     </div>
                                     <div>
                                         <label class="" for="youtube" >
                                             Your combo preview as youtube URL
                                         </label>
-                                        <input type="text" name="youtube" id="youtube" value="" placeholder="https://www.youtube.com/embed/">
+                                        <input type="text" name="youtube" id="youtube" value="https://youtube.com/embed/" placeholder="https://www.youtube.com/embed/">
                                     </div>
                                     <button class="btn btn-primary mb-3" >
                                         Next
@@ -251,7 +246,7 @@
                                     <button type="submit" class="btn btn-primary mb-3">Publish</button>
                                 </div>
 
-                                <input class="hide" type="number" name="note_id" id="note_id" value="{# $lastNoteId+1 }}">
+                                <!--<input class="hide" type="number" name="note_id" id="note_id" value="">-->
                             </form>
                         </div>
                         <div class="col-3">

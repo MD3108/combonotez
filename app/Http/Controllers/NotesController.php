@@ -40,15 +40,11 @@ class NotesController extends Controller
      */
     public function create()
     {
-        //$lastNoteId =  Note::orderBy('updated_at', 'DESC')->first()->id;
         $fighters = Fighter::all();
         $categories = Category::all();
-        //$difficulties = Note::compact('difficulty');
-        //dd($difficulties);
         return view('note.create',[
             'fighters' => $fighters,
             'categories' => $categories,
-            //'lastNoteId' => $lastNoteId,
         ]);
     }
 
@@ -60,96 +56,55 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'fighters' => 'required',
-            'chosen' => '',
-            'chosen-1' => '',
-            'assist-1' => '',
-            'chosen-2' => '',
-            'assist-2' => '',
-            'name' => 'required',
-            'notation' => '',
-            'damage' => 'required',
-            'ki-start' => 'required',
-            'ki-end' => 'required' ,
-            'categories' => 'required',
-            'difficulty' => 'required',
-            'youtube' => '',
-        ]);
-
-        //Note::create([
-            //'fighter' => $request->input('fighter'),
-            //'chosen' => $request->input('chosen'),
-            //'chosen-1' => $request->input('chosen-1'),
-            //'chosen-2' => $request->input('chosen-2'),
-            //'assist-1' => $request->input('assist-1'),
-            //'assist-2' => $request->input('assist-2'),
-            //'name' => $request->input('name'),
-            //'notation' => $request->input('notation'),
-            //'damage' => $request->input('damage'),
-            //'ki_start' => $request->input('ki-start'),
-            //'ki_end' => $request->input('ki-end'),
-            //'category' => $request->input('category'),
-            //'difficulty' => $request->input('difficulty'),
-            //'user_id' => auth()->user()->id
+    
+        //dd([
+        //    (int)$request-> get(('assist-1')),
+        //    (int)$request-> get(('assist-2')),
+        //    (int)$request-> get(('difficulty')),
         //]);
-        $note = new Note([
-            'name' => $request->input('name'),
-            'assistOne' => $request->input('assist-1'),
-            'assistTwo' => $request->input('assist-2'),
-            'notation' => $request->input('notation'),
-            'damage' => $request->input('damage'),
-            'ki_start' => $request->input('ki-start'),
-            'ki_end' => $request->input('ki-end'),
-            'category' => $request->input('category'),
-            'difficulty' => $request->input('difficulty'),
-            'user_id' => auth()->user()->id,
-        ]); 
+       $request->validate([
+           'name' => 'required|max:45',
+           'assist-1' => 'required_if:fighters[2], filled|integer|between:1,3',
+           'assist-2' => 'required_if:fighters[3], filled|integer|between:1,3',
+           'damage' => 'required|between:0,999999',
+           'ki-start' => 'required',
+           'ki-end' => 'required',
+           'difficulty' => 'required',
+           'youtube' =>  'nullable||url',
+           'fighters' => 'required|max:3',
+           'categories' => 'min:1',
+       ]);
 
-        // ! remove nullable from Note.php once notation json solution found
-        $note->save();
-        $noteId = $note->id;
 
-        foreach( $request->fighters as $fighter){
-            $note->fighters()->attach($fighter);
-            //FighterNote::create([
-            //    'fighter_id' => $fighter,
-            //    'note_id' => $noteId,
-            //]);
-        }
+       $note = Note::create([
+           // DB Col  => input name
+           'name' => $request->input(('name')),
+           'assistOne' => (int)$request-> get(('assist-1')),
+           'assistTwo' => (int)$request-> get(('assist-2')),
+           'damage' => (int)$request->input(('damage')),
+           'ki_start' => (float)$request->input(('ki-start')),
+           'ki_end' => (float)$request->input(('ki-end')),
+           'difficulty' => (int)$request-> get(('difficulty')),
+           'youtube_url' => $request->input(('youtube')),
+           'user_id' => auth()->user()->id,
+       ]);
+       
+       foreach( $request->fighters as $fighter){
+           $note->fighters()->attach((int)$fighter);
+       }
+       
+       foreach( $request->categories as $category){
+           $note->categories()->attach((int)$category);
+       }
+       dd([
+           $note,
+           $request->fighters,
+           $request->categories,
+       ]);
 
-        foreach( $request->categories as $category){
-            $note->categories()->attach($category);
-            //CategoryNote::create([
-            //    'category_id' => $category,
-            //    'note_id' => $noteId,
-            //]);
-        }
-        
-        return redirect('/note')
+       return redirect('/note')
             ->with('message', 'Your Note has been created');
 
-        //$request->validate([
-        //    'fighter' => 'required',
-        //    'name' => 'required|max:255',
-        //    'notation' => 'required',
-        //    'damage' => 'required',
-        //    'ki-start' => 'required',
-        //    'ki-end' => 'required',
-        //]); 
-        //
-        //Note::create([
-        //    'fighter' => $request->input('fighter'),
-        //    'name' => $request->input('name'),
-        //    'notation' => $request->input('notation'),
-        //    'damage' => $request->input('damage'),
-        //    'ki_start' => $request->input('ki-start'),
-        //    'ki_end' => $request->input('ki-end'),
-        //    'user_id' => auth()->user()->id
-        //]);
-
-        //return redirect('/note')
-        //    ->with('message', 'Your Note has been created');
     }
 
     /**

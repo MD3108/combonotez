@@ -21,24 +21,19 @@ class Notes extends Migration
             // ! return this to $table->json('notation')
             //$table->json('notation')->nullable();
 
-            $table->enum('assistOne', ['A', 'B', 'C']);
-            $table->enum('assistTwo', ['A', 'B', 'C']);
+            $table->integer('assistOne')->default(1);
+            $table->integer('assistTwo')->default(1);
 
             //-- Détails --//
             $table->integer('damage');
             $table->float('ki_start', 3, 2);
             $table->float('ki_end', 3, 2);
-            $table->enum('difficulty', ['easy', 'average', 'hard', 'expert']);
+            $table->integer('difficulty')->default(1);
             $table->string('youtube_url')->nullable();
 
             //-- User --//
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-
-            //-- Fighters --//
-            //$table->unsignedInteger('fighter_id');
-            //$table->foreign('fighter_id')->references('id')->on('fighters');
-            
 
             //-- Creation date info --//
             $table->timestamps();

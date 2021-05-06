@@ -24,12 +24,12 @@ class NoteFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'assistOne' => $this->faker->randomElement(['A', 'B', 'C']),
-            'assistTwo' => $this->faker->randomElement(['A', 'B', 'C']),
+            'assistOne' => rand(1,3),
+            'assistTwo' => rand(1,3),
             'damage' => rand(1,120000),
             'ki_start' => rand(0,7),
             'ki_end' => rand(0,7),
-            'difficulty' => $this->faker->randomElement(['easy', 'average', 'hard', 'expert']),
+            'difficulty' => rand(1,4),
             'youtube_url' => 'https://www.youtube.com/embed/'. Str::random(10),
             'user_id' => rand(1,2),
         ];

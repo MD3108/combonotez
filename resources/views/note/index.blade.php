@@ -27,33 +27,36 @@
                     <div class="grid">
                         @foreach ($notes as $note)
                             <div class="grid-item">
-                                <div class="card">
+                                <div class="card" data-difficulty="{{ $note->difficulty }}">
                                     <div class="card __content">
                                         <div class="content __header">
                                             <div class="header __left">
                                                 <div class="l-header __container">
-
-                                                    <div class="fighter">
-                                                        <img src="{{ asset('/storage'. $note->fighters[0]->image_path ) }}" alt="{{ $note->fighters[0]->name }}">
-                                                    </div>
-                                                    <div class="assist">
-                                                        <div class="assist __container --one">
-                                                            <img src="{{ asset('/storage'. $note->fighters[1]->image_path ) }}" alt="{{ $note->fighters[1]->name }}">
-                                                            <div class="assist __move --{{ $note->assistOne }}">
-                                                                <span>
-                                                                    {{ $note->assistOne }}
-                                                                </span>
+                                                    @for ( $i = 0 ; $i < 3 ; $i++ )
+                                                        @if ($i === 0)
+                                                        <div class="fighter">
+                                                            <img src="{{ asset('/storage'. $note->fighters[$i]->image_path ) }}" alt="{{ $note->fighters[$i]->name }}">
+                                                        </div>
+                                                        @else
+                                                        <div class="assist">
+                                                            <div class="assist __container --{{ $i }}">
+                                                                <img src="{{ asset('/storage'. $note->fighters[$i]->image_path ) }}" alt="{{ $note->fighters[$i]->name }}">
+                                                               
+                                                                @foreach ( config('enum.assists') as $key=>$assist )
+                                                                @if($note->assistOne == $key)
+                                                                <div class="assist __move --{{ $assist }}">
+                                                                    <span>
+                                                                        {{ $assist }}
+                                                                    </span>
+                                                                </div>
+                                                                @endif
+                                                                @endforeach
+                                                                
                                                             </div>
                                                         </div>
-                                                        <div class="assist __container --two">
-                                                            <img src="{{ asset('/storage/'. $note->fighters[2]->image_path ) }}" alt="{{ $note->fighters[2]->name }}">
-                                                            <div class="assist __move --{{ $note->assistTwo }}">
-                                                                <span>
-                                                                    {{ $note->assistTwo }}
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        @endif
+                                                    @endfor
+                                                    
 
                                                 </div>
                                             </div>

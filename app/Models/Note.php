@@ -8,7 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Note extends Model
 {
     // ! add to fillable once  "  , 'notation'   "
-    protected $fillable = ['name', 'damage', 'ki_start', 'ki_end', 'difficulty', 'user_id'];
+    protected $fillable = [ 'name',
+                            'assistOne',
+                            'assistTwo',
+                            'damage', 
+                            'ki_start', 
+                            'ki_end', 
+                            'difficulty', 
+                            'youtube_url',
+                            'user_id', 
+                            'fighters', 
+                            'categories',
+                        ];
 
     protected $guarded = [];
 
