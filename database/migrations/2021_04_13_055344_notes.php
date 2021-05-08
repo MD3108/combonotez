@@ -19,7 +19,7 @@ class Notes extends Migration
             //-- Main --//
             $table->string('name', 45);
             // ! return this to $table->json('notation')
-            //$table->json('notation')->nullable();
+            $table->json('notation');
 
             $table->integer('assistOne')->default(1);
             $table->integer('assistTwo')->default(1);

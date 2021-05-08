@@ -118,20 +118,10 @@
                                             </div>
                                             <div class="body __main">
                                                 <div class="notation">
-                                                    <div>
-                                                        <span>
-                                                            2x
-                                                        </span>
-                                                        <img src="{{ asset('/storage/images/buttons/L.png') }}" alt="L">
-                                                        <span>
-                                                            2x
-                                                        </span>
-                                                        <img src="{{ asset('/storage/images/buttons/M.png') }}" alt="M">
-                                                        <span>
-                                                            3x
-                                                        </span>
-                                                        <img src="{{ asset('/storage/images/buttons/H.png') }}" alt="H">
-                                                    </div>
+                                                    <!-- Adding through JS-->
+                                                    <script>
+                                                        var arrayNotation = @json($note->notation);
+                                                    </script>
                                                 </div>
                                             </div>
                                         </div>
@@ -240,4 +230,5 @@
     <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
     <script src="{{ URL('/js/masonry.js') }}"></script>
     <script src="{{ URL('/js/vod.js') }}"></script>
+    <script src="{{ URL('/js/render.js') }}"></script>
 @endsection
