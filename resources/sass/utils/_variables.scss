@@ -20,23 +20,25 @@ $font-weight-bold: 700;
 
 $font-size-title-h1: 3.8125rem; //61px
 $font-size-title-h2: 3.0625rem; //49px
-$font-size-big: 2.4375rem; //49px
-$font-size-title-h3: 2rem;
-$font-size-title-sub: 1.5625rem;
+$font-size-big: 2.4375rem; //39px
+$font-size-title-h3: 2rem;//32px
+$font-size-title-sub: 1.5625rem;//25px
 
 //paddings and margins
 $m-section: 4.375rem;
-$mr-fighter-note: 0.625rem;
-$mb-fighter-note: 2.5rem;
-$ml-assist-note: 0.625rem;
-$ml-cb-footer-interactions: .625rem;
+$p-section: 4.375rem;
+
 $ml-icon-text: .3125rem;
 
-$p-section: 4.375rem;
-$p-cb-combo-notation : 0.625rem;
 $p-form-form: 2.5rem;
 
+
+$m-quarter-gutter: .3125rem;
 $m-half-gutter: .625rem;
+$m-gutter: calc(.625rem * 2) ;
+$m-double-gutter: calc(.625rem * 4) ;
+
+$p-button: .9375rem;
 
 
 $m-h2: 1.875rem;
@@ -49,6 +51,8 @@ $border-color: transparent;
 $border-radius: .4rem !default;
 $border-radius-lg: .4rem !default;
 $border-radius-sm: 0.222rem;
+$border-dark-blue: 1px solid $dark-blue;
+$border-transparent: 1px solid transparent;
 
 //**Box shadow**//
 $box-shadow-sm: 0 0.333rem 0.444rem rgba($dark-blue, .1);

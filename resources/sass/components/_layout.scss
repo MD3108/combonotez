@@ -1,5 +1,24 @@
+::-webkit-scrollbar{
+    display: none;
+}
+::-webkit-scrollbar-button{
+}
+::-webkit-scrollbar-track{
+}
+::-webkit-slider-track-piece{
+}
+::-webkit-slider-thumb{
+}
+::-webkit-slider-corner{
+}
+::-webkit-resizer{
+}
+
 .body{
     padding-top: 76px;
+    & img{
+        max-width: 100%;
+    }
     &.--form{
         padding-top: inherit;
         display: flex;
@@ -62,12 +81,24 @@ iframe{
     }
     &.--what-is-cnz{
         .content {
-            &.__el{
+            &__el{
                 &.--left{
                     margin-right: $m-half-gutter;
+                    max-width: 572px;
                 }
                 &.--right{
                     margin-left: $m-half-gutter;
+                }
+            }
+        }
+    }
+    &.--how-to-use{
+        .discover{
+            &__read{
+                .read{
+                    &__note{
+                        max-width: 446px;
+                    }
                 }
             }
         }
@@ -101,7 +132,7 @@ iframe{
         background-color: $gray-100;
         color: $dark-blue;
         border-radius: $border-radius;
-        border: 1px solid transparent;
+        border: $border-transparent;
         box-shadow: $box-shadow;
 
         .section{

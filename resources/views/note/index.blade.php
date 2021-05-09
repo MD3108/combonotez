@@ -15,11 +15,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-3">
-                        <div class="card-body">
-                            <h2 class="card-title">
-                                Filter
-                            </h2>
-                        </div>
+                        <h2 class="card-title">
+                            Filter
+                        </h2>
                     </div>
                 </div>
             </div>
@@ -29,23 +27,23 @@
                         @foreach ($notes as $noteKey=>$note)
                             <div class="grid-item">
                                 <div class="card" data-difficulty="{{ $note->difficulty }}">
-                                    <div class="card __content">
-                                        <div class="content __header">
-                                            <div class="header __left">
-                                                <div class="l-header __container">
+                                    <div class="card__content">
+                                        <div class="content__header">
+                                            <div class="header__left">
+                                                <div class="l-header__container">
                                                     @for ( $i = 0 ; $i < 3 ; $i++ )
                                                         @if ($i === 0)
                                                         <div class="fighter">
                                                             <img src="{{ asset('/storage'. $note->fighters[$i]->image_path ) }}" alt="{{ $note->fighters[$i]->name }}">
                                                         </div>
-                                                        @elseif(!empty($note->fighters[$i]) )
                                                         <div class="assist">
-                                                            <div class="assist __container --{{ $i }}">
+                                                        @elseif(!empty($note->fighters[$i]) )
+                                                            <div class="assist__container --a{{ $i }}">
                                                                 <img src="{{ asset('/storage'. $note->fighters[$i]->image_path ) }}" alt="{{ $note->fighters[$i]->name }}">
                                                                
                                                                 @foreach ( config('enum.assists') as $key=>$assist )
                                                                 @if($note->assistOne == $key)
-                                                                <div class="assist __move --{{ $assist }}">
+                                                                <div class="assist__move --{{ $assist }}">
                                                                     <span>
                                                                         {{ $assist }}
                                                                     </span>
@@ -54,32 +52,34 @@
                                                                 @endforeach
                                                                 
                                                             </div>
-                                                        </div>
                                                         @endif
                                                     @endfor
-                                                    
+                                                        </div>
 
                                                 </div>
                                             </div>
-                                            <div class="header __right">
-                                                <div class="r-header __container">
+                                            <div class="header__right">
+                                                <div class="r-header__container">
                                                     <div class="categories">
-                                                        @foreach ($note->categories as $category)  
-                                                        <div class="categories __el">
-                                                            {{ $category->name }}
+                                                        <div class="categories__list">
+                                                            @foreach ($note->categories as $category)  
+                                                            <div class="categories__el">
+                                                                {{ $category->name }}
+                                                            </div>
+                                                            @endforeach
                                                         </div>
-                                                        @endforeach
+                                                        
                                                     </div>
                                                     <div class="damage">
-                                                        <span class="damage __value">
+                                                        <span class="damage__value">
                                                             {{ $note->damage }} 
                                                         </span>
-                                                        <span class="damage __unit">
-                                                            damage
+                                                        <span class="damage__unit">
+                                                            Damage
                                                         </span>
                                                     </div>
                                                     <div class="ki">
-                                                        <div class="ki__begin">
+                                                        <div class="ki__el --begin">
                                                             <div class="ki__indicator">
                                                                 At start
                                                             </div>
@@ -89,7 +89,7 @@
                                                                 </span>
                                                             </div>
                                                         </div>
-                                                        <div class="ki__end">
+                                                        <div class="ki__el --end">
                                                             <div class="ki__indicator">
                                                                 At end
                                                             </div>
@@ -103,8 +103,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="content __body">
-                                            <div class="body __title">
+                                        <div class="content__body">
+                                            <div class="body__title">
                                                 <H3 class="title --note">
                                                     {{ $note->name }}
                                                 </H3>
@@ -117,7 +117,7 @@
                                                 @endif
                                                 
                                             </div>
-                                            <div class="body __main">
+                                            <div class="body__main">
                                                 <div class="notation">
                                                     
                                                     @php 
@@ -128,11 +128,11 @@
                                                         {{-- $input --}}
                                                         
                                                             @if (str_contains($input,'x'))
-                                                               <span class="input --{{ $input }}">
+                                                               <span class="input --txt">
                                                                     {{ $input }}  
                                                                 </span> 
                                                             @else
-                                                            <img class="input --{{ $input }}" 
+                                                            <img class="input --{{ $input }} --img" 
                                                                 src="{{ asset('/storage/images/buttons/'. $input.'.png' ) }}" 
                                                                 alt="{{ $input }} button">
                                                             @endif
@@ -144,9 +144,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="content __footer">
-                                            <div class="footer __left">
-                                                <div class="l-footer __container">
+                                        <div class="content__footer">
+                                            <div class="footer__left">
+                                                <div class="l-footer__container">
                                                     <div class="user">
                                                         <img src="#" alt="User">
                                                         <div>
@@ -154,15 +154,15 @@
                                                                 {{ $note->user->name }}
                                                             </span>
                                                             <span>
-                                                                {{ date("m / d / y", strtotime($note->created_at)) }}
+                                                                {{ date("d / m / y", strtotime($note->created_at)) }}
                                                             </span>
                                                         </div>
                                                     </div>
                                                     
                                                 </div>
                                             </div>
-                                            <div class="footer __right">
-                                                <div class="r-footer __container">
+                                            <div class="footer__right">
+                                                <div class="r-footer__container">
                                                     <div class="interactions">
                                                         <div class="interactions__favorites">
                                                             
@@ -209,7 +209,7 @@
                                 </div>
                                 @if (!empty($note->youtube_url))
                                 <div class="card --vod hide">
-                                    <div class="card __content --vod">
+                                    <div class="card__content --vod">
                                         <iframe 
                                             class="vod"
                                             src="{{ url($note->youtube_url) }}" 

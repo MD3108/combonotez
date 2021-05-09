@@ -1,6 +1,200 @@
 .card{
-    img{
-        max-width: 90px;
-        height: auto;
+    padding: $m-gutter;
+    border: $border-transparent !important;
+    box-shadow: $box-shadow;
+    &__content{
+        .content{
+            &__header{
+                display: flex;
+                margin-bottom: $m-double-gutter;
+                .header{
+                    &__left{
+                        flex-basis: 40%;
+                        .l-header{
+                            &__container{
+                                display: flex;
+                                .fighter img,
+                                .assist img{
+                                    //max-width: 90px;
+                                    width: 90px;
+                                    height: auto;
+                                    border-radius: $border-radius;
+                                    background-color: $light-blue;
+                                    border: $border-dark-blue;
+                                }
+                                .assist{
+                                    margin-right: $m-half-gutter;
+                                    margin-left: $m-half-gutter;
+                                    & img{
+                                        width: 40px;
+                                        height: auto;
+                                        min-width: 40px;
+                                        min-height: 40px;
+                                    }
+                                    &__container{
+                                        position: relative;
+                                        margin-left: 0;
+                                        margin-right: 0;
+                                        .assist__move{
+                                            position: absolute;
+                                            bottom: 0;
+                                            right: 0;
+                                            background-color: $light-blue;
+                                            color: $dark-blue;
+                                            border: $border-dark-blue;
+                                            border-bottom-right-radius: $border-radius;
+                                            height: 1.125rem;
+                                            line-height: 1.125rem;
+                                            padding: 0 .0625rem;
+                                            &.--A{
+                                                background-color: $red-assist;
+                                                color:$light-blue;
+                                            }
+                                            &.--B{
+                                                background-color: $blue-assist;
+                                                color:$light-blue;
+                                            }
+                                            &.--C{
+                                                background-color: $green-assist;
+                                                color:$light-blue;
+                                            }
+                                        }
+                                        &.--a1{
+                                            margin-bottom: $m-half-gutter;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &__right{
+                        flex-basis: 60%;
+                        .r-header{
+                            &__container{
+                                height: 90px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-between;
+                                font-family: $font-family-sans-serif-condensed;
+                                .categories{
+                                    display: flex;
+                                    justify-content: flex-end;
+                                    width: 100%;
+                                    max-width: 244px;
+                                    overflow: hidden;
+                                    height: auto;
+                                    &:hover{
+                                        overflow: auto;
+                                        & ::-webkit-scrollbar{
+                                            display: block;
+                                        }
+                                    }
+                                    &__list{
+                                        display: flex;
+                                        justify-content: flex-end;
+                                        width: 100%;
+                                        overflow-x: auto;
+                                    }
+                                    &__el{
+                                        &:first-child{
+                                            margin-left: auto;
+                                        }
+                                        background-color: $dark-blue;
+                                        color: $light-blue;
+                                        border-radius: $border-radius;
+                                        height: 1.75rem;
+                                        line-height: 1.75rem;
+                                        text-align: center;
+                                        padding-left: $p-button;
+                                        padding-right: $p-button;
+                                        margin-left: $m-quarter-gutter;
+                                        margin-right: $m-quarter-gutter;
+                                        &:first-child{
+                                            margin-left: inherit;
+                                        }
+                                        &:last-child{
+                                            margin-right: inherit;
+                                        }
+                                    }
+                                }
+                                .damage{
+                                    width: 100%;
+                                    font-weight: $font-weight-bold;
+                                    text-align: right;
+                                    &__value{
+                                        font-size: $h3-font-size;
+                                        line-height: $h3-font-size;
+                                    }
+                                }
+                                .ki{
+                                    display: flex;
+                                    font-weight: $font-weight-bold;
+                                    justify-content: space-between;
+                                    width: 100%;
+                                    &__el{
+                                        display: flex;
+                                        width: 100%;
+                                        justify-content: flex-end;
+                                        & div{
+                                            &:first-child{
+                                                margin-right: $m-half-gutter;
+                                            }
+                                        }
+                                        //&:first-child{
+                                        //    margin-right: $m-half-gutter;
+                                        //}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &__body{
+                margin-bottom: $m-double-gutter;
+                .body{
+                    &__title{
+                        display: flex;
+                        justify-content: space-between;
+                        width: 100%;
+                        flex-wrap: nowrap;
+                        .title{
+                            width: calc(100% - 3.5rem);
+                            margin-bottom: $m-half-gutter;
+                            &.--note{
+                                font-size: $h3-font-size;
+                            }
+                        }
+                    }
+                    &__main{
+                        .notation{
+                            background-color: $light-blue;
+                            border: $border-dark-blue;
+                            border-radius: $border-radius;
+                            padding: 0 $m-half-gutter;
+                            padding-top: $m-quarter-gutter;
+                            padding-bottom: $m-quarter-gutter;
+                            display: flex;
+                            justify-content: center;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            .input{
+                                padding-top: $m-quarter-gutter;
+                                padding-bottom: $m-quarter-gutter;
+                                &.--txt{
+                                    font-family: $font-family-sans-serif-condensed;
+                                    font-size: 2.5rem;
+                                    line-height: 2.5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &__footer{
+               display: flex; 
+               justify-content: space-between;
+            }
+        }
     }
 }

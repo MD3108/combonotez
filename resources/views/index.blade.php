@@ -9,7 +9,7 @@
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
-                        {{ __('You are logged in!') }}
+                        {{__('You are logged in!') }}
                 </div>
             @endif
         </div>
@@ -25,7 +25,7 @@
                     </h1>
                     
                     <div class="d-flex justify-content-center content">
-                        <div class="content __el --left">
+                        <div class="content__el --left">
                             <h2 class="title">
                                 Get all the latest and diverse Combos from the Dragon Ball FighterZ community in one place.
                             </h2>
@@ -34,7 +34,7 @@
                             </p>
                             <a href="{{ url('/') }}" role="button" class="btn btn-primary btn-lg">Discorver now</a>
                         </div>
-                        <div class="content __el --right">
+                        <div class="content__el --right">
                             <img class="" src="{{ asset('/storage/gif/ssj-goku-llmmhhh.gif') }}" alt="goku simple combo gif">
                         </div>
                     </div>
@@ -42,10 +42,10 @@
                 
             </div>
     </section>
-    <section class="section">
+    <section class="section --how-to-use">
             <div class="row justify-content-center">
                 <div class="col-10">
-                    <div class="">
+                    <div>
                         <h2 class="text-center title --has-sub">
                             How to use Combo NoteZ
                         </h2>
@@ -53,12 +53,11 @@
                             The Combo NoteZ web site allows to discover or create notes
                         </span>
                     </div>
-                    <div>
+                    <div class="discover">
                         <h3 class="title --h3 --has-sub">
                             Discover
                         </h3>
-
-                        <div class="">
+                        <div class="discover__find">
                             <h4 class="title --sub">
                                 1. Find specific combo(s)
                             </h4>
@@ -112,12 +111,147 @@
                                 </div>
                             </div>
                         </div>
-                        <div>
+                        <div class="discover__read">
                             <h4 class="title --sub">
                                 2. How to read notes
                             </h4>
-                            <div>
-                                
+                            <div class="read__note">
+                                <div class="card">
+                                    <div class="card__content">
+                                        <div class="content__header">
+                                            <div class="header__left">
+                                                <div class="l-header__container">
+                                                    <div class="fighter">
+                                                        <img src="{{ asset('/storage/images/fighters/ssj-goku.png') }}" alt="Janemba">
+                                                    </div>
+                                                    <div class="assist">
+                                                        <div class="assist__container --a1">
+                                                            <img src="#" alt="#">
+                                                            <div class="assist__move --B">
+                                                                <span>
+                                                                    B
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="assist__container --a2">
+                                                            <img src="#" alt="#">
+                                                            <div class="assist__move --B">
+                                                                <span>
+                                                                    B
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="header__right">
+                                                <div class="r-header__container">
+                                                    <div class="categories">
+                                                        <div class="categories__list">
+                                                            <div class="categories__el">
+                                                                Universal
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="damage">
+                                                        <span class="damage__value">
+                                                            2620 
+                                                        </span>
+                                                        <span class="damage__unit">
+                                                            Damage
+                                                        </span>
+                                                    </div>
+                                                    <div class="ki">
+                                                        <div class="ki__el --begin">
+                                                            <div class="ki__indicator">
+                                                                At start
+                                                            </div>
+                                                            <div class="ki__value">
+                                                                <span>
+                                                                    0 ki
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ki__el --end">
+                                                            <div class="ki__indicator">
+                                                                At end
+                                                            </div>
+                                                            <div class="ki__value">
+                                                                <span>
+                                                                    0.5 ki
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="content__body">
+                                            <div class="body__title">
+                                                <h3 class="title --note">
+                                                    My First Combo Note
+                                                </h3>
+                                                <button type="button" class="btn btn-primary --vod">
+                                                    <svg class="icon icon-play">
+                                                        <use xlink:href="#icon-play"></use>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="body__main">
+                                                <div class="notation">
+                                                    <span class="input --txt">
+                                                        2x 
+                                                    </span> 
+                                                    <img class="input --L" src="{{ asset('/storage/images/buttons/L.png') }}" alt="L button">
+                                                    <img class="input --sep" src="{{ asset('/storage/images/buttons/sep.png') }}" alt="sep button">
+                                                    <span class="input --txt">
+                                                        2x  
+                                                    </span> 
+                                                    <img class="input --M" src="{{ asset('/storage/images/buttons/M.png') }}" alt="M button">
+                                                    <img class="input --sep" src="{{ asset('/storage/images/buttons/sep.png') }}" alt="sep button">
+                                                    <span class="input --txt">
+                                                        3x  
+                                                    </span>
+                                                    <img class="input --M" src="{{ asset('/storage/images/buttons/H.png') }}" alt="M button">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="content__footer">
+                                            <div class="footer__left">
+                                                <div class="l-footer__container">
+                                                    <div class="user">
+                                                        <!--<img src="#" alt="User">-->
+                                                        <div>
+                                                            <span>
+                                                                Combo NoteZ Master
+                                                            </span>
+                                                            <span>
+                                                                11/05/21
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="footer__right">
+                                                <div class="r-footer__container">
+                                                    <div class="interactions">
+                                                        <div class="interactions__favorites">
+                                                            <svg class="icon icon-favorite">
+                                                                <use xlink:href="#icon-favorite"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="interactions__likes">
+                                                            <svg class="icon icon-like">
+                                                                <use xlink:href="#icon-like"></use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <a href="{{ url('/') }}" role="button" class="btn btn-primary btn-lg">Discorver now</a>
                         </div>

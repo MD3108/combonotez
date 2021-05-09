@@ -10025,9 +10025,185 @@ h3 {
   right: calc(0% + 1.125rem);
 }
 
-.card img {
-  max-width: 90px;
+.card {
+  padding: calc(.625rem * 2);
+  border: 1px solid transparent !important;
+  box-shadow: 0 0.333rem 0.444rem rgba(6, 28, 45, 0.1);
+}
+.card__content .content__header {
+  display: flex;
+  margin-bottom: calc(.625rem * 4);
+}
+.card__content .content__header .header__left {
+  flex-basis: 40%;
+}
+.card__content .content__header .header__left .l-header__container {
+  display: flex;
+}
+.card__content .content__header .header__left .l-header__container .fighter img,
+.card__content .content__header .header__left .l-header__container .assist img {
+  width: 90px;
   height: auto;
+  border-radius: 0.4rem;
+  background-color: #EBF6FF;
+  border: 1px solid #061C2D;
+}
+.card__content .content__header .header__left .l-header__container .assist {
+  margin-right: 0.625rem;
+  margin-left: 0.625rem;
+}
+.card__content .content__header .header__left .l-header__container .assist img {
+  width: 40px;
+  height: auto;
+  min-width: 40px;
+  min-height: 40px;
+}
+.card__content .content__header .header__left .l-header__container .assist__container {
+  position: relative;
+  margin-left: 0;
+  margin-right: 0;
+}
+.card__content .content__header .header__left .l-header__container .assist__container .assist__move {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #EBF6FF;
+  color: #061C2D;
+  border: 1px solid #061C2D;
+  border-bottom-right-radius: 0.4rem;
+  height: 1.125rem;
+  line-height: 1.125rem;
+  padding: 0 0.0625rem;
+}
+.card__content .content__header .header__left .l-header__container .assist__container .assist__move.--A {
+  background-color: #F85656;
+  color: #EBF6FF;
+}
+.card__content .content__header .header__left .l-header__container .assist__container .assist__move.--B {
+  background-color: #1085DE;
+  color: #EBF6FF;
+}
+.card__content .content__header .header__left .l-header__container .assist__container .assist__move.--C {
+  background-color: #3DAF4A;
+  color: #EBF6FF;
+}
+.card__content .content__header .header__left .l-header__container .assist__container.--a1 {
+  margin-bottom: 0.625rem;
+}
+.card__content .content__header .header__right {
+  flex-basis: 60%;
+}
+.card__content .content__header .header__right .r-header__container {
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Saira Condensed", condensed;
+}
+.card__content .content__header .header__right .r-header__container .categories {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 244px;
+  overflow: hidden;
+  height: auto;
+}
+.card__content .content__header .header__right .r-header__container .categories:hover {
+  overflow: auto;
+}
+.card__content .content__header .header__right .r-header__container .categories:hover ::-webkit-scrollbar {
+  display: block;
+}
+.card__content .content__header .header__right .r-header__container .categories__list {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  overflow-x: auto;
+}
+.card__content .content__header .header__right .r-header__container .categories__el {
+  background-color: #061C2D;
+  color: #EBF6FF;
+  border-radius: 0.4rem;
+  height: 1.75rem;
+  line-height: 1.75rem;
+  text-align: center;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  margin-left: 0.3125rem;
+  margin-right: 0.3125rem;
+}
+.card__content .content__header .header__right .r-header__container .categories__el:first-child {
+  margin-left: auto;
+}
+.card__content .content__header .header__right .r-header__container .categories__el:first-child {
+  margin-left: inherit;
+}
+.card__content .content__header .header__right .r-header__container .categories__el:last-child {
+  margin-right: inherit;
+}
+.card__content .content__header .header__right .r-header__container .damage {
+  width: 100%;
+  font-weight: 700;
+  text-align: right;
+}
+.card__content .content__header .header__right .r-header__container .damage__value {
+  font-size: 1.75rem;
+  line-height: 1.75rem;
+}
+.card__content .content__header .header__right .r-header__container .ki {
+  display: flex;
+  font-weight: 700;
+  justify-content: space-between;
+  width: 100%;
+}
+.card__content .content__header .header__right .r-header__container .ki__el {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+.card__content .content__header .header__right .r-header__container .ki__el div:first-child {
+  margin-right: 0.625rem;
+}
+.card__content .content__body {
+  margin-bottom: calc(.625rem * 4);
+}
+.card__content .content__body .body__title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+.card__content .content__body .body__title .title {
+  width: calc(100% - 3.5rem);
+  margin-bottom: 0.625rem;
+}
+.card__content .content__body .body__title .title.--note {
+  font-size: 1.75rem;
+}
+.card__content .content__body .body__main .notation {
+  background-color: #EBF6FF;
+  border: 1px solid #061C2D;
+  border-radius: 0.4rem;
+  padding: 0 0.625rem;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.card__content .content__body .body__main .notation .input {
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+}
+.card__content .content__body .body__main .notation .input.--txt {
+  font-family: "Saira Condensed", condensed;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+}
+.card__content .content__footer {
+  display: flex;
+  justify-content: space-between;
 }
 
 .navbar-brand {
@@ -10064,8 +10240,15 @@ h3 {
   margin-right: 1.25rem;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .body {
   padding-top: 76px;
+}
+.body img {
+  max-width: 100%;
 }
 .body.--form {
   padding-top: inherit;
@@ -10128,11 +10311,15 @@ iframe {
   border-top-right-radius: 0.4rem;
   border-bottom-right-radius: 0.4rem;
 }
-.section.--what-is-cnz .content.__el.--left {
+.section.--what-is-cnz .content__el.--left {
   margin-right: 0.625rem;
+  max-width: 572px;
 }
-.section.--what-is-cnz .content.__el.--right {
+.section.--what-is-cnz .content__el.--right {
   margin-left: 0.625rem;
+}
+.section.--how-to-use .discover__read .read__note {
+  max-width: 446px;
 }
 
 .logo-letters__part {
