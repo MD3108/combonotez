@@ -24,7 +24,7 @@ class NoteFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'notation' => '{"inputs": ["2x","L","sep", "2x", "M", "sep", "2x", "H"]}',
+            'notations' => '{"inputs": ["2x","L","sep", "2x", "M", "sep", "2x", "H"]}',
             'assistOne' => rand(1,3),
             'assistTwo' => rand(1,3),
             'damage' => rand(1,120000),

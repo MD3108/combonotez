@@ -11,6 +11,7 @@
                     {{ session()->get('message') }}
                 </div>
             @endif
+            
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-3">
@@ -25,7 +26,7 @@
             <div class="row justify-content-center">
                 <div class="col-12">   
                     <div class="grid">
-                        @foreach ($notes as $note)
+                        @foreach ($notes as $noteKey=>$note)
                             <div class="grid-item">
                                 <div class="card" data-difficulty="{{ $note->difficulty }}">
                                     <div class="card __content">
@@ -118,10 +119,28 @@
                                             </div>
                                             <div class="body __main">
                                                 <div class="notation">
-                                                    <!-- Adding through JS-->
-                                                    <script>
-                                                        var arrayNotation = @json($note->notation);
-                                                    </script>
+                                                    
+                                                    @php 
+                                                        $array = json_decode($note->notations);
+                                                        //var_dump($array->inputs);
+                                                    @endphp
+                                                    @foreach ($array->inputs as $input)
+                                                        {{-- $input --}}
+                                                        
+                                                            @if (str_contains($input,'x'))
+                                                               <span class="input --{{ $input }}">
+                                                                    {{ $input }}  
+                                                                </span> 
+                                                            @else
+                                                            <img class="input --{{ $input }}" 
+                                                                src="{{ asset('/storage/images/buttons/'. $input.'.png' ) }}" 
+                                                                alt="{{ $input }} button">
+                                                            @endif
+                                                            
+                                                       
+                                                        
+                                                    @endforeach
+                                                    {{-- $note->notations --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -230,5 +249,5 @@
     <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
     <script src="{{ URL('/js/masonry.js') }}"></script>
     <script src="{{ URL('/js/vod.js') }}"></script>
-    <script src="{{ URL('/js/render.js') }}"></script>
+    <!--<script src="{{-- URL('/js/render.js') --}}"></script>
 @endsection

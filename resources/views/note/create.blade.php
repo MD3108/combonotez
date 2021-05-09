@@ -149,7 +149,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary mb-3" >
+                                        <button type="button" class="btn btn-primary mb-3" >
                                             Next
                                         </button>
                                     </div>
@@ -165,13 +165,23 @@
                                         <label class="form-label" for="notation-list">
                                             Enter your combo - press <span class="text-uppercase">them buttons</span>
                                         </label>
-                                        <textarea name="notation" id="notation-list" class="hide"></textarea>
-                                        <div class="notation form-control" id="notation-render">
-                                            <img src="{{ asset('/storage'. '/images/buttons/L.png') }}" alt="L">
+                                        <input name="notation" type="text" id="notation-list" class="" value='{"inputs": ["2x", "L", "sep", "2x", "M", "sep", "2x", "H"]}'>
+                                        <div class="btn-history form-control" id="notation-render">
+                                           
                                         </div>
-                                        
+                                        <div>
+                                            <button type="button" class="btn btn-secondary --undo"> Undo </button>
+                                            <button type="button" class="btn btn-danger --clear"> Clear Inputs </button>
+                                        </div>
                                     </div>
-                                    <button class="btn btn-primary mb-3" >
+                                    <div class="hide alert alert-warning mt-3" role="alert">
+                                        <div class="d-flex align-items-center">
+                                            <span class="pl-2">
+                                                Plug in your Game Pad or Stick. If pluged in press one button.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-primary mb-3 --next" >
                                         Next
                                     </button>
                                 </div>
@@ -224,7 +234,7 @@
                                         </label>
                                         <input type="text" name="youtube" id="youtube" value="https://youtube.com/embed/" placeholder="https://www.youtube.com/embed/">
                                     </div>
-                                    <button class="btn btn-primary mb-3" >
+                                    <button type="button" class="btn btn-primary mb-3" >
                                         Next
                                     </button>
                                 </div>
@@ -236,7 +246,7 @@
                                         </div>
                                     </div>
 
-                                    <button class="btn btn-primary mb-3" >
+                                    <button type="button" class="btn btn-primary mb-3" >
                                         Next
                                     </button>
                                     
@@ -288,5 +298,8 @@
         </main>
     </div>
     <script src="{{ URL('/js/form.js') }}" ></script>
+    <script src="{{ URL('/js/controller-js/controller.min.js') }}"></script>
+    <script src="{{ URL('/js/controller-js/controller.layouts.min.js') }}"></script>
+    <script src="{{ URL('/js/gamepad.js') }}" ></script>
 </body>
 </html>

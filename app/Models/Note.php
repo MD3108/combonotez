@@ -9,6 +9,7 @@ class Note extends Model
 {
     // ! add to fillable once  "  , 'notation'   "
     protected $fillable = [ 'name',
+                            'notations',
                             'assistOne',
                             'assistTwo',
                             'damage', 
@@ -48,5 +49,9 @@ class Note extends Model
 
     public function favorites(){
         return $this->belongsToMany(Favorite::class);
+    }
+
+    public function getDataAttribute($value){
+        return json_decode($value, true);
     }
 }

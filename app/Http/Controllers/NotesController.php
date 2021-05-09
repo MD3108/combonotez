@@ -26,10 +26,13 @@ class NotesController extends Controller
     public function index()
     {
         $notes = Note::orderBy('updated_at', 'DESC')->paginate(12);
+        //$notations = json_decode($notes->pluck('notation'));
+        //$notes = Note::all();
         abort_if($notes->isEmpty(), 204);
         
         return view('note.index', [
             'notes' => $notes,
+            //'notations' => $notations,
         ]);
     }
 
@@ -64,6 +67,7 @@ class NotesController extends Controller
         //]);
        $request->validate([
            'name' => 'required|max:45',
+           'notation' => 'required',
            'assist-1' => 'required_if:fighters[2], filled|integer|between:1,3',
            'assist-2' => 'required_if:fighters[3], filled|integer|between:1,3',
            'damage' => 'required|between:0,999999',
@@ -79,6 +83,8 @@ class NotesController extends Controller
        $note = Note::create([
            // DB Col  => input name
            'name' => $request->input(('name')),
+           'notations' => $request->input(('notation')),
+           'assistOne' => (int)$request-> get(('assist-1')),
            'assistOne' => (int)$request-> get(('assist-1')),
            'assistTwo' => (int)$request-> get(('assist-2')),
            'damage' => (int)$request->input(('damage')),

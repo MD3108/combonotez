@@ -4,7 +4,6 @@
 // * Declare variables or constants * //
 // * ------------------------------- //
 const btnHistory = document.querySelector('.btn-history');
-const inputInfo = document.querySelector(".gamepad-info");
 const alertGP = document.querySelector('.alert-warning');
 const convertBtn = document.querySelector('.--next');
 const undo = document.querySelector('.--undo');
@@ -41,6 +40,9 @@ var displayedBtns ;
 
 let counter = 2;
 
+var arrayConvert = [];
+var noticeInputs = ["L", "M", "S", "H", "A1", "A2", "SD", "DR", "KC", "VN", "SPARK"];
+
 
 // * tell user to plug in controller
 alertGP.classList.remove('hide');
@@ -67,15 +69,15 @@ clear.addEventListener('click', ()=> {
   clearAll(displayedBtns);
 });
 
-document.addEventListener('keydown', (e)=> {
-  if(e.key == 'Backspace'){
-    undoLast( displayedBtns );
-  }
-
-  if(e.key == 'Backspace' && e.shiftKey){
-    clearAll( displayedBtns );
-  }  
-});
+//document.addEventListener('keydown', (e)=> {
+//  if(e.key == 'Backspace'){
+//    undoLast( displayedBtns );
+//  }
+//
+//  if(e.key == 'Backspace' && e.shiftKey){
+//    clearAll( displayedBtns );
+//  }  
+//});
 
 // * convert DOM Input Notation to a JSON list { "inputs": [ "2xL", "236", "M" ] }
 convertBtn.addEventListener('click', (e)=>{
@@ -94,7 +96,8 @@ convertBtn.addEventListener('click', (e)=>{
          arrayConvert.push(currentValue); 
       }
   });
-  inputsJSON = '{ "inputs": '+JSON.stringify(arrayConvert)+'}';
+  let inputsJSON = '{ "inputs": '+JSON.stringify(arrayConvert)+'}';
+  document.getElementById('notation-list').setAttribute('value', `${inputsJSON}`);
 });
 
 // * Controller Connected or not * //
@@ -372,7 +375,7 @@ function removeDuplicates (arr) {
 
 function createBtns (name, parent){
   let img = document.createElement('img');
-  img.setAttribute ('src', `images/${name}.png`)
+  img.setAttribute ('src', `/storage/images/buttons/${name}.png`)
   img.setAttribute('alt', `image of ${name} button`);
   img.setAttribute('id', idCounter);
   img.setAttribute('data-type', 'img');
