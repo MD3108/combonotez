@@ -23,14 +23,19 @@ iframe{
 .section{
     padding-top: $p-section;
     padding-bottom: $p-section;
+   
     &.--dark{
+        background-color: $dark-blue;
+        color: $blue;
+    }
+    &.--light{
         background-color: $dark-blue;
         color: $blue;
     }
     &.--form{
         max-height: 915px;
-            height: 84.72222222222222vh;
-            overflow: auto;
+        height: 84.72222222222222vh;
+        overflow: auto;
         padding-top: inherit;
         padding-bottom: inherit;
         & .row{
@@ -55,6 +60,18 @@ iframe{
             border-bottom-right-radius: $border-radius;
         }
     }
+    &.--what-is-cnz{
+        .content {
+            &.__el{
+                &.--left{
+                    margin-right: $m-half-gutter;
+                }
+                &.--right{
+                    margin-left: $m-half-gutter;
+                }
+            }
+        }
+    }
 }
 .logo{
     &-letters{
@@ -76,6 +93,30 @@ iframe{
                 font-size: $font-size-big;
                 line-height: $font-size-big;
             }
+        }
+    }
+}
+.container{
+    &.--card{
+        background-color: $gray-100;
+        color: $dark-blue;
+        border-radius: $border-radius;
+        border: 1px solid transparent;
+        box-shadow: $box-shadow;
+
+        .section{
+            &.--dark{
+                margin-left: -5px;
+                margin-right: -5px;
+                &.--first{
+                    border-top-left-radius: $border-radius;
+                    border-top-right-radius: $border-radius;
+                }
+                &.--last{
+                    border-bottom-left-radius: $border-radius;
+                    border-bottom-right-radius: $border-radius;
+                }
+            } 
         }
     }
 }

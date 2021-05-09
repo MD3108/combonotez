@@ -549,22 +549,22 @@ pre code {
 
 @media (min-width: 576px) {
   .container-sm, .container {
-    max-width: 540px;
+    max-width: 550px;
   }
 }
 @media (min-width: 768px) {
   .container-md, .container-sm, .container {
-    max-width: 720px;
+    max-width: 730px;
   }
 }
 @media (min-width: 992px) {
   .container-lg, .container-md, .container-sm, .container {
-    max-width: 1220px;
+    max-width: 1230px;
   }
 }
 @media (min-width: 1200px) {
   .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1400px;
+    max-width: 1410px;
   }
 }
 .row {
@@ -10025,7 +10025,7 @@ h3 {
   right: calc(0% + 1.125rem);
 }
 
-img {
+.card img {
   max-width: 90px;
   height: auto;
 }
@@ -10096,6 +10096,10 @@ iframe {
   background-color: #061C2D;
   color: #EBF6FF;
 }
+.section.--light {
+  background-color: #061C2D;
+  color: #EBF6FF;
+}
 .section.--form {
   max-height: 915px;
   height: 84.7222222222vh;
@@ -10124,6 +10128,12 @@ iframe {
   border-top-right-radius: 0.4rem;
   border-bottom-right-radius: 0.4rem;
 }
+.section.--what-is-cnz .content.__el.--left {
+  margin-right: 0.625rem;
+}
+.section.--what-is-cnz .content.__el.--right {
+  margin-left: 0.625rem;
+}
 
 .logo-letters__part {
   font-size: 1rem;
@@ -10143,6 +10153,26 @@ iframe {
 .logo-letters__part.--Z {
   font-size: 2.4375rem;
   line-height: 2.4375rem;
+}
+
+.container.--card {
+  background-color: #f8f9fa;
+  color: #061C2D;
+  border-radius: 0.4rem;
+  border: 1px solid transparent;
+  box-shadow: 0 0.333rem 0.444rem rgba(6, 28, 45, 0.1);
+}
+.container.--card .section.--dark {
+  margin-left: -5px;
+  margin-right: -5px;
+}
+.container.--card .section.--dark.--first {
+  border-top-left-radius: 0.4rem;
+  border-top-right-radius: 0.4rem;
+}
+.container.--card .section.--dark.--last {
+  border-bottom-left-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
 }
 
 @-webkit-keyframes reveal {
