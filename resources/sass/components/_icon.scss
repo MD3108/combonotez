@@ -55,6 +55,19 @@
             z-index: 10;
         }
     }
+    &-close{
+        &.--light{
+            fill:$light-blue;
+        }
+    }
+
+    .btn.--close{
+        position: absolute;
+        top: $m-gutter;
+        right: $m-gutter;
+        background-color: transparent;
+        box-shadow: none;
+    }
 
     &.--fill{
         fill: $dark-blue;

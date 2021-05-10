@@ -71,7 +71,11 @@
                     <div class="row">
                         <div class="col-9">
                             <div class="header">
-                                
+                                <button class="btn --previous">
+                                    <svg class="icon icon-previous">
+                                        <use xlink:href="#icon-previous"></use>
+                                    </svg>
+                                </button>
                                 <h1 class="title --main text-center">
                                     Create your Combo Note
                                 </h1>
@@ -259,14 +263,15 @@
                                 <!--<input class="hide" type="number" name="note_id" id="note_id" value="">-->
                             </form>
                         </div>
+                        
                         <div class="col-3">
-                            <button class="btn-close --vod" aria-label="Close" >
-                                <svg class="icon icon-close">
+                            <a href="/note" class="btn-close --close " aria-label="Close" >
+                                <svg class="icon icon-close --light">
                                     <use xlink:href="#icon-close"></use>
                                 </svg>
-                            </button>
+                            </a>
                             <div class="progression">
-                                <div>
+                                <div class="progression__container">
                                     <h2 class="title --progression">
                                         Note Completion
                                     </h2>

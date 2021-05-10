@@ -55,34 +55,6 @@ iframe{
         background-color: $dark-blue;
         color: $blue;
     }
-    &.--form{
-        max-height: 915px;
-        height: 84.72222222222222vh;
-        overflow: auto;
-        padding-top: inherit;
-        padding-bottom: inherit;
-        & .row{
-            background-color: $white;
-            border: 0px solid $border-color;
-            border-radius: $border-radius;
-            box-shadow: $box-shadow;
-        }
-        & .col-9{
-            max-width: 1065px;
-            padding: $p-form-form;
-        }
-        & .col-3{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: $m-spacing-big;
-            padding-bottom: $m-spacing-big;            
-            background-color: $dark-blue;
-            color: $blue;
-            border-top-right-radius: $border-radius;
-            border-bottom-right-radius: $border-radius;
-        }
-    }
     &.--what-is-cnz{
         .content {
             display: flex;

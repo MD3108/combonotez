@@ -1,3 +1,59 @@
+.main{
+    &.--form{
+        .section{
+            &.--form{
+                max-height: 915px;
+                height: 84.72222222222222vh;
+                overflow: auto;
+                padding-top: inherit;
+                padding-bottom: inherit;
+                & .row{
+                    background-color: $white;
+                    border: 0px solid $border-color;
+                    border-radius: $border-radius;
+                    box-shadow: $box-shadow;
+                    position: relative;
+                    .btn{
+                        position: absolute;
+                        bottom: $m-gutter;
+                        right: $m-gutter;
+                        &.--previous{
+                            top: $m-gutter;
+                            left: $m-gutter;
+                            background-color: transparent;
+                            box-shadow: none;
+                            bottom: inherit;
+                            right: inherit;
+                        }
+                        &.--close{
+                            top: $m-gutter;
+                            left: $m-gutter;
+                            bottom: inherit;
+                            right: inherit;
+                        }
+                    }
+                }
+                & .col-9{
+                    max-width: 1065px;
+                    width: 100%;
+                    padding: $m-gutter;
+                }
+                & .col-3{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: $m-spacing-big;
+                    padding-bottom: $m-spacing-big;            
+                    background-color: $dark-blue;
+                    color: $blue;
+                    border-top-right-radius: $border-radius;
+                    border-bottom-right-radius: $border-radius;
+                }
+            }
+        }
+    }
+    
+}
 .form{
     &__part{
         display: flex;
@@ -55,6 +111,11 @@
 }
 
 .progression{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: auto;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
 }
