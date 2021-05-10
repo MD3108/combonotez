@@ -148,8 +148,8 @@
                                             <div class="footer__left">
                                                 <div class="l-footer__container">
                                                     <div class="user">
-                                                        <img src="#" alt="User">
-                                                        <div>
+                                                        <!--<img src="#" alt="User">-->
+                                                        <div class="user__info">
                                                             <span>
                                                                 {{ $note->user->name }}
                                                             </span>
@@ -165,10 +165,14 @@
                                                 <div class="r-footer__container">
                                                     <div class="interactions">
                                                         <div class="interactions__favorites">
-                                                            
+                                                            <svg class="icon icon-favorite">
+                                                                <use xlink:href="#icon-favorite"></use>
+                                                            </svg>
                                                         </div>
                                                         <div class="interactions__likes">
-                                                            
+                                                            <svg class="icon icon-like">
+                                                                <use xlink:href="#icon-like"></use>
+                                                            </svg>
                                                         </div>
                                                         @if (isset(Auth::user()->id) && Auth::user()->id == $note->user_id)
                                                         <div class="interactions__update">

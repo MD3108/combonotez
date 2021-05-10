@@ -1,4 +1,4 @@
-::-webkit-scrollbar{
+/*::-webkit-scrollbar{
     display: none;
 }
 ::-webkit-scrollbar-button{
@@ -12,7 +12,7 @@
 ::-webkit-slider-corner{
 }
 ::-webkit-resizer{
-}
+}*/
 
 .body{
     padding-top: 76px;
@@ -32,6 +32,10 @@
             min-height: 100vh;
         }
     }
+    p{
+        font-size: 1.125rem;
+        max-width: 572px;
+    }
 }
 iframe{
     border: 0px;
@@ -40,8 +44,8 @@ iframe{
     display: none;
 }
 .section{
-    padding-top: $p-section;
-    padding-bottom: $p-section;
+    padding-top: $m-spacing-big;
+    padding-bottom: $m-spacing-big;
    
     &.--dark{
         background-color: $dark-blue;
@@ -85,6 +89,9 @@ iframe{
                 &.--left{
                     margin-right: $m-half-gutter;
                     max-width: 572px;
+                    & p {
+                        margin-bottom: $m-double-gutter;
+                    }
                 }
                 &.--right{
                     margin-left: $m-half-gutter;
@@ -94,11 +101,35 @@ iframe{
     }
     &.--how-to-use{
         .discover{
+            &__find{
+                .find{
+                    &__filter{
+                        margin-bottom: $m-gutter;
+                    }
+                    &__legend{
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+            }
             &__read{
+                display: flex;
+                flex-wrap: wrap;
                 .read{
                     &__note{
+                        display: flex;
+                        min-width: 100%;
+                        justify-content: center;
                         max-width: 446px;
+                        .card{
+                            width: 446px;
+                        }
                     }
+                }
+                & .btn-primary.--discover{
+                    margin: auto;
+                    margin-top: $m-spacing;
+                    margin-bottom: $m-space-between-sections;
                 }
             }
         }

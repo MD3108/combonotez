@@ -32,7 +32,7 @@
                             <p>
                                 As a fellow DBFZ player there is no better place to learn and discorver new combos. A filter feature allows to find all combos you need with ease. Learn all the combos you need in no time and watch yourself surpass your limits !!!
                             </p>
-                            <a href="{{ url('/') }}" role="button" class="btn btn-primary btn-lg">Discorver now</a>
+                            <a href="{{ url('/note') }}" role="button" class="btn btn-primary btn-lg --intro">Discorver now</a>
                         </div>
                         <div class="content__el --right">
                             <img class="" src="{{ asset('/storage/gif/ssj-goku-llmmhhh.gif') }}" alt="goku simple combo gif">
@@ -61,18 +61,18 @@
                             <h4 class="title --sub">
                                 1. Find specific combo(s)
                             </h4>
-                            <div>
+                            <div class="find__filter">
                                 <!--Filter-->
                                 <img src="{{ asset('/storage/images/filter-section.png') }}" alt="cnz filter section">
                             </div>
-                            <div class="d-flex justify-content-between">
-                                <div>
+                            <div class="find__legend">
+                                <div class="legend__section --explain">
                                     <span class="font-weight-bold">
                                         Use the filter section to filter by :
                                     </span>
                                 </div>
-                                <div>
-                                    <ul>
+                                <div class="legend__section --enum1">
+                                    <ul class="">
                                         <li>
                                             Fighter(s)
                                         </li>
@@ -90,8 +90,8 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div>
-                                    <ul>
+                                <div class="legend__section --enum2">
+                                    <ul class="">
                                         <li>
                                             Newest (default)
                                         </li>
@@ -220,8 +220,10 @@
                                             <div class="footer__left">
                                                 <div class="l-footer__container">
                                                     <div class="user">
-                                                        <!--<img src="#" alt="User">-->
-                                                        <div>
+                                                        <!--<div class="user__profil">
+                                                            <img src="{{ asset('/storage/images/profil/1.png') }}" alt="User">
+                                                        </div>-->
+                                                        <div class="user__info">
                                                             <span>
                                                                 Combo NoteZ Master
                                                             </span>
@@ -253,7 +255,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="{{ url('/') }}" role="button" class="btn btn-primary btn-lg">Discorver now</a>
+                            <a href="{{ url('/note') }}" role="button" class="btn btn-primary btn-lg --discover">Discorver now</a>
                         </div>
                     </div>
                     <div>
@@ -304,7 +306,7 @@
                                     </h4>
                                     <div>
                                         <p>
-                                            YHere you have the fun part. 
+                                            Here you have the fun part. 
                                         </p>
                                         <p>
                                             Plug in your controller and press one button for the website to regognize your controller. Next you’ll press those buttons to display the combo notation as if u were performing it in game.
@@ -351,6 +353,8 @@
                                             If everything is correct share your note by pressing the “publish”. Now your note is with us so we can all enjoy it together! 
                                         </p>
                                     </div>
+                                    <!--add if user than go to page if not user register bring to register-->
+                                    <a href="{{ url('/create') }}" role="button" class="btn btn-primary btn-lg --form">Discorver now</a>
                                 </div>
                                 <img class="" src="{{ asset('/storage/images/form-4.jpg') }}" alt="">
                             </div>
