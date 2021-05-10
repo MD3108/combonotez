@@ -10024,6 +10024,15 @@ h3 {
   top: calc(0% + 1.125rem);
   right: calc(0% + 1.125rem);
 }
+.btn.--guide {
+  position: fixed;
+  bottom: calc(.625rem * 2);
+  right: calc(.625rem * 2);
+  width: 50px;
+  height: 50px;
+  background-color: #061C2D;
+  border-radius: 50%;
+}
 
 .card {
   padding: calc(.625rem * 2);
@@ -10360,6 +10369,10 @@ iframe {
   border-top-right-radius: 0.4rem;
   border-bottom-right-radius: 0.4rem;
 }
+.section.--what-is-cnz .content {
+  display: flex;
+  justify-content: center;
+}
 .section.--what-is-cnz .content__el.--left {
   margin-right: 0.625rem;
   max-width: 572px;
@@ -10394,6 +10407,29 @@ iframe {
   margin: auto;
   margin-top: 3.75rem;
   margin-bottom: 7.5rem;
+}
+.section.--how-to-use .create-note__intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin-bottom: 5.625rem;
+}
+.section.--how-to-use .create-note__intro .intro__img {
+  width: 49.183%;
+  height: auto;
+  position: absolute;
+  top: -7.5rem;
+  right: 0;
+}
+.section.--how-to-use .create-note .step {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3.75rem;
+}
+.section.--how-to-use .create-note .step:last-child {
+  margin-bottom: 4.375rem;
 }
 
 .logo-letters__part {
@@ -10434,6 +10470,19 @@ iframe {
 .container.--card .section.--dark.--last {
   border-bottom-left-radius: 0.4rem;
   border-bottom-right-radius: 0.4rem;
+}
+
+.footer {
+  background-color: #061C2D;
+  color: #EBF6FF;
+  padding-top: calc(.625rem * 2);
+  padding-bottom: calc(.625rem * 2);
+}
+.footer .col-4 {
+  margin: auto;
+}
+.footer__content {
+  text-align: center;
 }
 
 @-webkit-keyframes reveal {
@@ -10559,6 +10608,10 @@ body {
 .title.--h3 {
   font-size: 2rem;
 }
+.title.--h4 {
+  font-size: 1.5625rem;
+  margin-bottom: 1.875rem;
+}
 .title.--sub {
   display: block;
   font-weight: 400;
@@ -10582,6 +10635,9 @@ body {
 .icon {
   max-width: 1.5rem;
   max-height: 1.5rem;
+}
+.icon-info {
+  fill: #EBF6FF;
 }
 .icon-search {
   stroke: rgba(6, 28, 45, 0.7);

@@ -75,8 +75,8 @@ iframe{
             display: flex;
             justify-content: center;
             align-items: center;
-            padding-top: $p-section;
-            padding-bottom: $p-section;            
+            padding-top: $m-spacing-big;
+            padding-bottom: $m-spacing-big;            
             background-color: $dark-blue;
             color: $blue;
             border-top-right-radius: $border-radius;
@@ -85,6 +85,8 @@ iframe{
     }
     &.--what-is-cnz{
         .content {
+            display: flex;
+            justify-content: center;
             &__el{
                 &.--left{
                     margin-right: $m-half-gutter;
@@ -130,6 +132,36 @@ iframe{
                     margin: auto;
                     margin-top: $m-spacing;
                     margin-bottom: $m-space-between-sections;
+                }
+            }
+        }
+        .create-note{
+            &__intro{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+                margin-bottom: $m-spacing-bigger;
+                .intro{
+                    &__txt{
+                        //width: 50%;
+                    }
+                    &__img{
+                        width: 49.183%;
+                        height: auto;
+                        position: absolute;
+                        top: -$m-space-between-sections;
+                        right: 0;
+                    }
+                }
+            }
+            & .step{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: $m-spacing;
+                &:last-child{
+                    margin-bottom: $m-spacing-big;
                 }
             }
         }
@@ -180,5 +212,17 @@ iframe{
                 }
             } 
         }
+    }
+}
+.footer{
+    background-color: $dark-blue;
+    color: $light-blue;
+    padding-top: $m-gutter;
+    padding-bottom: $m-gutter;
+    .col-4{
+        margin: auto;
+    }
+    &__content{
+        text-align: center;
     }
 }

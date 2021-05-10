@@ -1,7 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <section>
+    <section class="relative">
+        <div class="guide">
+            <button class="btn --guide">
+                <svg class="icon icon-info">
+                    <use xlink:href="#icon-info"></use>
+                </svg>
+            </button>
+        </div>
         <div class="container">
             <h1 class="text-hide">
                 Combo NoteZ

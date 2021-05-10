@@ -12,10 +12,14 @@ body{
     }
     &.--main{
         font-size: $font-size-title-h1;
-        margin-bottom: $m-section;
+        margin-bottom: $m-spacing-big;
     }
     &.--h3{
         font-size: $font-size-title-h3;
+    }
+    &.--h4{
+        font-size: $font-size-title-sub;
+        margin-bottom: $m-spacing-smaller;
     }
     &.--sub{
         display: block;

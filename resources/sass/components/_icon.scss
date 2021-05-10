@@ -2,6 +2,10 @@
     max-width: 1.5rem;
     max-height: 1.5rem;
 
+    &-info{
+        fill: $light-blue;
+    }
+
     &-search{
         stroke: rgba($dark-blue, .7);
         stroke-linejoin: miter;
@@ -16,7 +20,7 @@
     }
 
     &-play{
-        fill: $blue;
+        fill: $light-blue;
         position: absolute;
         max-width: 1.25rem;
         max-height: 1.25rem;
@@ -27,7 +31,7 @@
     }
 
     &-favorite{
-        fill: $blue;
+        fill: $light-blue;
         stroke-linejoin: miter;
         stroke-linecap: butt; 
         stroke-miterlimit: 4;
@@ -37,7 +41,7 @@
     }
 
     &-like{
-        fill: $blue;
+        fill: $light-blue;
         stroke-linejoin: miter; 
         stroke-linecap: butt ;
         stroke-miterlimit: 4; 

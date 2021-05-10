@@ -24,7 +24,7 @@
                         Welcome to Combo NoteZ
                     </h1>
                     
-                    <div class="d-flex justify-content-center content">
+                    <div class="content">
                         <div class="content__el --left">
                             <h2 class="title">
                                 Get all the latest and diverse Combos from the Dragon Ball FighterZ community in one place.
@@ -258,107 +258,106 @@
                             <a href="{{ url('/note') }}" role="button" class="btn btn-primary btn-lg --discover">Discorver now</a>
                         </div>
                     </div>
-                    <div>
-                        <div>
-                            <div class="">
-                                <div>
-                                    <h3 class="title --h3 --has-sub">
-                                        Create your Note(s)
-                                    </h3>
-                                    <div>
-                                        <p>
-                                            You first have to register or if you already have, login to get permission. 
-                                            Next, fill out the 4 step Form to generate your very own combo note.
-                                        </p>
-                                        <p>
-                                            Also and like the game you’ll need your controller / stick
-                                        </p>
-                                    </div>
-                                </div>
-                                <img class="" src="{{ asset('/storage/images/create-form-illu.png') }}" alt="">
-                            </div>
-                            <div>
-                                <div>
-                                    <h4 class="title --h3 --has-sub">
-                                        1. Choice of Fighter(s)
-                                    </h4>
-                                    <img class="" src="{{ asset('/storage/images/form-1.jpg') }}" alt="">
-                                </div>
+                    <div class="create-note">
+                        <div class="create-note__intro">
+                            <div class="intro__txt">
+                                <h3 class="title --h3 --has-sub">
+                                    Create your Note(s)
+                                </h3>
                                 <div>
                                     <p>
-                                        The very first step is to pick the character(s) that is/are used in your combo. 
+                                        You first have to register or if you already have, login to get permission. 
+                                        Next, fill out the 4 step Form to generate your very own combo note.
                                     </p>
                                     <p>
-                                        Like in the game you just press on the profil picture of your fighter(s) and, exepet for your first fighter, the 2 remaining characters act as activable assist in-game.
-                                    </p>
-                                    <p>
-                                        Only choose assist fighter if your combo requires them. If you pick assist fighter don’t forget to pick A, B or C assist or else Combo NoteZ will pick ‘A’ for you.
-                                    </p>
-                                    <p>
-                                        Once you have your fighter(s) press next. 
+                                        Yo almost forgot, like the game you’ll need your controller / stick. Cool right&nbsp;!?
                                     </p>
                                 </div>
                             </div>
-                            <div class="">
-                                <div>
-                                    <h4 class="title --h3 --has-sub">
-                                        2. The combo - Press those buttons
-                                    </h4>
-                                    <div>
-                                        <p>
-                                            Here you have the fun part. 
-                                        </p>
-                                        <p>
-                                            Plug in your controller and press one button for the website to regognize your controller. Next you’ll press those buttons to display the combo notation as if u were performing it in game.
-                                        </p>
-                                        <p>
-                                            As soon as you happy with your combo notation, don’t forget to give your combo a cool fitting name and proceed to the next step.
-                                        </p>
-                                        <p>
-                                            Combo NoteZ supports a wide range of controllers and sticks, especialy those compatible to PS or Xbox.
-                                        </p>
-                                    </div>
-                                </div>
-                                <img class="" src="{{ asset('/storage/images/form-2.jpg') }}" alt="">
+                            <img class="intro__img" src="{{ asset('/storage/images/create-form-illu.png') }}" alt="">
+                        </div>
+                        <div class="create-note__choose step --one">
+                            <div class="choose__img">
+                                <h4 class="title --h4">
+                                    1. Choice of Fighter(s)
+                                </h4>
+                                <img class="" src="{{ asset('/storage/images/form-1.jpg') }}" alt="">
                             </div>
-                            <div>
-                                <div>
-                                    <h4 class="title --h3 --has-sub">
-                                        3. Tell us about the combo details
-                                    </h4>
-                                    <img class="" src="{{ asset('/storage/images/form-3.jpg') }}" alt="">
-                                </div>
-                                <div>
-                                    <p>
-                                        Here you’ll be able to tell us all the benefits of the combo. As well as to indicate ous it category and difficulty. 
-                                    </p>
-                                    <p>
-                                        You also have a field to enter your combo as an Youtube URL to enable to preview it. To have this preview may bosst your note popularity since we DBFZ like to watch the bombos before hand. 
-                                    </p>
-                                    <p>
-                                        However this URL field is optional since there is no easy way in-game to recorde. If all fields are filled go to the final step
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="">
-                                <div>
-                                    <h4 class="title --h3 --has-sub">
-                                        4. Check out your combo note & publish
-                                    </h4>
-                                    <div>
-                                        <p>
-                                            Is your Combo Note looking clean? You can correct any mistake from the previous steps on this screen. You just have to click the element that needs changing and you’ll be able to edit. 
-                                        </p>
-                                        <p>
-                                            If everything is correct share your note by pressing the “publish”. Now your note is with us so we can all enjoy it together! 
-                                        </p>
-                                    </div>
-                                    <!--add if user than go to page if not user register bring to register-->
-                                    <a href="{{ url('/create') }}" role="button" class="btn btn-primary btn-lg --form">Discorver now</a>
-                                </div>
-                                <img class="" src="{{ asset('/storage/images/form-4.jpg') }}" alt="">
+                            <div class="choose__txt">
+                                <p>
+                                    The very first step is to pick the character(s) that is/are used in your combo. 
+                                </p>
+                                <p>
+                                    Like in the game you just press on the profil picture of your fighter(s) and, exepet for your first fighter, the 2 remaining characters act as activable assist in-game.
+                                </p>
+                                <p>
+                                    Only choose assist fighter if your combo requires them. If you pick assist fighter don’t forget to pick A, B or C assist or else Combo NoteZ will pick ‘A’ for you.
+                                </p>
+                                <p>
+                                    Once you have your fighter(s) press next. 
+                                </p>
                             </div>
                         </div>
+                        <div class="create-note__controller step --two">
+                            <div>
+                                <h4 class="title --h4">
+                                    2. The combo - Press those buttons
+                                </h4>
+                                <div>
+                                    <p>
+                                        Here you have the fun part. 
+                                    </p>
+                                    <p>
+                                        Plug in your controller and press one button for the website to regognize your controller. Next you’ll press those buttons to display the combo notation as if u were performing it in game.
+                                    </p>
+                                    <p>
+                                        As soon as you happy with your combo notation, don’t forget to give your combo a cool fitting name and proceed to the next step.
+                                    </p>
+                                    <p>
+                                        Combo NoteZ supports a wide range of controllers and sticks, especialy those compatible to PS or Xbox.
+                                    </p>
+                                </div>
+                            </div>
+                            <img class="" src="{{ asset('/storage/images/form-2.jpg') }}" alt="">
+                        </div>
+                        <div class="create-note__details step --three">
+                            <div>
+                                <h4 class="title --h4">
+                                    3. Tell us about the combo details
+                                </h4>
+                                <img class="" src="{{ asset('/storage/images/form-3.jpg') }}" alt="">
+                            </div>
+                            <div>
+                                <p>
+                                    Here you’ll be able to tell us all the benefits of the combo. As well as to indicate ous it category and difficulty. 
+                                </p>
+                                <p>
+                                    You also have a field to enter your combo as an Youtube URL to enable to preview it. To have this preview may bosst your note popularity since we DBFZ like to watch the bombos before hand. 
+                                </p>
+                                <p>
+                                    However this URL field is optional since there is no easy way in-game to recorde. If all fields are filled go to the final step
+                                </p>
+                            </div>
+                        </div>
+                        <div class="create-note__check step --four">
+                            <div>
+                                <h4 class="title --h4">
+                                    4. Check out your combo note & publish
+                                </h4>
+                                <div>
+                                    <p>
+                                        Is your Combo Note looking clean? You can correct any mistake from the previous steps on this screen. You just have to click the element that needs changing and you’ll be able to edit. 
+                                    </p>
+                                    <p>
+                                        If everything is correct share your note by pressing the “publish”. Now your note is with us so we can all enjoy it together! 
+                                    </p>
+                                </div>
+                                <!--add if user than go to page if not user register bring to register-->
+                                <a href="{{ url('/note/create') }}" role="button" class="btn btn-primary btn-lg --form">Sign up & create</a>
+                            </div>
+                            <img class="" src="{{ asset('/storage/images/form-4.jpg') }}" alt="">
+                        </div>
+                        
                     </div>
                 </div>
             </div>
