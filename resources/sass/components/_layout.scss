@@ -122,9 +122,9 @@ iframe{
                         display: flex;
                         min-width: 100%;
                         justify-content: center;
-                        max-width: 446px;
+                        max-width: 453px;
                         .card{
-                            width: 446px;
+                            width: 453px
                         }
                     }
                 }
@@ -164,6 +164,16 @@ iframe{
                     margin-bottom: $m-spacing-big;
                 }
             }
+        }
+    }
+    &.--guide{
+        position: relative;
+        .btn.--close{
+            position: absolute;
+            top: $m-gutter;
+            right: $m-gutter;
+            background-color: transparent;
+            box-shadow: none;
         }
     }
 }
@@ -212,6 +222,31 @@ iframe{
                 }
             } 
         }
+    }
+}
+.guide{
+    &__imgs{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: $m-spacing-smaller;
+    }
+    &__buttons{
+        //width: 33%;
+        .buttons{
+            &__el{
+                margin-bottom: $m-half-gutter;
+            }
+        }
+    }
+}
+.terms{
+    &__list{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__el{
+        width: 30%;
     }
 }
 .footer{

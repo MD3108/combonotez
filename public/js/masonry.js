@@ -1,7 +1,7 @@
 'use strict';
 var grid = document.querySelector('.grid');
 var msnry = new Masonry( grid, {
-  //percentPosition: true,
+  percentPosition: true,
   itemSelector: '.grid-item',
   gutter: 20,
 });

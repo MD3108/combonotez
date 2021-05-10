@@ -17,6 +17,8 @@ use App\Http\Controllers\NotesController;
 
 Route::get('/',  [PagesController::class, 'index'] );
 
+Route::get('/guide',  [PagesController::class, 'guide'] );
+
 Route::resource('/note',  NotesController::class);
 
 Auth::routes();

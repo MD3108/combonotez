@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="relative">
+    <section>
         <div class="guide">
-            <button class="btn --guide">
+            <a href="/guide" class="btn --guide">
                 <svg class="icon icon-info">
                     <use xlink:href="#icon-info"></use>
                 </svg>
-            </button>
+            </a>
         </div>
         <div class="container">
             <h1 class="text-hide">

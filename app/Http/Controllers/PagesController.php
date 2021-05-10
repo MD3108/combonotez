@@ -10,8 +10,8 @@ class PagesController extends Controller
     public function index(){
         return view('index');
     }
-
-    //public function home(){ 
-    //    return view('home');
-    //}
+    
+    public function guide(){
+        return view('guide');
+    }
 }
