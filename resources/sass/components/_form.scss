@@ -31,11 +31,18 @@
                             bottom: inherit;
                             right: inherit;
                         }
+                        &.--clear, &.--undo{
+                            position: relative ;
+                            bottom: inherit;
+                            right: inherit;
+                        }
                     }
                 }
                 & .col-9{
                     max-width: 1065px;
                     width: 100%;
+                    min-height: 100%;
+                    //height: 84.72222222222222vh;
                     padding: $m-gutter;
                 }
                 & .col-3{
@@ -65,13 +72,39 @@
             .form__fighters{
                 .fighters{
                     &__select{
-                        .f-select__fighter{
-                            max-width: 9.090909090909091%;
-                            & img{
-                                max-width: 90px;
-                                height: auto;
-                            }
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: flex-start;
+                        align-items: center;
+                        max-width: 100%;
+                        width: 100%;
+                        & input[type="checkbox"]{
+                            display: none;
                         }
+                        .f-select__fighter{
+                            display: block;
+                            position: relative;
+                            margin-bottom: 0;
+                            width: 9.090909090909091%;
+                            cursor: pointer;
+                            & img{
+                                max-width: 100%;
+                                height: auto;
+                                background-color: $light-blue;
+                                border: 2px solid $dark-blue;
+                                border-radius: $border-radius;;
+                            }
+                            //:checked + &::before {
+                            //    content: '';
+                            //    background-color: red;
+                            //    position: absolute;
+                            //    top: 0;
+                            //    left: 0;
+                            //    right: 0;
+                            //    bottom: 0;
+                            //}
+                        }
+                        
                     }
                     &__chosen{
                         
@@ -81,21 +114,60 @@
                             align-items: center;
                             flex-wrap: nowrap;
                             &__el{
-
-                                &.--main{
-
-                                }
-                                &.--a1{
-
-                                }
-                                &.--a2{
-
+                                display: block;
+                                position: relative;
+                                width: 90px;
+                                height: 90px;
+                                background-color: $light-blue;
+                                border-radius: $border-radius;
+                                border: $border-dark-blue;
+                                .el{
+                                    &__move{
+                                        //radio button chang in js if time allows
+                                        & input[type="radio"]:checked + label[class*="assist-"]{
+                                            background-color: $primary;
+                                            color: $dark-blue;
+                                        }
+                                        & label{
+                                            background-color: $light-blue;
+                                            color: $dark-blue;
+                                            border: $border-dark-blue;
+                                            border-bottom-right-radius: $border-radius;
+                                            width: 30%;
+                                            cursor: pointer;
+                                            text-align: center;
+                                            &.assist{
+                                                &-A{
+                                                    background-color: $red-assist;
+                                                    color:$light-blue;
+                                                }
+                                                &-B{
+                                                    background-color: $blue-assist;
+                                                    color:$light-blue;
+                                                }
+                                                &-C{
+                                                    background-color: $green-assist;
+                                                    color:$light-blue;
+                                                }
+                                            }
+                                        }
+                                        & input[type="radio"]{
+                                            display: none;
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
+
+                    &__chosen{
+                        max-width: 500px;
+                        margin: 0 auto;
+                        margin-top: $m-gutter;
+                    }
                 }
             }
+
         }
         &.--combo{
 
@@ -118,4 +190,50 @@
     width: auto;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+    &__list{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    &__el{
+        font-size: $font-size-base;
+        &.currently{
+            position: relative;
+            &::before{
+                content: '▶';
+                padding-right: $m-quarter-gutter;
+            }
+        }
+        &.done{
+            position: relative;
+            color: $primary;
+            &::after{
+                content: '\2713';
+                font-size: $font-weight-bold;
+                position: absolute;
+                right: 0;
+                //top: ;
+            }
+        }
+    }
 }
+//checkbox Fighters
+:checked + .f-select__fighter::before{
+    content: '';
+    background-image: url('/storage/images/selected.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    margin: 25%;
+}
+
+//radio Assists
+//.el__move input:checked + label{
+//    content: '';
+//    background-color: $primary;
+//}

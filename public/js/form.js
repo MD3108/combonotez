@@ -7,6 +7,8 @@ const steps = document.querySelectorAll("[data-step");
 const progressbar = document.querySelector(".progress-bar");
 const progressionElements = document.querySelectorAll(".progression__el");
 
+
+//From the beginning do this1
 isVisible( partsVisible );
 prevBtn.classList.add('hide');
 
@@ -54,14 +56,14 @@ nextBtns.forEach( (btn, idx, btns) => {
             partsVisible[2].setAttribute("data-visible", "true");
             progressbar.setAttribute("aria-valuenow", "50");
             progressbar.style.width = "50%";
-            progressionElements[0].classList.add("done");
+            progressionElements[1].classList.add("done");
         }
         else if(currentBtn.classList.contains("--three")){
             partsVisible[2].setAttribute("data-visible", "false");
             partsVisible[3].setAttribute("data-visible", "true");
             progressbar.setAttribute("aria-valuenow", "75");
             progressbar.style.width = "75%";
-            progressionElements[0].classList.add("done");
+            progressionElements[2].classList.add("done");
         }
         isVisible( partsVisible );
     });

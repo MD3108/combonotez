@@ -81,7 +81,6 @@
                                 </h1>
                             </div>
                             
-
                             @if ($errors->any())
                                 <div class="mb-3">
                                     <div class="alert alert-danger" role="alert">
@@ -109,10 +108,11 @@
                                     <div class="form__fighters">
                                         <div class="fighters__select">
                                             @foreach ($fighters as $fighter)
-                                            <label class="f-select__fighter" for="{{ $fighter->id }}" >
+                                            <input class="checkbox" type="checkbox" name="fighters[]" id="fighter-{{ $fighter->id }}" value="{{ $fighter->id }}">
+                                            <label class="f-select__fighter" for="fighter-{{ $fighter->id }}" >
                                                 <img src="{{ asset('/storage' .$fighter->image_path) }}" alt="{{ $fighter->name }}">
                                             </label>
-                                            <input type="checkbox" name="fighters[]" id="{{ $fighter->id }}" value="{{ $fighter->id }}">
+                                            
                                             @endforeach
                                         </div>
                                        
@@ -126,32 +126,28 @@
                                                     fighter 1
                                                 </div>
                                                 <div class="f-chosen__el --a1">
-                                                    <div>
+                                                    <div class="el__img">
                                                         fighter 2
                                                     </div>
-                                                    <div>
+                                                    <div class="el__move">
                                                         @foreach ( config('enum.assists') as $key=>$assist )
-                                                        <div>
-                                                                <label class="assist-1" for="a1-{{ $assist }}" >
+                                                            <input type="radio" name="assist-1" id="a1-{{ $assist }}" value="{{ $key }}">
+                                                            <label class="assist-{{ $assist }}" for="a1-{{ $assist }}" >
                                                                 {{ $assist }}
                                                             </label>
-                                                            <input type="radio" name="assist-1" id="a1-{{ $assist }}" value="{{ $key }}">
-                                                        </div>
                                                         @endforeach
                                                     </div>
                                                 </div>
                                                 <div class="f-chosen__el --a2">
-                                                    <div>
+                                                    <div class="el__img">
                                                         fighter 3
                                                     </div>
-                                                    <div>
+                                                    <div class="el__move">
                                                         @foreach ( config('enum.assists') as $key=>$assist )
-                                                        <div>
-                                                            <label class="assist-2" for="a2-{{ $assist }}" >
+                                                            <input type="radio" name="assist-2" id="a2-{{ $assist }}" value="{{ $key }}">
+                                                            <label class="assist-{{ $assist }}" for="a2-{{ $assist }}" >
                                                                 {{ $assist }}
                                                             </label>
-                                                            <input type="radio" name="assist-2" id="a2-{{ $assist }}" value="{{ $key }}">
-                                                        </div>
                                                         @endforeach
                                                     </div>
                                                 </div>
@@ -248,9 +244,144 @@
                                 </div>
                                 <div class="form__part --check" data-step="4" data-visible="false">
                                     <div>
-                                        <div>
-
-                                        </div>
+                                        <!--<div class="card">
+                                            <div class="card__content">
+                                                <div class="content__header">
+                                                    <div class="header__left">
+                                                        <div class="l-header__container">
+                                                            <div class="fighter">
+                                                                <img src="{{ asset('/storage/images/fighters/ssj-goku.png') }}" alt="Janemba">
+                                                            </div>
+                                                            <div class="assist">
+                                                                <div class="assist__container --a1">
+                                                                    <img src="#" alt="#">
+                                                                    <div class="assist__move --B">
+                                                                        <span>
+                                                                            B
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="assist__container --a2">
+                                                                    <img src="#" alt="#">
+                                                                    <div class="assist__move --B">
+                                                                        <span>
+                                                                            B
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="header__right">
+                                                        <div class="r-header__container">
+                                                            <div class="categories">
+                                                                <div class="categories__list">
+                                                                    <div class="categories__el">
+                                                                        Universal
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="damage">
+                                                                <span class="damage__value">
+                                                                    2620 
+                                                                </span>
+                                                                <span class="damage__unit">
+                                                                    Damage
+                                                                </span>
+                                                            </div>
+                                                            <div class="ki">
+                                                                <div class="ki__el --begin">
+                                                                    <div class="ki__indicator">
+                                                                        At start
+                                                                    </div>
+                                                                    <div class="ki__value">
+                                                                        <span>
+                                                                            0 ki
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="ki__el --end">
+                                                                    <div class="ki__indicator">
+                                                                        At end
+                                                                    </div>
+                                                                    <div class="ki__value">
+                                                                        <span>
+                                                                            0.5 ki
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content__body">
+                                                    <div class="body__title">
+                                                        <h3 class="title --note">
+                                                            My First Combo Note
+                                                        </h3>
+                                                        <button type="button" class="btn btn-primary --vod">
+                                                            <svg class="icon icon-play">
+                                                                <use xlink:href="#icon-play"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                    <div class="body__main">
+                                                        <div class="notation">
+                                                            <span class="input --txt">
+                                                                2x 
+                                                            </span> 
+                                                            <img class="input --L" src="{{ asset('/storage/images/buttons/L.png') }}" alt="L button">
+                                                            <img class="input --sep" src="{{ asset('/storage/images/buttons/sep.png') }}" alt="sep button">
+                                                            <span class="input --txt">
+                                                                2x  
+                                                            </span> 
+                                                            <img class="input --M" src="{{ asset('/storage/images/buttons/M.png') }}" alt="M button">
+                                                            <img class="input --sep" src="{{ asset('/storage/images/buttons/sep.png') }}" alt="sep button">
+                                                            <span class="input --txt">
+                                                                3x  
+                                                            </span>
+                                                            <img class="input --M" src="{{ asset('/storage/images/buttons/H.png') }}" alt="M button">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content__footer">
+                                                    <div class="footer__left">
+                                                        <div class="l-footer__container">
+                                                            <div class="user">
+                                                                <div class="user__profil">
+                                                                    <img src="{{ asset('/storage/images/profil/1.png') }}" alt="User">
+                                                                </div>
+                                                                <div class="user__info">
+                                                                    <span>
+                                                                        Combo NoteZ Master
+                                                                    </span>
+                                                                    <span>
+                                                                        11/05/21
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="footer__right">
+                                                        <div class="r-footer__container">
+                                                            <div class="interactions">
+                                                                <div class="interactions__favorites">
+                                                                    <svg class="icon icon-favorite">
+                                                                        <use xlink:href="#icon-favorite"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="interactions__likes">
+                                                                    <svg class="icon icon-like">
+                                                                        <use xlink:href="#icon-like"></use>
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>-->
                                     </div>
 
                                     <div class="mb-3">
