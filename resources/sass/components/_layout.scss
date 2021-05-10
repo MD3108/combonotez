@@ -41,7 +41,7 @@ iframe{
     border: 0px;
 }
 .hide{
-    display: none;
+    display: none !important;
 }
 .section{
     padding-top: $m-spacing-big;

@@ -70,9 +70,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-9">
-                            <h1 class="title --main text-center">
-                                Create your Combo Note
-                            </h1>
+                            <div class="header">
+                                
+                                <h1 class="title --main text-center">
+                                    Create your Combo Note
+                                </h1>
+                            </div>
+                            
 
                             @if ($errors->any())
                                 <div class="mb-3">
@@ -92,7 +96,7 @@
                                 action="/note" 
                                 method="POST">
                                 @csrf
-                                <div class="form__part --fighter" data-type="fighter">
+                                <div class="form__part --fighter" data-step="1" data-visible="true">
                                     <div>
                                         <h2 class="title --form">
                                             Who’s your fighter
@@ -149,12 +153,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-primary mb-3" >
+                                        <button type="button" class="btn btn-primary mb-3 --next --one" >
                                             Next
                                         </button>
                                     </div>
                                 </div>
-                                <div class="form__part --combo" data-type="combo">
+                                <div class="form__part --combo" data-step="2" data-visible="false">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">
                                             Give your note a Name
@@ -181,11 +185,11 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-primary mb-3 --next" >
+                                    <button type="button" class="btn btn-primary mb-3 --next --two" >
                                         Next
                                     </button>
                                 </div>
-                                <div class="form__part --details" data-type="details">
+                                <div class="form__part --details" data-step="3" data-visible="false">
                                     <div class="mb-3">
                                         <label for="damage" class="form-label">
                                             How  much Damage is inflicted
@@ -234,27 +238,23 @@
                                         </label>
                                         <input type="text" name="youtube" id="youtube" value="https://youtube.com/embed/" placeholder="https://www.youtube.com/embed/">
                                     </div>
-                                    <button type="button" class="btn btn-primary mb-3" >
+                                    <button type="button" class="btn btn-primary mb-3 --next --three" >
                                         Next
                                     </button>
                                 </div>
-
-                                <div class="form__part --check" data-type="check">
+                                <div class="form__part --check" data-step="4" data-visible="false">
                                     <div>
                                         <div>
 
                                         </div>
                                     </div>
 
-                                    <button type="button" class="btn btn-primary mb-3" >
-                                        Next
-                                    </button>
-                                    
+                                    <div class="mb-3">
+                                        <button type="submit" class="btn btn-primary mb-3">Publish</button>
+                                    </div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <button type="submit" class="btn btn-primary mb-3">Publish</button>
-                                </div>
+                                
 
                                 <!--<input class="hide" type="number" name="note_id" id="note_id" value="">-->
                             </form>
@@ -270,23 +270,22 @@
                                     <h2 class="title --progression">
                                         Note Completion
                                     </h2>
-                                    <ul class="">
-                                        <li>
+                                    <ul class="progression__list">
+                                        <li class="progression__el ">
                                             Fighter choice
                                         </li>
-                                        <li>
+                                        <li class="progression__el ">
                                             The combo
                                         </li>
-                                        <li>
+                                        <li class="progression__el ">
                                             Combo details
                                         </li>
-                                        <li>
+                                        <li class="progression__el ">
                                             Check up
                                         </li>
                                     </ul>
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                            0%
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                                         </div>
                                     </div>
                                 </div>
