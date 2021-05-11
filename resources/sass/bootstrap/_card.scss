@@ -232,14 +232,41 @@
                                         margin-left: $m-quarter-gutter;
                                     }
                                     &__update{
+                                        position: relative;
                                         margin-left: $m-half-gutter;
+                                        .update{
+                                            &__toggler{
+                                                cursor: pointer;
+                                                display: flex;
+                                                justify-content: flex-end;
+                                            }
+                                            &__menu{
+                                                display: none;
+                                                &.--open{
+                                                    display: flex;
+                                                    justify-content: space-between;
+                                                }
+                                                .menu{
+                                                    &__edit{
+                                                        & .btn{
+                                                            background-color: $primary;
+                                                            margin-right: $m-quarter-gutter;
+                                                        }
+                                                    }
+                                                    &__delete{
+                                                        & .btn{
+                                                            background-color: $red-assist;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
-                
             }
         }
     }

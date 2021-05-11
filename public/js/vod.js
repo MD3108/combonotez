@@ -2,10 +2,11 @@
 const closeBtn = document.querySelector('.--vod > .btn-close');
 const vodBtn = document.querySelector('.btn.--vod');
 const vod = document.querySelector('.card.--vod');
-const moreToggler = document.querySelector('.update__toggler');
+const moreToggler = document.querySelectorAll('.update__toggler');
 console.log(moreToggler);
-const moreMenu = document.querySelector('.update__menu');
-console.log(moreMenu);
+const moreMenu = document.querySelectorAll('.update__menu');
+
+
 
 if( vodBtn != null ||vod != null ){
     closeBtn.addEventListener('click', (e)=>{
@@ -17,8 +18,12 @@ if( vodBtn != null ||vod != null ){
     });
 }
 
-if( moreToggler != null ||moreMenu != null ){
-    moreToggler.addEventListener('click', (e)=>{
-        moreMenu.classList.toggle('--open');
+if( moreToggler != null || moreMenu != null ){
+    moreToggler.forEach( (btn, idx, btns) =>{
+        btn.addEventListener('click', (e)=>{
+            console.log(e);
+            moreMenu[idx].classList.toggle('--open');
+        });
     });
+    
 }

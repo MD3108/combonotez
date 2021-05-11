@@ -108,7 +108,7 @@
                                     <div class="form__fighters">
                                         <div class="fighters__select">
                                             @foreach ($fighters as $fighter)
-                                            <input class="checkbox" type="checkbox" name="fighters[]" id="fighter-{{ $fighter->id }}" value="{{ $fighter->id }}">
+                                            <input class="checkbox" type="checkbox" name="fighters[]" id="fighter-{{ $fighter->id }}" value="{{ $fighter->image_path }}">
                                             <label class="f-select__fighter" for="fighter-{{ $fighter->id }}" >
                                                 <img src="{{ asset('/storage' .$fighter->image_path) }}" alt="{{ $fighter->name }}">
                                             </label>
@@ -132,7 +132,7 @@
                                                     <div class="el__move">
                                                         @foreach ( config('enum.assists') as $key=>$assist )
                                                             <input type="radio" name="assist-1" id="a1-{{ $assist }}" value="{{ $key }}">
-                                                            <label class="assist-{{ $assist }}" for="a1-{{ $assist }}" >
+                                                            <label class="assist-{{ $assist }}" for="a1-{{ $assist }}" data-content="">
                                                                 {{ $assist }}
                                                             </label>
                                                         @endforeach

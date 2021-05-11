@@ -10250,7 +10250,27 @@ h3 {
   margin-left: 0.3125rem;
 }
 .card__content .content__footer .footer__right .r-footer__container .interactions__update {
+  position: relative;
   margin-left: 0.625rem;
+}
+.card__content .content__footer .footer__right .r-footer__container .interactions__update .update__toggler {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+}
+.card__content .content__footer .footer__right .r-footer__container .interactions__update .update__menu {
+  display: none;
+}
+.card__content .content__footer .footer__right .r-footer__container .interactions__update .update__menu.--open {
+  display: flex;
+  justify-content: space-between;
+}
+.card__content .content__footer .footer__right .r-footer__container .interactions__update .update__menu .menu__edit .btn {
+  background-color: #FFAA2B;
+  margin-right: 0.3125rem;
+}
+.card__content .content__footer .footer__right .r-footer__container .interactions__update .update__menu .menu__delete .btn {
+  background-color: #F85656;
 }
 
 .navbar-brand {
@@ -10663,6 +10683,14 @@ iframe {
   background-color: #EBF6FF;
   border-radius: 0.4rem;
   border: 1px solid #061C2D;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.form__part.--fighter .form__fighters .fighters__chosen .f-chosen__el.--main {
+  white-space: nowrap;
+  text-indent: 100%;
+  overflow: hidden;
 }
 .form__part.--fighter .form__fighters .fighters__chosen .f-chosen__el .el__move input[type=radio]:checked + label[class*=assist-] {
   background-color: #FFAA2B;
@@ -10733,11 +10761,15 @@ iframe {
 }
 
 :checked + .f-select__fighter::before {
-  content: "";
+  content: attr(data-content);
   background-image: url("/storage/images/selected.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  font-size: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  padding-top: 0.4375rem;
   position: absolute;
   width: 50%;
   height: 50%;

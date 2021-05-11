@@ -188,9 +188,9 @@
                                                                     <use xlink:href="#icon-more"></use>
                                                                 </svg>
                                                             </div>
-                                                            <div class="update__menu hide">
+                                                            <div class="update__menu ">
                                                                 <div class="menu__edit">
-                                                                    <a href="/note/{{ $note->id }}/edit" class="text-uppercase d-block btn card-link">
+                                                                    <a class="btn card-link" href="/note/{{ $note->id }}/edit" >
                                                                         <svg class="icon icon-edit">
                                                                             <use xlink:href="#icon-edit"></use>
                                                                         </svg>

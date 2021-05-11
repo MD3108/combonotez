@@ -121,6 +121,14 @@
                                 background-color: $light-blue;
                                 border-radius: $border-radius;
                                 border: $border-dark-blue;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                &.--main{
+                                    white-space: nowrap;
+                                    text-indent: 100%;
+                                    overflow: hidden;
+                                }
                                 .el{
                                     &__move{
                                         //radio button chang in js if time allows
@@ -219,11 +227,15 @@
 }
 //checkbox Fighters
 :checked + .f-select__fighter::before{
-    content: '';
+    content: attr(data-content);
     background-image: url('/storage/images/selected.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    font-size: $font-size-title-h3;
+    line-height: $font-size-title-h3;
+    text-align: center;
+    padding-top: .4375rem;
     position: absolute;
     width: 50%;
     height: 50%;

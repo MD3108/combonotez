@@ -7,11 +7,62 @@ const steps = document.querySelectorAll("[data-step");
 const progressbar = document.querySelector(".progress-bar");
 const progressionElements = document.querySelectorAll(".progression__el");
 
+const roster = document.querySelectorAll('.f-select__fighter');
+const chosenFighters = document.querySelectorAll('.f-chosen__el');
+var limitToThree = [];
+let counterFighter =  1;
+console.log(limitToThree);
 
-//From the beginning do this1
+roster.forEach(fighter=>{
+    
+    let  fighterPath = fighter.childNodes[1].getAttribute('src');
+    fighter.addEventListener('click', (e)=>{
+        
+        if(limitToThree.length >= 3){
+            
+            limitToThree.splice(2, 1, fighterPath);
+            e.currentTarget.previousElementSibling.setAttribute('checked', false);
+            e.currentTarget.setAttribute('data-content', `${counterFighter}`);
+            counterFighter = 3 ;
+            console.log(e.currentTarget.previousElementSibling);
+            console.log(limitToThree);
+        }
+        else{
+            
+            limitToThree.push(fighterPath);
+            e.currentTarget.setAttribute('data-content', `${counterFighter}`);
+            if(limitToThree.length == 0){
+                chosenFighters[0].style.backgroundImage = '';
+            }
+            if(limitToThree.length == 1){
+                let value = limitToThree[0];
+                chosenFighters[0].style.backgroundImage = 'url(' + `${value}`+ ')' ;
+            }
+            counterFighter ++ ;
+            console.log(limitToThree);
+        }
+    });
+});
+//setInterval(()=>{
+    //
+    
+    //console.log(limitToThree);
+    
+//},1020);
+//checkedFighters.forEach(checked=>{
+//    let value = checked.getAttribute('value');
+//    limitToThree.push(value);
+//    if(limitToThree.length >=3){
+//        limitToThree.splice(limitToThree.length-1, 1, value);
+//    }
+//});
+
+
+//From the beginning do check who's visible and hide previous btn 
 isVisible( partsVisible );
 prevBtn.classList.add('hide');
 
+//Previous Btn allows to go back
 prevBtn.addEventListener('click', (e)=>{
     partsVisible.forEach( part => {
         if (part.getAttribute('data-step') == '2' && part.getAttribute('data-visible') == 'true'){
@@ -39,7 +90,7 @@ prevBtn.addEventListener('click', (e)=>{
         isVisible( partsVisible );
     });
 });
-
+//Next Btn allows to proceed form
 nextBtns.forEach( (btn, idx, btns) => {
     btn.addEventListener("click", (e) => {
         let currentBtn = e.currentTarget;
@@ -70,7 +121,7 @@ nextBtns.forEach( (btn, idx, btns) => {
 });
 
 
-
+//checks which section should be visible and which stay hidden 
 function isVisible ( array ) {
     array.forEach( (part) =>{
         let idxOfProgEl = parseInt(part.getAttribute('data-step'))-1;
