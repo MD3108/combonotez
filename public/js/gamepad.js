@@ -3,7 +3,7 @@
 // * --------------------------------- //
 // * Declare variables or constants * //
 // * ------------------------------- //
-const btnHistory = document.querySelector('.btn-history');
+const btnHistory = document.querySelector('.c-notation__field');
 const alertGP = document.querySelector('.alert-warning');
 const convertBtn = document.querySelector('.--next.--two');
 const undo = document.querySelector('.--undo');

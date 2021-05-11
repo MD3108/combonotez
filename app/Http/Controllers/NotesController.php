@@ -59,12 +59,6 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
-    
-        //dd([
-        //    (int)$request-> get(('assist-1')),
-        //    (int)$request-> get(('assist-2')),
-        //    (int)$request-> get(('difficulty')),
-        //]);
        $request->validate([
            'name' => 'required|max:45',
            'notation' => 'required',

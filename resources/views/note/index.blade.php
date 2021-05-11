@@ -228,8 +228,8 @@
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                             allowfullscreen
                                         ></iframe>
-                                        <button class="btn-close --vod" aria-label="Close" >
-                                            <svg class="icon icon-close">
+                                        <button class="btn-close --close " aria-label="Close" >
+                                            <svg class="icon icon-close --light">
                                                 <use xlink:href="#icon-close"></use>
                                             </svg>
                                         </button>

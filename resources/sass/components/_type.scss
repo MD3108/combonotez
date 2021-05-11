@@ -36,6 +36,12 @@ body{
         font-size: $font-size-big;
         color:  $blue;
     }
+    &.--small{
+        font-weight: $font-weight-base;
+        font-size: $font-size-title-h3;
+        line-height: $font-size-title-h3;
+        margin-bottom: $m-half-gutter;
+    }
 }
 
 .cb-combo__name{

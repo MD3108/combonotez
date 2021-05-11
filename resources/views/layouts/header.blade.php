@@ -27,11 +27,11 @@
             <ul class="navbar-nav mr-auto">
                 <!--<li class="nav-item">
                     <a class="nav-link" href="/">
-                        Home
+                        Credits
                     </a>
                 </li>-->
                 <li class="nav-item">
-                    <a class="nav-link" href="/note">
+                    <a class="nav-link {{ Route::is('/note') ? 'active' : '' }}" href="/note">
                         Combo Notes
                         <svg class="icon icon-search">
                             <use xlink:href="#icon-search"></use>

@@ -18,7 +18,7 @@ class NoteSeeder extends Seeder
      */
     public function run()
     {
-        Note::factory()->count(10)->create();
+        Note::factory()->count(36)->create();
         
         foreach(Note::all() as $note){
             $fighters = Fighter::inRandomOrder()->take(rand(1,3))->pluck('id');

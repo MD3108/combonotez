@@ -16,8 +16,8 @@
     }
     &-close{
         position: absolute;
-        top: calc(0% + 1.125rem);
-        right: calc(0% + 1.125rem);
+        top: $m-gutter;
+        right: $m-gutter;
     }
     &.--guide{
         position: fixed;

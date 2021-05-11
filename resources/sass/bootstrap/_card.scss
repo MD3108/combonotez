@@ -2,6 +2,31 @@
     padding: $m-gutter;
     border: $border-transparent !important;
     box-shadow: $box-shadow;
+    &.--vod{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        .card__content{
+            height: 100%;
+        }
+        & .btn{
+            &-close.--close{
+                background-color: $dark-blue;
+                border-radius: 50%;
+                height: 36px;
+                width: 36px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid $dark-blue;
+            }
+        }
+        & iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
     &__content{
         .content{
             &__header{

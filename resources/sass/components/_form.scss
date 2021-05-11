@@ -3,10 +3,12 @@
         .section{
             &.--form{
                 max-height: 915px;
-                height: 84.72222222222222vh;
+                height: 90vh;
+                min-height: 100%;
                 overflow: auto;
                 padding-top: inherit;
                 padding-bottom: inherit;
+                box-shadow: $box-shadow;
                 & .row{
                     background-color: $white;
                     border: 0px solid $border-color;
@@ -15,7 +17,7 @@
                     position: relative;
                     .btn{
                         position: absolute;
-                        bottom: $m-gutter;
+                        bottom: 0;
                         right: $m-gutter;
                         &.--previous{
                             top: $m-gutter;
@@ -41,7 +43,7 @@
                 & .col-9{
                     max-width: 1065px;
                     width: 100%;
-                    min-height: 100%;
+                    min-height: 90vh;
                     //height: 84.72222222222222vh;
                     padding: $m-gutter;
                 }
@@ -67,6 +69,7 @@
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
+        min-width: 55.0520vw;
         &.--fighter{
 
             .form__fighters{
@@ -94,15 +97,6 @@
                                 border: 2px solid $dark-blue;
                                 border-radius: $border-radius;;
                             }
-                            //:checked + &::before {
-                            //    content: '';
-                            //    background-color: red;
-                            //    position: absolute;
-                            //    top: 0;
-                            //    left: 0;
-                            //    right: 0;
-                            //    bottom: 0;
-                            //}
                         }
                         
                     }
@@ -121,13 +115,8 @@
                                 background-color: $light-blue;
                                 border-radius: $border-radius;
                                 border: $border-dark-blue;
-                                background-position: center;
-                                background-repeat: no-repeat;
-                                background-size: contain;
                                 &.--main{
-                                    white-space: nowrap;
-                                    text-indent: 100%;
-                                    overflow: hidden;
+                                    
                                 }
                                 .el{
                                     &__move{
@@ -144,6 +133,7 @@
                                             width: 30%;
                                             cursor: pointer;
                                             text-align: center;
+                                            margin-bottom: 0;
                                             &.assist{
                                                 &-A{
                                                     background-color: $red-assist;
@@ -163,11 +153,18 @@
                                             display: none;
                                         }
                                     }
+                                    &__img{
+                                        height: 100%;
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: contain;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                    }
                                 }
                             }
                         }
                     }
-
                     &__chosen{
                         max-width: 500px;
                         margin: 0 auto;
@@ -178,10 +175,119 @@
 
         }
         &.--combo{
+            .combo{
+                width: 70%;
+                &__name{
+                    margin-bottom: $m-gutter;
+                    & input{
+                        background-color: $light-blue;
+                        border: $border-dark-blue;
+                        border-radius: $border-radius;
+                        width: 100%;
+                        padding: $m-quarter-gutter;
+                        padding-top: 3px;
+                        padding-bottom: 3px;
+                    }
+                }
+                &__notation{
+                    & label{
+                        text-align: left;
+                        margin-bottom: $m-gutter;
+                    }
+                    & input[name="notation"] {
+                        visibility: hidden;
+                        cursor: none;
+                    }
+                    & .c-notation{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        &__field{
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            align-items: center;
+                            height: auto;
+                            width: 61%;
+                            min-height: 60px;
+                            background-color: $light-blue;
+                            border: $border-dark-blue;
+                            border-radius: $border-radius;
+                        }
+                        &__buttons{
+                            width: 39%;
+                            & .btn{
+                                margin-left: $m-half-gutter;
+                            }
+                        }
 
+                    }
+                }
+            }
         }
         &.--details{
+            .details{
+                display: flex;
+                flex-wrap: wrap;
+                width: 61%;
+                &__damage{
+                    margin-bottom: $m-gutter;
+                    & input{
+                        background-color: $light-blue;
+                        border: $border-dark-blue;
+                        border-radius: $border-radius;
+                        width: 100%;
+                        padding: $m-quarter-gutter;
+                        padding-top: 3px;
+                        padding-bottom: 3px;
+                    }
+                }
+                &__ki{
+                    margin-bottom: $m-gutter;
+                    & input{
+                        background-color: $light-blue;
+                        border: $border-dark-blue;
+                        border-radius: $border-radius;
+                        width: 100%;
+                        padding: $m-quarter-gutter;
+                        padding-top: 3px;
+                        padding-bottom: 3px;
+                    }
+                }
+                &__categories{
+                    margin-bottom: $m-gutter;
+                    .categories{
+                        &__container{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+                    }                
+                }
+                &__difficulty{
+                    margin-bottom: $m-gutter;
+                    .difficulty{
+                        &__container{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+                    }                    
+                }
+                &__youtube{
 
+                    & input{
+                        background-color: $light-blue;
+                        border: $border-dark-blue;
+                        border-radius: $border-radius;
+                        width: 100%;
+                        padding: $m-quarter-gutter;
+                        padding-top: 3px;
+                        padding-bottom: 3px;
+                    }
+
+                }
+            }
         }
         &.--check{
 
@@ -202,14 +308,21 @@
         list-style: none;
         margin: 0;
         padding: 0;
+        margin-bottom: $m-spacing-smaller;
     }
     &__el{
         font-size: $font-size-base;
+        margin-bottom: $m-half-gutter;
+        &:last-child{
+            margin-bottom: inherit;
+        }
         &.currently{
             position: relative;
             &::before{
                 content: '▶';
-                padding-right: $m-quarter-gutter;
+                position: absolute;
+                top: 0;
+                left: -1.125rem;
             }
         }
         &.done{
@@ -243,9 +356,3 @@
     left: 0;
     margin: 25%;
 }
-
-//radio Assists
-//.el__move input:checked + label{
-//    content: '';
-//    background-color: $primary;
-//}

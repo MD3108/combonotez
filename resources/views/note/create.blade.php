@@ -108,22 +108,21 @@
                                     <div class="form__fighters">
                                         <div class="fighters__select">
                                             @foreach ($fighters as $fighter)
-                                            <input class="checkbox" type="checkbox" name="fighters[]" id="fighter-{{ $fighter->id }}" value="{{ $fighter->image_path }}">
+                                            <input class="checkbox" type="checkbox" name="fighters[]" id="fighter-{{ $fighter->id }}" value="{{ $fighter->id }}">
                                             <label class="f-select__fighter" for="fighter-{{ $fighter->id }}" >
                                                 <img src="{{ asset('/storage' .$fighter->image_path) }}" alt="{{ $fighter->name }}">
                                             </label>
-                                            
                                             @endforeach
                                         </div>
-                                       
-
                                         <div class="fighters__chosen">
                                             <h2 class="title --form">
                                                 Your chosen Fighter(s)
                                             </h2>
                                             <div class="f-chosen">
                                                 <div class="f-chosen__el --main">
-                                                    fighter 1
+                                                    <div class="el__img">
+                                                        fighter 1
+                                                    </div>
                                                 </div>
                                                 <div class="f-chosen__el --a1">
                                                     <div class="el__img">
@@ -159,88 +158,109 @@
                                     </div>
                                 </div>
                                 <div class="form__part --combo" data-step="2" data-visible="false">
-                                    <div class="mb-3">
-                                        <label for="name" class="form-label">
-                                            Give your note a Name
-                                        </label>
-                                        <input name="name" type="text" class="form-control" id="name" placeholder="My first Combo Note">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="notation-list">
-                                            Enter your combo - press <span class="text-uppercase">them buttons</span>
-                                        </label>
-                                        <input name="notation" type="text" id="notation-list" class="" value='{"inputs": ["2x", "L", "sep", "2x", "M", "sep", "2x", "H"]}'>
-                                        <div class="btn-history form-control" id="notation-render">
-                                           
+                                    <div class="combo">
+                                        <div class="combo__name">
+                                            <label for="name" class=" title --form">
+                                                Give your note a Name
+                                            </label>
+                                            <input name="name" type="text" class="" id="name" placeholder="My first Combo Note">
                                         </div>
-                                        <div>
-                                            <button type="button" class="btn btn-secondary --undo"> Undo </button>
-                                            <button type="button" class="btn btn-danger --clear"> Clear Inputs </button>
+                                        <div class="combo__notation">
+                                            <label class=" title --form" for="notation-list">
+                                                Enter your Bombo</span>
+                                            </label>
+                                            <input name="notation" type="text" id="notation-list" class="" value='{"inputs": ["2x", "L", "sep", "2x", "M", "sep", "2x", "H"]}'>
+                                            <div class="c-notation">
+                                                <div class="c-notation__field " id="notation-render">
+                                                
+                                                </div>
+                                                <div class="c-notation__buttons">
+                                                    <button type="button" class=" btn btn-secondary --undo"> Undo </button>
+                                                    <button type="button" class=" btn btn-danger --clear"> Clear all Buttons </button>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="hide alert alert-warning mt-3" role="alert">
-                                        <div class="d-flex align-items-center">
-                                            <span class="pl-2">
-                                                Plug in your Game Pad or Stick. If pluged in press one button.
-                                            </span>
+                                        <div class="hide alert alert-warning mt-3" role="alert">
+                                            <div class="d-flex align-items-center">
+                                                <span class="pl-2">
+                                                    Plug in your Game Pad or Stick. If pluged in press one button.
+                                                </span>
+                                            </div>
                                         </div>
+                                        <button type="button" class="btn btn-primary mb-3 --next --two" >
+                                            Next
+                                        </button>
                                     </div>
-                                    <button type="button" class="btn btn-primary mb-3 --next --two" >
-                                        Next
-                                    </button>
                                 </div>
                                 <div class="form__part --details" data-step="3" data-visible="false">
-                                    <div class="mb-3">
-                                        <label for="damage" class="form-label">
-                                            How  much Damage is inflicted
-                                        </label>
-                                        <input name="damage" type="number" min="0" max="1000000" class="form-control" id="damage" placeholder="2620">
-                                    </div>
-                                    <div class="d-flex justify-content-md-between">
-                                        <div class="mb-3">
-                                            <label for="ki-start" class="form-label">
-                                                How many Ki-bar(s) at start
+                                    <div class="details">
+                                        <h2 class="title --form">
+                                            What are the Combo details
+                                        </h2>
+                                        <div class="details__damage">
+                                            <label for="damage" class="title --small">
+                                                How  much Damage is inflicted
                                             </label>
-                                            <input name="ki-start" type="number" step=".1" min="0" max="7" class="form-control" id="ki-start" placeholder="0">
+                                            <input name="damage" type="number" min="0" max="1000000" class="" id="damage" placeholder="2620">
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="ki-end" class="form-label">
-                                                How many Ki-bar(s) at end
-                                            </label>
-                                            <input name="ki-end" type="number" step=".1" min="0" max="7" class="form-control" id="ki-end" placeholder="0.5">
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div>
-                                            @foreach ($categories as $category)
-                                            <div>
-                                                <label class="" for="{{ $category->name }}" >
-                                                    {{ $category->name }}
+                                        <div class="details__ki d-flex justify-content-md-between">
+                                            <div class="mb-3">
+                                                <label for="ki-start" class="title --small">
+                                                    How many Ki-bar(s) at start
                                                 </label>
-                                                <input type="checkbox" name="categories[]" id="{{ $category->name }}" value="{{ $category->id }}">
+                                                <input name="ki-start" type="number" step=".1" min="0" max="7" class="" id="ki-start" placeholder="0">
                                             </div>
-                                            @endforeach
+                                            <div class="mb-3">
+                                                <label for="ki-end" class="title --small">
+                                                    How many Ki-bar(s) at end
+                                                </label>
+                                                <input name="ki-end" type="number" step=".1" min="0" max="7" class="" id="ki-end" placeholder="0.5">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div>
-                                        @foreach (config('enum.difficulties') as $key=>$difficulty)
-                                        <div>
-                                            <label class="difficulty" for="{{ $difficulty }}" >
-                                                {{ $difficulty }}
+                                        <div class="details__categories">
+                                            <div class="categories">
+                                                <span class="title --small">
+                                                    Belongs in there Category(ies)
+                                                </span>
+                                                <div class="categories__container">
+                                                    @foreach ($categories as $category)
+                                                    <div>
+                                                        <label for="{{ $category->name }}" >
+                                                            {{ $category->name }}
+                                                        </label>
+                                                        <input type="checkbox" name="categories[]" id="{{ $category->name }}" value="{{ $category->id }}">
+                                                    </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="details__difficulty">
+                                            <div class="difficulty">
+                                                <span class="title --small">
+                                                    The combo is (Difficulty)
+                                                </span>
+                                                <div class="difficulty__container">
+                                                    @foreach (config('enum.difficulties') as $key=>$difficulty)
+                                                    <div>
+                                                        <label for="{{ $difficulty }}" >
+                                                            {{ $difficulty }}
+                                                        </label>
+                                                        <input type="radio" name="difficulty" id="{{ $difficulty }}" value="{{ $key }}">
+                                                    </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="details__youtube">
+                                            <label class="title --small" for="youtube" >
+                                                Preview as youtube URL (Optional)
                                             </label>
-                                            <input type="radio" name="difficulty" id="{{ $difficulty }}" value="{{ $key }}">
+                                            <input type="text" name="youtube" id="youtube" value="https://youtube.com/embed/" placeholder="https://www.youtube.com/embed/">
                                         </div>
-                                        @endforeach
+                                        <button type="button" class="btn btn-primary mb-3 --next --three" >
+                                            Next
+                                        </button>
                                     </div>
-                                    <div>
-                                        <label class="" for="youtube" >
-                                            Your combo preview as youtube URL
-                                        </label>
-                                        <input type="text" name="youtube" id="youtube" value="https://youtube.com/embed/" placeholder="https://www.youtube.com/embed/">
-                                    </div>
-                                    <button type="button" class="btn btn-primary mb-3 --next --three" >
-                                        Next
-                                    </button>
                                 </div>
                                 <div class="form__part --check" data-step="4" data-visible="false">
                                     <div>
