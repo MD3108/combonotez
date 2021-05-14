@@ -43,6 +43,13 @@ iframe{
 .hide{
     display: none !important;
 }
+.active{
+    color: $primary !important;
+    & .icon{
+        fill: $primary !important;
+        stroke: $primary !important;
+    }
+}
 .section{
     padding-top: $m-spacing-big;
     padding-bottom: $m-spacing-big;

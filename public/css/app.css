@@ -10376,6 +10376,14 @@ iframe {
   display: none !important;
 }
 
+.active {
+  color: #FFAA2B !important;
+}
+.active .icon {
+  fill: #FFAA2B !important;
+  stroke: #FFAA2B !important;
+}
+
 .section {
   padding-top: 4.375rem;
   padding-bottom: 4.375rem;
@@ -10623,7 +10631,7 @@ iframe {
 }
 .main.--form .section.--form .row .btn {
   position: absolute;
-  bottom: 0;
+  bottom: calc(.625rem * 2);
   right: calc(.625rem * 2);
 }
 .main.--form .section.--form .row .btn.--previous {
@@ -10668,14 +10676,14 @@ iframe {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  min-width: 55.052vw;
+  max-width: 1020px;
 }
 .form__part.--fighter .form__fighters .fighters__select {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  max-width: 100%;
+  max-width: 1025px;
   width: 100%;
 }
 .form__part.--fighter .form__fighters .fighters__select input[type=checkbox] {
@@ -10804,7 +10812,7 @@ iframe {
   width: 61%;
 }
 .form__part.--details .details__damage {
-  margin-bottom: calc(.625rem * 2);
+  margin-bottom: 1.875rem;
 }
 .form__part.--details .details__damage input {
   background-color: #EBF6FF;
@@ -10816,7 +10824,7 @@ iframe {
   padding-bottom: 3px;
 }
 .form__part.--details .details__ki {
-  margin-bottom: calc(.625rem * 2);
+  margin-bottom: 1.875rem;
 }
 .form__part.--details .details__ki input {
   background-color: #EBF6FF;
@@ -10827,21 +10835,60 @@ iframe {
   padding-top: 3px;
   padding-bottom: 3px;
 }
+.form__part.--details .details__ki div {
+  width: 48%;
+}
 .form__part.--details .details__categories {
-  margin-bottom: calc(.625rem * 2);
+  margin-bottom: 1.875rem;
 }
 .form__part.--details .details__categories .categories__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+.form__part.--details .details__categories .categories__container input[type=checkbox] {
+  display: none;
+}
+.form__part.--details .details__categories .categories__container input[type=checkbox]:checked + label {
+  background-color: #061C2D;
+}
+.form__part.--details .details__categories .categories__container label {
+  color: #EBF6FF;
+  background-color: rgba(6, 28, 45, 0.3);
+  border: 1px solid #061C2D;
+  border-radius: 0.4rem;
+  padding: 0.75rem 0.9375rem;
+  line-height: 1.125rem;
+  font-size: 1.125rem;
+  margin-right: calc(.625rem * 2);
+  margin-top: 0.625rem;
+  cursor: pointer;
+}
 .form__part.--details .details__difficulty {
-  margin-bottom: calc(.625rem * 2);
+  margin-bottom: 1.875rem;
 }
 .form__part.--details .details__difficulty .difficulty__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.form__part.--details .details__difficulty .difficulty__container input[type=radio] {
+  display: none;
+}
+.form__part.--details .details__difficulty .difficulty__container input[type=radio]:checked + label {
+  background-color: #061C2D;
+}
+.form__part.--details .details__difficulty .difficulty__container label {
+  color: #EBF6FF;
+  background-color: rgba(6, 28, 45, 0.3);
+  border: 1px solid #061C2D;
+  border-radius: 0.4rem;
+  padding: 0.75rem 0.9375rem;
+  line-height: 1.125rem;
+  font-size: 1.125rem;
+  margin-right: calc(.625rem * 2);
+  margin-top: 0.625rem;
+  cursor: pointer;
 }
 .form__part.--details .details__youtube input {
   background-color: #EBF6FF;
@@ -10852,6 +10899,20 @@ iframe {
   padding-top: 3px;
   padding-bottom: 3px;
 }
+.form__part.--check .card {
+  min-width: 446px;
+}
+.form__part.--check .card__content .content__body .body__title .btn.--vod {
+  position: inherit;
+  bottom: inherit;
+  right: inherit;
+}
+.form__part.--check .card__content .content__body .body__title .btn.--vod svg {
+  position: inherit;
+  top: inherit;
+  left: inherit;
+}
+
 .progression {
   display: flex;
   justify-content: center;
@@ -10976,11 +11037,6 @@ body {
   fill: #EBF6FF;
 }
 .icon-search {
-  stroke: rgba(6, 28, 45, 0.7);
-  stroke-linejoin: miter;
-  stroke-linecap: butt;
-  stroke-miterlimit: 4;
-  stroke-width: 2;
   margin-left: 0.3125rem;
 }
 .icon-add {

@@ -3,7 +3,7 @@
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name') }}
         </a>
-        <a class="logo-letters" href="{{ url('/') }}">
+        <a class="logo-letters  {{ request()->is('/') ? 'active' : '' }}" href="{{ url('/') }}">
             <div class="d-flex align-items-center">
                 <div>
                     <span class="d-block logo-letters__part --combo">
@@ -31,7 +31,7 @@
                     </a>
                 </li>-->
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::is('/note') ? 'active' : '' }}" href="/note">
+                    <a class="nav-link {{ request()->is('note') ? 'active' : '' }}" href="/note">
                         Combo Notes
                         <svg class="icon icon-search">
                             <use xlink:href="#icon-search"></use>

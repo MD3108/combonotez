@@ -17,7 +17,7 @@
                     position: relative;
                     .btn{
                         position: absolute;
-                        bottom: 0;
+                        bottom: $m-gutter;
                         right: $m-gutter;
                         &.--previous{
                             top: $m-gutter;
@@ -69,7 +69,7 @@
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        min-width: 55.0520vw;
+        max-width: 1020px;
         &.--fighter{
 
             .form__fighters{
@@ -79,7 +79,7 @@
                         flex-wrap: wrap;
                         justify-content: flex-start;
                         align-items: center;
-                        max-width: 100%;
+                        max-width: 1025px;
                         width: 100%;
                         & input[type="checkbox"]{
                             display: none;
@@ -231,7 +231,7 @@
                 flex-wrap: wrap;
                 width: 61%;
                 &__damage{
-                    margin-bottom: $m-gutter;
+                    margin-bottom: $m-spacing-smaller;
                     & input{
                         background-color: $light-blue;
                         border: $border-dark-blue;
@@ -243,7 +243,7 @@
                     }
                 }
                 &__ki{
-                    margin-bottom: $m-gutter;
+                    margin-bottom: $m-spacing-smaller;
                     & input{
                         background-color: $light-blue;
                         border: $border-dark-blue;
@@ -253,24 +253,64 @@
                         padding-top: 3px;
                         padding-bottom: 3px;
                     }
+                    & div{
+                        width: 48%;
+                    }
                 }
                 &__categories{
-                    margin-bottom: $m-gutter;
+                    margin-bottom: $m-spacing-smaller;
                     .categories{
                         &__container{
                             display: flex;
                             justify-content: space-between;
                             align-items: center;
+                            & input[type="checkbox"]{
+                                display: none;
+                                &:checked + label{
+                                    background-color: $dark-blue;
+                                }
+                            }
+                            & label{
+                                color: $light-blue;
+                                background-color: $fade-bg;
+                                border: $border-dark-blue;
+                                border-radius: $border-radius;
+                                padding: .75rem .9375rem;
+                                line-height: $font-size-base;
+                                font-size: $font-size-base;
+                                margin-right: $m-gutter;
+                                margin-top: $m-half-gutter;
+                                cursor: pointer;
+                            }
                         }
                     }                
                 }
                 &__difficulty{
-                    margin-bottom: $m-gutter;
+                    margin-bottom: $m-spacing-smaller;
                     .difficulty{
                         &__container{
                             display: flex;
                             justify-content: space-between;
                             align-items: center;
+                            & input[type="radio"]{
+                                display: none;
+                                &:checked + label{
+                                    background-color: $dark-blue;
+                                }
+                            }
+                            & label{
+                                color: $light-blue;
+                                background-color: $fade-bg;
+                                border: $border-dark-blue;
+                                border-radius: $border-radius;
+                                padding: .75rem .9375rem;
+                                line-height: $font-size-base;
+                                font-size: $font-size-base;
+                                margin-right: $m-gutter;
+                                margin-top: $m-half-gutter;
+                                cursor: pointer;
+
+                            }
                         }
                     }                    
                 }
@@ -290,7 +330,31 @@
             }
         }
         &.--check{
-
+            & .card{
+                min-width: 446px;
+                &__content{
+                    .content{
+                        &__body{
+                            .body{
+                                &__title{
+                                    & .btn{
+                                        &.--vod{
+                                            position: inherit;
+                                            bottom: inherit;
+                                            right: inherit;
+                                            & svg {
+                                                position: inherit;
+                                                top: inherit;
+                                                left: inherit;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -356,3 +420,4 @@
     left: 0;
     margin: 25%;
 }
+

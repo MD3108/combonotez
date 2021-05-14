@@ -82,7 +82,7 @@
                             </div>
                             
                             @if ($errors->any())
-                                <div class="mb-3">
+                                <div class="">
                                     <div class="alert alert-danger" role="alert">
                                         <ul>
                                              @foreach ($errors->all() as $error)
@@ -152,7 +152,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-primary mb-3 --next --one" >
+                                        <button type="button" class="btn btn-primary  --next --one" >
                                             Next
                                         </button>
                                     </div>
@@ -187,7 +187,7 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-primary mb-3 --next --two" >
+                                        <button type="button" class="btn btn-primary  --next --two" >
                                             Next
                                         </button>
                                     </div>
@@ -204,13 +204,13 @@
                                             <input name="damage" type="number" min="0" max="1000000" class="" id="damage" placeholder="2620">
                                         </div>
                                         <div class="details__ki d-flex justify-content-md-between">
-                                            <div class="mb-3">
+                                            <div class="">
                                                 <label for="ki-start" class="title --small">
                                                     How many Ki-bar(s) at start
                                                 </label>
                                                 <input name="ki-start" type="number" step=".1" min="0" max="7" class="" id="ki-start" placeholder="0">
                                             </div>
-                                            <div class="mb-3">
+                                            <div class="">
                                                 <label for="ki-end" class="title --small">
                                                     How many Ki-bar(s) at end
                                                 </label>
@@ -225,10 +225,10 @@
                                                 <div class="categories__container">
                                                     @foreach ($categories as $category)
                                                     <div>
+                                                        <input type="checkbox" name="categories[]" id="{{ $category->name }}" value="{{ $category->id }}">
                                                         <label for="{{ $category->name }}" >
                                                             {{ $category->name }}
                                                         </label>
-                                                        <input type="checkbox" name="categories[]" id="{{ $category->name }}" value="{{ $category->id }}">
                                                     </div>
                                                     @endforeach
                                                 </div>
@@ -242,10 +242,10 @@
                                                 <div class="difficulty__container">
                                                     @foreach (config('enum.difficulties') as $key=>$difficulty)
                                                     <div>
+                                                        <input type="radio" name="difficulty" id="{{ $difficulty }}" value="{{ $key }}">
                                                         <label for="{{ $difficulty }}" >
                                                             {{ $difficulty }}
                                                         </label>
-                                                        <input type="radio" name="difficulty" id="{{ $difficulty }}" value="{{ $key }}">
                                                     </div>
                                                     @endforeach
                                                 </div>
@@ -257,20 +257,23 @@
                                             </label>
                                             <input type="text" name="youtube" id="youtube" value="https://youtube.com/embed/" placeholder="https://www.youtube.com/embed/">
                                         </div>
-                                        <button type="button" class="btn btn-primary mb-3 --next --three" >
+                                        <button type="button" class="btn btn-primary  --next --three" >
                                             Next
                                         </button>
                                     </div>
                                 </div>
                                 <div class="form__part --check" data-step="4" data-visible="false">
                                     <div>
-                                        <!--<div class="card">
+                                        <h2 class="title --form">
+                                            Are you ready to publish&nbsp;?
+                                        </h2>
+                                        <div class="card">
                                             <div class="card__content">
                                                 <div class="content__header">
                                                     <div class="header__left">
                                                         <div class="l-header__container">
                                                             <div class="fighter">
-                                                                <img src="{{ asset('/storage/images/fighters/ssj-goku.png') }}" alt="Janemba">
+                                                                <img src="{{ request()->input('assist-1') }}" alt="#">
                                                             </div>
                                                             <div class="assist">
                                                                 <div class="assist__container --a1">
@@ -368,9 +371,9 @@
                                                     <div class="footer__left">
                                                         <div class="l-footer__container">
                                                             <div class="user">
-                                                                <div class="user__profil">
-                                                                    <img src="{{ asset('/storage/images/profil/1.png') }}" alt="User">
-                                                                </div>
+                                                                <!--<div class="user__profil">
+                                                                    <img src="#" alt="User">
+                                                                </div>-->
                                                                 <div class="user__info">
                                                                     <span>
                                                                         Combo NoteZ Master
@@ -401,11 +404,17 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>-->
+                                        </div>
+                                        <div class="alert alert-primary mt-3" role="alert">
+                                            <svg class="icon icon-edit mr-3">
+                                                <use xlink:href="#icon-edit"></use>
+                                            </svg>
+                                            Select an element to edit
+                                        </div>
                                     </div>
 
-                                    <div class="mb-3">
-                                        <button type="submit" class="btn btn-primary mb-3">Publish</button>
+                                    <div class="">
+                                        <button type="submit" class="btn btn-primary ">Publish</button>
                                     </div>
                                 </div>
 
