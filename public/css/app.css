@@ -10901,7 +10901,8 @@ iframe {
   padding-bottom: 3px;
 }
 .form__part.--check .card {
-  min-width: 446px;
+  max-width: 446px;
+  width: 100%;
 }
 .form__part.--check .card__content .content__body .body__title .btn.--vod {
   position: inherit;

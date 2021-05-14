@@ -59,7 +59,8 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
-       $request->validate([
+
+        $request->validate([
            'name' => 'required|max:45',
            'notation' => 'required',
            'assist-1' => 'required_if:fighters[2], filled|integer|between:1,3',
@@ -71,10 +72,10 @@ class NotesController extends Controller
            'youtube' =>  'nullable||url',
            'fighters' => 'required|max:3',
            'categories' => 'min:1',
-       ]);
+        ]);
 
-
-       $note = Note::create([
+        //dd($request->fighters[0]);
+        $note = Note::create([
            // DB Col  => input name
            'name' => $request->input(('name')),
            'notations' => $request->input(('notation')),
@@ -87,18 +88,18 @@ class NotesController extends Controller
            'difficulty' => (int)$request-> get(('difficulty')),
            'youtube_url' => $request->input(('youtube')),
            'user_id' => auth()->user()->id,
-       ]);
+        ]);
        
-       foreach( $request->fighters as $fighter){
+        foreach( $request->fighters as $fighter){
            $note->fighters()->attach((int)$fighter);
-       }
+        }
        
-       foreach( $request->categories as $category){
+        foreach( $request->categories as $category){
            $note->categories()->attach((int)$category);
-       }
+        }
        
 
-       return redirect('/note')
+        return redirect('/note')
             ->with('message', 'Your Note has been created');
 
     }

@@ -255,7 +255,7 @@
                                             <label class="title --small" for="youtube" >
                                                 Preview as youtube URL (Optional)
                                             </label>
-                                            <input type="text" name="youtube" id="youtube" value="https://youtube.com/embed/" placeholder="https://www.youtube.com/embed/">
+                                            <input type="url" name="youtube" id="youtube" value="https://youtube.com/embed/" placeholder="https://www.youtube.com/embed/">
                                         </div>
                                         <button type="button" class="btn btn-primary  --next --three" >
                                             Next
@@ -350,20 +350,7 @@
                                                     </div>
                                                     <div class="body__main">
                                                         <div class="notation">
-                                                            <span class="input --txt">
-                                                                2x 
-                                                            </span> 
-                                                            <img class="input --L" src="{{ asset('/storage/images/buttons/L.png') }}" alt="L button">
-                                                            <img class="input --sep" src="{{ asset('/storage/images/buttons/sep.png') }}" alt="sep button">
-                                                            <span class="input --txt">
-                                                                2x  
-                                                            </span> 
-                                                            <img class="input --M" src="{{ asset('/storage/images/buttons/M.png') }}" alt="M button">
-                                                            <img class="input --sep" src="{{ asset('/storage/images/buttons/sep.png') }}" alt="sep button">
-                                                            <span class="input --txt">
-                                                                3x  
-                                                            </span>
-                                                            <img class="input --M" src="{{ asset('/storage/images/buttons/H.png') }}" alt="M button">
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -376,10 +363,10 @@
                                                                 </div>-->
                                                                 <div class="user__info">
                                                                     <span>
-                                                                        Combo NoteZ Master
+                                                                        {{ Auth::user()->name }}
                                                                     </span>
                                                                     <span>
-                                                                        11/05/21
+                                                                        
                                                                     </span>
                                                                 </div>
                                                             </div>

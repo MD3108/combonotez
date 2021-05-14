@@ -8,6 +8,7 @@ const alertGP = document.querySelector('.alert-warning');
 const convertBtn = document.querySelector('.--next.--two');
 const undo = document.querySelector('.--undo');
 const clear = document.querySelector('.--clear');
+var inputsJSON
 var pressed = [];
 let released = [];
 let timePressed = [];
@@ -96,7 +97,7 @@ convertBtn.addEventListener('click', (e)=>{
          arrayConvert.push(currentValue); 
       }
   });
-  let inputsJSON = '{ "inputs": '+JSON.stringify(arrayConvert)+'}';
+  inputsJSON = '{ "inputs": '+JSON.stringify(arrayConvert)+'}';
   document.getElementById('notation-list').setAttribute('value', `${inputsJSON}`);
 });
 
@@ -375,7 +376,7 @@ function removeDuplicates (arr) {
 
 function createBtns (name, parent){
   let img = document.createElement('img');
-  img.setAttribute ('src', `/storage/images/buttons/${name}.png`)
+  img.setAttribute ('src', `/storage/images/buttons/${name}.png`);
   img.setAttribute('alt', `image of ${name} button`);
   img.setAttribute('id', idCounter);
   img.setAttribute('data-type', 'img');

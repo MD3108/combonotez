@@ -17,11 +17,90 @@ const chosenFighters = document.querySelectorAll('.f-chosen__el .el__img');
 var limitToThree = [];
 let previousFighter;
 
+//check note step
 //select all user inserted data in form once final step is reached
 nextBtns[nextBtns.length-1].addEventListener('click', (e) => {
-    var checkedFighters = document.querySelectorAll('.f-select__fighter ');
+    
+    var checkedFighters = document.querySelectorAll('.fighters__select input[type=checkbox]:checked');
     var chosenAssist = document.querySelectorAll('.el__move input[type=radio]:checked');
-    console.log(checkedFighters);
+    var chosenCategories = document.querySelectorAll('.categories__container input[type=checkbox]:checked');
+    //var chosenDifficulty = document.querySelector('.difficulty__container input[type=radio]:checked').value;
+    var comboName = document.querySelector('.combo__name input[type=text]').value;
+    var comboDamage = document.querySelector('.details__damage input[type=number]').value;
+    var kiStart = document.querySelector('.details__ki input[name=ki-start]').value;
+    var kiEnd = document.querySelector('.details__ki input[name=ki-end]').value;
+    var youtubeURL = document.querySelector('.details__youtube input[type=url]').value;
+
+    //fighters used in combo
+    // ! create a function that adds checked in right order in an array an base of of this array
+    for( let i = 0 ; i <= 3 ; i++){
+        if(checkedFighters[i] != undefined || checkedFighters[i] != null){
+            
+            if(i == 0){
+                let imgPath = checkedFighters[i].nextElementSibling.childNodes[1].getAttribute('src');
+                let firstFighter = document.querySelector('.fighter img');
+                console.log(firstFighter);
+                firstFighter.setAttribute('src', `${imgPath}`);
+            } else if(i == 1){
+                let imgPath = checkedFighters[i].nextElementSibling.childNodes[1].getAttribute('src');
+                let secondFighter = document.querySelector('.assist__container.--a1 img');
+                console.log(secondFighter );
+                secondFighter.setAttribute('src', `${imgPath}`);
+            } else if(i == 2){
+                let imgPath = checkedFighters[i].nextElementSibling.childNodes[1].getAttribute('src');
+                let thirdFighter = document.querySelector('.assist__container.--a2 img');
+                console.log(thirdFighter);
+                thirdFighter.setAttribute('src', `${imgPath}`);
+            }
+            
+        }
+    }
+
+    //gamepad inputs
+    let notation = Object.values(JSON.parse(inputsJSON));
+    notation.forEach( (inputs)=>{
+        inputs.forEach( input =>{
+            let idCounter = 1;
+            if(input.includes('x')){
+                let span = document.createElement('span');
+                span.setAttribute('id', idCounter);
+                span.setAttribute('data-type', 'txt');
+                span.setAttribute('data-input', `${input}`);
+                span.classList.add('input');
+                span.classList.add(`--${input}`);
+                span.classList.add('--txt');
+                span.innerHTML = input;
+                idCounter ++;
+                document.querySelector('.notation').appendChild(span);
+            }
+            else{
+                let img = document.createElement('img');
+                img.setAttribute ('src', `/storage/images/buttons/${input}.png`);
+                img.setAttribute('alt', `image of ${input} button`);
+                img.setAttribute('id', idCounter);
+                img.setAttribute('data-type', 'img');
+                img.setAttribute('data-input', `${input}`);
+                img.classList.add('input');
+                img.classList.add(`--${input}`);
+                img.classList.add('--img');
+                idCounter ++;
+                document.querySelector('.notation').appendChild(img);
+            }
+        });
+    });
+
+    document.querySelector('.content__body .title.--note').innerHTML = comboName;
+    document.querySelector('.damage__value').innerHTML = comboDamage;
+    document.querySelector('.ki__el.--begin .ki__value span').innerHTML = kiStart;
+    document.querySelector('.ki__el.--end .ki__value span').innerHTML = kiEnd;
+    //https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = dd + '/' + mm + '/' + yyyy;
+    console.log(document.querySelector('.user__info').childNodes[3]);
+    document.querySelector('.user__info').childNodes[3].innerHTML = today;
 });
 
 //From the beginning do check who's visible and hide previous btn 
@@ -36,13 +115,13 @@ roster.forEach(fighter=>{
 
     let  fighterPath = fighter.childNodes[1].getAttribute('src');
     fighter.addEventListener('click', (e)=>{
-        
-        
+        var checkedFighters = document.querySelectorAll('.fighters__select input[type=checkbox]:checked');
         let currentFighter = e.currentTarget;
-        
         let counterFighter =  limitToThree.length+1;
-        
-
+        console.log('limit', limitToThree);
+        console.log('currentFighter', currentFighter);
+        console.log('previousFighter', previousFighter);
+        console.log('checkedFighter', checkedFighters);
         if (previousFighter == currentFighter.getAttribute('for')){
             
 
@@ -129,6 +208,7 @@ prevBtn.addEventListener('click', (e)=>{
             progressbar.setAttribute("aria-valuenow", "50");
             progressbar.style.width = "50%";
             progressionElements[2].classList.remove("done");
+            document.querySelector('.notation').innerHTML= '';
         }
         isVisible( partsVisible );
     });

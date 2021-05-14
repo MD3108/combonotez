@@ -333,7 +333,8 @@
         }
         &.--check{
             & .card{
-                min-width: 446px;
+                max-width: 446px;
+                width: 100%;
                 &__content{
                     .content{
                         &__body{
