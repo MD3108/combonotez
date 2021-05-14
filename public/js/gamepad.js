@@ -36,7 +36,7 @@ let triggerQCF;
 let triggerQCB;
 
 let idCounter = 1;
-var displayedBtns ;
+var displayedBtns;
 
 let counter = 2;
 
@@ -62,7 +62,7 @@ if (Controller.supported) {
 // * ---------------- //
 
 undo.addEventListener('click', ()=> {
-  undoLast( displayedBtns );
+    undoLast( displayedBtns );
 });
 
 clear.addEventListener('click', ()=> {
@@ -82,7 +82,7 @@ clear.addEventListener('click', ()=> {
 // * convert DOM Input Notation to a JSON list { "inputs": [ "2xL", "236", "M" ] }
 convertBtn.addEventListener('click', (e)=>{
   arrayConvert = [];
-  var getInputs = document.querySelectorAll('.input');
+  var getInputs = document.querySelectorAll('.c-notation__field .input');
   getInputs.forEach( (input, idx, inputs) => {
       var currentValue = input.dataset.input;
       if(noticeInputs.includes(currentValue)){
@@ -130,7 +130,7 @@ convertBtn.addEventListener('click', (e)=>{
     var bName = button.name;
     bName = layout(bName);
     
-    displayedBtns = document.querySelectorAll('.input');
+    displayedBtns = document.querySelectorAll('.c-notation__field .input');
 
     pressed.push(bName);
     timePressed.push(button.time);
@@ -388,14 +388,16 @@ function createBtns (name, parent){
 }
 
 function undoLast (nodeList) {
-  nodeList = document.querySelectorAll('.input');
+  nodeList = document.querySelectorAll('.c-notation__field .input');
+  console.log(nodeList != undefined);
   if (nodeList != undefined){
+    console.log(nodeList[nodeList.length-1]);
     nodeList[nodeList.length-1].remove();
   }
 }
 
 function clearAll (nodeList) {
-  nodeList = document.querySelectorAll('.input');
+  nodeList = document.querySelectorAll('.c-notation__field .input');
   nodeList.forEach( e => {
     e.remove();
   });

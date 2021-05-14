@@ -1,18 +1,28 @@
 "use strict";
+//all next and previous btns
 const nextBtns = document.querySelectorAll(".--next");
 const prevBtn = document.querySelector('.btn.--previous');
-console.log(prevBtn);
+
+//data- attribute
 const partsVisible = document.querySelectorAll("[data-visible");
 const steps = document.querySelectorAll("[data-step");
+
+//progress bar
 const progressbar = document.querySelector(".progress-bar");
 const progressionElements = document.querySelectorAll(".progression__el");
 
+//roster character choice
 const roster = document.querySelectorAll('.f-select__fighter');
 const chosenFighters = document.querySelectorAll('.f-chosen__el .el__img');
 var limitToThree = [];
 let previousFighter;
 
-console.log('chosenFighter',chosenFighters);
+//select all user inserted data in form once final step is reached
+nextBtns[nextBtns.length-1].addEventListener('click', (e) => {
+    var checkedFighters = document.querySelectorAll('.f-select__fighter ');
+    var chosenAssist = document.querySelectorAll('.el__move input[type=radio]:checked');
+    console.log(checkedFighters);
+});
 
 //From the beginning do check who's visible and hide previous btn 
 isVisible( partsVisible );
@@ -27,17 +37,17 @@ roster.forEach(fighter=>{
     let  fighterPath = fighter.childNodes[1].getAttribute('src');
     fighter.addEventListener('click', (e)=>{
         
-        console.log('previousFighter', previousFighter);
+        
         let currentFighter = e.currentTarget;
-        console.log('currentFighter', currentFighter.getAttribute('for'));
+        
         let counterFighter =  limitToThree.length+1;
-        console.log('limit',limitToThree.length);
+        
+
         if (previousFighter == currentFighter.getAttribute('for')){
-            console.log('A');
+            
 
             // ! work here on the remove pin and fighter choice
-            limitToThree.pop(fighterPath);
-            currentFighter.setAttribute('data-content', `${counterFighter}`);
+            
             if(limitToThree.length == 0){
                 chosenFighters[0].style.backgroundImage = 'inherit';
             }
@@ -53,17 +63,18 @@ roster.forEach(fighter=>{
                 chosenFighters[limitToThree.length-1].style.backgroundImage = 'inherit' ;
                 chosenFighters[limitToThree.length-1].style.textIndent = 'inherit' ;
             }
+            
+            limitToThree.pop(fighterPath);
+            currentFighter.setAttribute('data-content', `${counterFighter}`);
+            previousFighter = '';
             // !
         }
         else{
-            console.log('B');
             if(limitToThree.length > 2){
                 limitToThree.splice(2, 1, fighterPath);
                 currentFighter.previousElementSibling.checked = false;
                 currentFighter.setAttribute('data-content', `${counterFighter}`);
                 counterFighter = 2 ;
-                console.log(currentFighter.previousElementSibling);
-                console.log(limitToThree);
                 previousFighter = currentFighter.getAttribute('for');
             }
             else{
@@ -87,12 +98,10 @@ roster.forEach(fighter=>{
                     chosenFighters[2].style.backgroundImage = 'url(' + `${value}`+ ')' ;
                     chosenFighters[2].style.textIndent = '1000%' ;
                 }
-                console.log(limitToThree);
                 previousFighter = currentFighter.getAttribute('for');
             }
             
         }
-        console.log('End previousFighter', previousFighter)
     });
 });
 
@@ -124,6 +133,7 @@ prevBtn.addEventListener('click', (e)=>{
         isVisible( partsVisible );
     });
 });
+
 //Next Btn allows to proceed form
 nextBtns.forEach( (btn, idx, btns) => {
     btn.addEventListener("click", (e) => {
@@ -153,7 +163,6 @@ nextBtns.forEach( (btn, idx, btns) => {
         isVisible( partsVisible );
     });
 });
-
 
 //checks which section should be visible and which stay hidden 
 function isVisible ( array ) {

@@ -10677,6 +10677,7 @@ iframe {
   align-items: center;
   flex-wrap: wrap;
   max-width: 1020px;
+  width: 52vw;
 }
 .form__part.--fighter .form__fighters .fighters__select {
   display: flex;
