@@ -8,6 +8,7 @@ const alertGP = document.querySelector('.alert-warning');
 const convertBtn = document.querySelector('.--next.--two');
 const undo = document.querySelector('.--undo');
 const clear = document.querySelector('.--clear');
+const delay = document.querySelector('.--delay');
 var inputsJSON
 var pressed = [];
 let released = [];
@@ -68,6 +69,10 @@ undo.addEventListener('click', ()=> {
 
 clear.addEventListener('click', ()=> {
   clearAll(displayedBtns);
+});
+
+delay.addEventListener('click', ()=> {
+  createBtns("DL", btnHistory);
 });
 
 //document.addEventListener('keydown', (e)=> {

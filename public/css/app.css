@@ -10128,6 +10128,7 @@ h3 {
 }
 .card__content .content__header .header__right {
   flex-basis: 60%;
+  width: 53%;
 }
 .card__content .content__header .header__right .r-header__container {
   height: 90px;
@@ -10141,19 +10142,13 @@ h3 {
   justify-content: flex-end;
   width: 100%;
   max-width: 244px;
-  overflow: hidden;
   height: auto;
-}
-.card__content .content__header .header__right .r-header__container .categories:hover {
-  overflow: auto;
-}
-.card__content .content__header .header__right .r-header__container .categories:hover ::-webkit-scrollbar {
-  display: block;
 }
 .card__content .content__header .header__right .r-header__container .categories__list {
   display: flex;
-  justify-content: flex-end;
-  width: 100%;
+  overflow-x: hidden;
+}
+.card__content .content__header .header__right .r-header__container .categories__list:hover {
   overflow-x: auto;
 }
 .card__content .content__header .header__right .r-header__container .categories__el {
@@ -10167,6 +10162,7 @@ h3 {
   padding-right: 0.9375rem;
   margin-left: 0.3125rem;
   margin-right: 0.3125rem;
+  white-space: nowrap;
 }
 .card__content .content__header .header__right .r-header__container .categories__el:first-child {
   margin-left: auto;
@@ -10227,6 +10223,10 @@ h3 {
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
+  opacity: 82%;
+}
+.card__content .content__body .body__main .notation:hover {
+  opacity: 100%;
 }
 .card__content .content__body .body__main .notation .input {
   padding-top: 0.3125rem;
@@ -10648,10 +10648,40 @@ iframe {
   bottom: inherit;
   right: inherit;
 }
-.main.--form .section.--form .row .btn.--clear, .main.--form .section.--form .row .btn.--undo {
+.main.--form .section.--form .row .btn.--clear, .main.--form .section.--form .row .btn.--undo, .main.--form .section.--form .row .btn.--delay {
   position: relative;
   bottom: inherit;
   right: inherit;
+  flex-basis: 30%;
+}
+.main.--form .section.--form .row .btn.--delay:hover {
+  position: relative;
+}
+.main.--form .section.--form .row .btn.--delay:hover::before {
+  position: absolute;
+  opacity: 80%;
+  left: 80%;
+  content: "▶";
+  transform: rotate(180deg);
+  font-size: 1.125rem;
+  font-family: "Saira Condensed", condensed;
+  padding: 0.625rem;
+  color: #061C2D;
+  border-radius: 0.4rem;
+  white-space: nowrap;
+}
+.main.--form .section.--form .row .btn.--delay:hover::after {
+  position: absolute;
+  opacity: 80%;
+  left: 118%;
+  content: "Delay button";
+  font-size: 1.125rem;
+  font-family: "Saira Condensed", condensed;
+  padding: 0.625rem;
+  background-color: #061C2D;
+  color: #EBF6FF;
+  border-radius: 0.4rem;
+  white-space: nowrap;
 }
 .main.--form .section.--form .col-9 {
   max-width: 1065px;
@@ -10787,7 +10817,7 @@ iframe {
 .form__part.--combo .combo__notation .c-notation {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 .form__part.--combo .combo__notation .c-notation__field {
   display: flex;
@@ -10846,6 +10876,7 @@ iframe {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  white-space: nowrap;
 }
 .form__part.--details .details__categories .categories__container input[type=checkbox] {
   display: none;

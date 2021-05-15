@@ -53,7 +53,7 @@ nextBtns[nextBtns.length-1].addEventListener('click', (e) => {
             thirdFighter.setAttribute('src', `${imgPath}`);
         }
     }
-
+    //assist
     chosenAssist.forEach( (assist, idx, assits) =>{
         
         if(idx == 0 && assits[idx] != undefined){
@@ -70,13 +70,6 @@ nextBtns[nextBtns.length-1].addEventListener('click', (e) => {
     });
 
     chosenCategories.forEach( (category, idx, categories) => {
-        /*
-            <div class="categories__list">
-                <div class="categories__el">
-                    Universal
-                </div>
-            </div>
-        */
         let div = document.createElement('div');
         div.classList.add('categories__el');
         div.innerHTML = category.id; 
@@ -147,16 +140,13 @@ prevBtn.classList.add('hide');
 roster.forEach(fighter=>{
     //remove checked even if saved in cache
     fighter.previousElementSibling.checked = false;
+    let fighterPath = fighter.childNodes[1].getAttribute('src');
 
-    let  fighterPath = fighter.childNodes[1].getAttribute('src');
     fighter.addEventListener('click', (e)=>{
         var checkedFighters = document.querySelectorAll('.fighters__select input[type=checkbox]:checked');
         let currentFighter = e.currentTarget;
         let counterFighter =  limitToThree.length+1;
         console.log('limit', limitToThree);
-        console.log('currentFighter', currentFighter);
-        console.log('previousFighter', previousFighter);
-        console.log('checkedFighter', checkedFighters);
         if (previousFighter == currentFighter.getAttribute('for')){
             
 
@@ -184,37 +174,53 @@ roster.forEach(fighter=>{
             // !
         }
         else{
+            console.log(document.querySelectorAll('.fighters__select input[type=checkbox]:checked').length);
             if(limitToThree.length > 2){
-                limitToThree.splice(2, 1, fighterPath);
-                currentFighter.previousElementSibling.checked = false;
-                currentFighter.setAttribute('data-content', `${counterFighter}`);
-                counterFighter = 2 ;
+                console.log('1');
+                //https://stackoverflow.com/questions/51661093/disable-checkboxes-after-a-certain-condition-is-met-using-only-vanilla-js/51661416
+                let notChecked = document.querySelectorAll('.fighters__select input[type="checkbox"]:not(:checked)');
+                console.log(notChecked.length);
+                notChecked.forEach(checkbox => {
+                    checkbox.disabled = true;
+                });
+
+                //limitToThree.splice(2, 1, fighterPath);
+                //currentFighter.previousElementSibling.checked = false;
+                //counterFighter = 2 ;
+                currentFighter.setAttribute('data-content', '3');
                 previousFighter = currentFighter.getAttribute('for');
             }
             else{
+                console.log('2');
                 limitToThree.push(fighterPath);
                 currentFighter.setAttribute('data-content', `${counterFighter}`);
                 if(limitToThree.length == 0){
+                    console.log('2 A');
                     chosenFighters[0].style.backgroundImage = 'inherit';
                 }
                 else if(limitToThree.length == 1){
+                    console.log('2 B');
                     let value = limitToThree[0];
+                    console.log('tohan bug', value);
                     chosenFighters[0].style.backgroundImage = 'url(' + `${value}`+ ')' ;
                     chosenFighters[0].style.textIndent = '1000%' ;
                     document.getElementById('choice_1').setAttribute('value', currentFighter.previousElementSibling.getAttribute('value'));
 
                 }
                 else if(limitToThree.length == 2){
+                    console.log('2 C');
                     let value = limitToThree[1];
                     chosenFighters[1].style.backgroundImage = 'url(' + `${value}`+ ')' ;
                     chosenFighters[1].style.textIndent = '1000%' ;
                     document.getElementById('choice_2').setAttribute('value', currentFighter.previousElementSibling.getAttribute('value'));
                 }
                 else if(limitToThree.length == 3){
+                    console.log('2 D');
                     let value = limitToThree[2];
                     chosenFighters[2].style.backgroundImage = 'url(' + `${value}`+ ')' ;
                     chosenFighters[2].style.textIndent = '1000%' ;
                     document.getElementById('choice_3').setAttribute('value', currentFighter.previousElementSibling.getAttribute('value'));
+                    
                 }
                 previousFighter = currentFighter.getAttribute('for');
             }
@@ -299,3 +305,6 @@ function isVisible ( array ) {
         }
     });
 }
+
+
+    

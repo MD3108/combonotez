@@ -15,5 +15,5 @@ let infScroll = new InfiniteScroll( elem, {
   append: '.grid-item',
   outlayer: msnry,
   status: '.page-load-status',
-  //history: false,
+  history: false,
 });

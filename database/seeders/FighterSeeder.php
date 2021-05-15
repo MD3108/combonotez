@@ -33,7 +33,7 @@ class FighterSeeder extends Seeder
         ]);
         Fighter::create([
             'name' => 'Gohan (Teen)',
-            'image_path' => '/images/fighters/gohan-(teen).png',
+            'image_path' => '/images/fighters/gohan-teen.png',
             //'assist' => null,
         ]);
         Fighter::create([
@@ -110,7 +110,7 @@ class FighterSeeder extends Seeder
         ]);
         Fighter::create([
             'name' => 'Gohan (Adult)',
-            'image_path' => '/images/fighters/gohan-(adult).png',
+            'image_path' => '/images/fighters/gohan-adult.png',
             //'assist' => null,
         ]);
         Fighter::create([

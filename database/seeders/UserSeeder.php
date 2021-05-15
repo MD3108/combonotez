@@ -25,10 +25,10 @@ class UserSeeder extends Seeder
         ]);
         User::create([  
             'id' => 2,
-            'name' => 'Daniel',
-            'email' => 'pinho_daniel098@hotmail.fr',
+            'name' => 'random',
+            'email' => 'random@random.com',
             'email_verified_at' => null,
-            'password' => Hash::make('Daniel'),
+            'password' => Hash::make('random'),
         ]);
 
         //DB::table('users')->insert([

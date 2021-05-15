@@ -178,13 +178,23 @@
                                                 
                                                 </div>
                                                 <div class="c-notation__buttons">
-                                                    <button type="button" class=" btn btn-secondary --undo"> Undo </button>
-                                                    <button type="button" class=" btn btn-danger --clear"> Clear all Buttons </button>
+                                                    <button type="button" class=" btn btn-secondary --undo">
+                                                        Undo
+                                                    </button>
+                                                    <button type="button" class=" btn btn-danger --clear">
+                                                        Clear all Buttons
+                                                    </button>
+                                                    <button type="button" class=" btn --delay"> 
+                                                        <img src="{{ asset('/storage/images/buttons/DL.png') }}" alt="delay">
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="hide alert alert-warning mt-3" role="alert">
                                             <div class="d-flex align-items-center">
+                                                <svg class="icon icon-warning mr-3">
+                                                    <use xlink:href="#icon-warning"></use>
+                                                </svg>
                                                 <span class="pl-2">
                                                     Plug in your Game Pad or Stick. If pluged in press one button.
                                                 </span>

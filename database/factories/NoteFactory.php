@@ -30,7 +30,8 @@ class NoteFactory extends Factory
                     '{"inputs": ["2", "L", "sep", "H", "sep", "SD", "sep", "A2"]}',
                     '{"inputs": ["7x", "L", "sep", "VN", "sep", "236", "4x", "L", "sep", "A1", "sep", "DR"]}',
                     '{"inputs": ["3x", "L", "sep", "SD", "sep", "M", "sep", "L", "sep", "2", "H", "sep", "M", "sep", "L", "sep", "S", "sep", "236", "L"]}',
-                    '{"inputs": ["2", "2x", "M", "sep", "8", "2", "H", "sep", "214", "3x", "H", "sep", "2x", "L", "sep", "2", "2x", "M", "sep", "H", "sep", "S", "sep", "SD", "sep", "M", "sep", "L", "sep", "9", "M", "sep", "A1", "sep", "L", "sep", "H", "sep", "214", "2x", "H", "sep", "2x", "6", "2x", "L", "sep", "S", "sep", "236", "L", "sep", "A2", "sep", "DR"]}'
+                    '{"inputs": ["2", "2x", "M", "sep", "8", "2", "H", "sep", "214", "3x", "H", "sep", "2x", "L", "sep", "2", "2x", "M", "sep", "H", "sep", "S", "sep", "SD", "sep", "M", "sep", "L", "sep", "9", "M", "sep", "A1", "sep", "L", "sep", "H", "sep", "214", "2x", "H", "sep", "2x", "6", "2x", "L", "sep", "S", "sep", "236", "L", "sep", "A2", "sep", "DR"]}',
+                    '{"inputs": ["2", "2x", "M", "sep", "9", "M", "sep", "L", "sep", "9", "2x", "L", "sep", "H", "sep", "A1", "sep", "2", "2x", "M", "sep", "2", "S", "sep", "SD", "sep", "M", "sep", "L", "sep", "2", "H", "sep", "SD", "sep", "M", "sep", "2x", "L", "sep", "2", "H", "sep", "DL", "7", "L", "sep", "DL", "L", "sep", "S", "sep", "236", "L"]}'
                 ];
         return [
             'name' => $this->faker->name(),

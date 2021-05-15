@@ -95,6 +95,7 @@
                     }
                     &__right{
                         flex-basis: 60%;
+                        width: 53%;
                         .r-header{
                             &__container{
                                 height: 90px;
@@ -107,19 +108,16 @@
                                     justify-content: flex-end;
                                     width: 100%;
                                     max-width: 244px;
-                                    overflow: hidden;
+                                    //overflow: hidden;
                                     height: auto;
-                                    &:hover{
-                                        overflow: auto;
-                                        & ::-webkit-scrollbar{
-                                            display: block;
-                                        }
-                                    }
+                                    
                                     &__list{
                                         display: flex;
-                                        justify-content: flex-end;
-                                        width: 100%;
-                                        overflow-x: auto;
+                                        //justify-content: flex-end;
+                                        overflow-x: hidden;
+                                        &:hover{
+                                            overflow-x: auto;
+                                        }
                                     }
                                     &__el{
                                         &:first-child{
@@ -135,6 +133,7 @@
                                         padding-right: $p-button;
                                         margin-left: $m-quarter-gutter;
                                         margin-right: $m-quarter-gutter;
+                                        white-space: nowrap;
                                         &:first-child{
                                             margin-left: inherit;
                                         }
@@ -204,6 +203,10 @@
                             justify-content: center;
                             flex-wrap: wrap;
                             align-items: center;
+                            opacity: 82%;
+                            &:hover{
+                                opacity: 100%;
+                            }
                             .input{
                                 padding-top: $m-quarter-gutter;
                                 padding-bottom: $m-quarter-gutter;

@@ -261,8 +261,8 @@
                           <span class="loader-ellips__dot"></span>
                           <span class="loader-ellips__dot"></span>
                         </div>
-                        <p class="infinite-scroll-last text-md-center">You have seen all notes, create some more!</p>
-                        <p class="infinite-scroll-error text-md-center">No more pages to load</p>
+                        <p class="infinite-scroll-last text-md-center m-auto">You have seen all notes, create some more!</p>
+                        <p class="infinite-scroll-error text-md-center m-auto">No more pages to load</p>
                       </div>
                 </div>
             </div>
