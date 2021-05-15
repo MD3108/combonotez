@@ -16,7 +16,7 @@
         }
         &-light{
             & a.logo-letters{
-                padding-left: .3125rem;
+                padding-left: $m-half-gutter;
                 &:hover{
                     text-decoration: none;
                     .logo-letters__part{

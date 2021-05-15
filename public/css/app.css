@@ -10295,6 +10295,53 @@ h3 {
 .card__content .content__footer .footer__right .r-footer__container .interactions__update .update__menu .menu__delete .btn {
   background-color: #F85656;
 }
+.card.--login .card__header {
+  margin-bottom: calc(.625rem * 2);
+}
+.card.--login .card__header .header__logo {
+  display: flex;
+  align-items: center;
+}
+.card.--login .card-body {
+  flex: inherit;
+  min-height: 100%;
+  padding: 0;
+}
+.card.--login .card-body .form-group .fg__label {
+  font-size: 1.5625rem;
+  line-height: 2rem;
+  margin-bottom: 0;
+}
+.card.--login .card-body .form-group .fg__input input {
+  border-radius: 0.4rem;
+  border: 1px solid #061C2D;
+  width: 100%;
+  padding: 0.3125rem 0.625rem;
+  font-family: "Saira", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+}
+.card.--login .card-body .form-group .fg__plus {
+  display: flex;
+  justify-content: space-between;
+}
+.card.--login .card-body .form-group .fg__btns {
+  display: flex;
+  justify-content: flex-end;
+}
+.card.--login .navbar-brand {
+  margin-left: inherit;
+}
+.card.--login .logo-letters {
+  margin-left: 0.625rem;
+}
+.card.--login .btn-close {
+  background-color: transparent;
+  border: inherit;
+}
+.card.--login .btn-close svg {
+  fill: #061C2D;
+}
 
 .navbar-brand {
   white-space: nowrap;
@@ -10311,7 +10358,7 @@ h3 {
   margin-right: inherit;
 }
 .navbar-light a.logo-letters {
-  padding-left: 0.3125rem;
+  padding-left: 0.625rem;
 }
 .navbar-light a.logo-letters:hover {
   text-decoration: none;
@@ -10366,6 +10413,16 @@ h3 {
 .body p {
   font-size: 1.125rem;
   max-width: 572px;
+}
+.body.--no-head-foot {
+  min-width: 100vw;
+  height: 100vh;
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+}
+.body.--no-head-foot .app {
+  width: 100%;
 }
 
 iframe {
