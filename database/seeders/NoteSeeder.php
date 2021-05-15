@@ -22,12 +22,12 @@ class NoteSeeder extends Seeder
         
         foreach(Note::all() as $note){
             $fighters = Fighter::inRandomOrder()->take(rand(1,3))->pluck('id');
-            $note->fighters()->sync($fighters);
+            $note->fighters()->attach($fighters);//, ['sort_key' => rand(1,3)]
         }
 
         foreach(Note::all() as $note){
             $categories = Category::inRandomOrder()->take(rand(1,5))->pluck('id');
-            $note->categories()->sync($categories);
+            $note->categories()->attach($categories);
         }
         
     }

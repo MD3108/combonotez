@@ -17,11 +17,15 @@ const chosenFighters = document.querySelectorAll('.f-chosen__el .el__img');
 var limitToThree = [];
 let previousFighter;
 
+var fighter1;
+var fighter2;
+var fighter3;
+
 //check note step
 //select all user inserted data in form once final step is reached
 nextBtns[nextBtns.length-1].addEventListener('click', (e) => {
     
-    var checkedFighters = document.querySelectorAll('.fighters__select input[type=checkbox]:checked');
+    //var checkedFighters = document.querySelectorAll('.fighters__select input[type=checkbox]:checked');
     var chosenAssist = document.querySelectorAll('.el__move input[type=radio]:checked');
     var chosenCategories = document.querySelectorAll('.categories__container input[type=checkbox]:checked');
     //var chosenDifficulty = document.querySelector('.difficulty__container input[type=radio]:checked').value;
@@ -30,31 +34,55 @@ nextBtns[nextBtns.length-1].addEventListener('click', (e) => {
     var kiStart = document.querySelector('.details__ki input[name=ki-start]').value;
     var kiEnd = document.querySelector('.details__ki input[name=ki-end]').value;
     var youtubeURL = document.querySelector('.details__youtube input[type=url]').value;
+    console.log(document.querySelector('.details__youtube input[type=url]'));
 
     //fighters used in combo
     // ! create a function that adds checked in right order in an array an base of of this array
     for( let i = 0 ; i <= 3 ; i++){
-        if(checkedFighters[i] != undefined || checkedFighters[i] != null){
-            
-            if(i == 0){
-                let imgPath = checkedFighters[i].nextElementSibling.childNodes[1].getAttribute('src');
-                let firstFighter = document.querySelector('.fighter img');
-                console.log(firstFighter);
-                firstFighter.setAttribute('src', `${imgPath}`);
-            } else if(i == 1){
-                let imgPath = checkedFighters[i].nextElementSibling.childNodes[1].getAttribute('src');
-                let secondFighter = document.querySelector('.assist__container.--a1 img');
-                console.log(secondFighter );
-                secondFighter.setAttribute('src', `${imgPath}`);
-            } else if(i == 2){
-                let imgPath = checkedFighters[i].nextElementSibling.childNodes[1].getAttribute('src');
-                let thirdFighter = document.querySelector('.assist__container.--a2 img');
-                console.log(thirdFighter);
-                thirdFighter.setAttribute('src', `${imgPath}`);
-            }
-            
+        if(i == 0 && limitToThree[0] != undefined){
+            let imgPath = limitToThree[0];
+            let firstFighter = document.querySelector('.fighter img');
+            firstFighter.setAttribute('src', `${imgPath}`);
+        } else if(i == 1 && limitToThree[1] != undefined){
+            let imgPath = limitToThree[1];
+            let secondFighter = document.querySelector('.assist__container.--a1 img');
+            secondFighter.setAttribute('src', `${imgPath}`);
+        } else if(i == 2 && limitToThree[2] != undefined){
+            let imgPath = limitToThree[2];
+            let thirdFighter = document.querySelector('.assist__container.--a2 img');
+            thirdFighter.setAttribute('src', `${imgPath}`);
         }
     }
+
+    chosenAssist.forEach( (assist, idx, assits) =>{
+        
+        if(idx == 0 && assits[idx] != undefined){
+            let valueClass = assist.id.substr(3);
+            console.log(valueClass);
+            document.querySelector('.assist__container.--a1 .assist__move').classList.add(`--${valueClass}`);
+            document.querySelector('.assist__container.--a1 .assist__move span').innerHTML = valueClass;
+        }else if(idx == 1 && assits[idx] != undefined){
+            let valueClass = assist.id.substr(3);
+            console.log(valueClass);
+            document.querySelector('.assist__container.--a2 .assist__move').classList.add(`--${valueClass}`);
+            document.querySelector('.assist__container.--a2 .assist__move span').innerHTML = valueClass;
+        }
+    });
+
+    chosenCategories.forEach( (category, idx, categories) => {
+        /*
+            <div class="categories__list">
+                <div class="categories__el">
+                    Universal
+                </div>
+            </div>
+        */
+        let div = document.createElement('div');
+        div.classList.add('categories__el');
+        div.innerHTML = category.id; 
+        console.log(document.querySelector('.categories__list'));
+        document.querySelector('.categories__list').appendChild(div);
+    });
 
     //gamepad inputs
     let notation = Object.values(JSON.parse(inputsJSON));
@@ -88,6 +116,13 @@ nextBtns[nextBtns.length-1].addEventListener('click', (e) => {
             }
         });
     });
+    
+    console.log('youtubeURL', youtubeURL);
+    if(youtubeURL != undefined){
+        document.querySelector('.content__body .body__title .btn.--vod').classList.remove('hide');
+    } else{
+        document.querySelector('.content__body .body__title .btn.--vod').classList.add('hide');
+    }
 
     document.querySelector('.content__body .title.--note').innerHTML = comboName;
     document.querySelector('.damage__value').innerHTML = comboDamage;
@@ -166,16 +201,20 @@ roster.forEach(fighter=>{
                     let value = limitToThree[0];
                     chosenFighters[0].style.backgroundImage = 'url(' + `${value}`+ ')' ;
                     chosenFighters[0].style.textIndent = '1000%' ;
+                    document.getElementById('choice_1').setAttribute('value', currentFighter.previousElementSibling.getAttribute('value'));
+
                 }
                 else if(limitToThree.length == 2){
                     let value = limitToThree[1];
                     chosenFighters[1].style.backgroundImage = 'url(' + `${value}`+ ')' ;
                     chosenFighters[1].style.textIndent = '1000%' ;
+                    document.getElementById('choice_2').setAttribute('value', currentFighter.previousElementSibling.getAttribute('value'));
                 }
                 else if(limitToThree.length == 3){
                     let value = limitToThree[2];
                     chosenFighters[2].style.backgroundImage = 'url(' + `${value}`+ ')' ;
                     chosenFighters[2].style.textIndent = '1000%' ;
+                    document.getElementById('choice_3').setAttribute('value', currentFighter.previousElementSibling.getAttribute('value'));
                 }
                 previousFighter = currentFighter.getAttribute('for');
             }

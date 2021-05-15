@@ -123,11 +123,13 @@
                                                     <div class="el__img">
                                                         fighter 1
                                                     </div>
+                                                    <input type="number" name="choice_1" value="" id="choice_1" class="hide">
                                                 </div>
                                                 <div class="f-chosen__el --a1">
                                                     <div class="el__img">
                                                         fighter 2
                                                     </div>
+                                                    <input type="number" name="choice_2" value="" id="choice_2" class="hide">
                                                     <div class="el__move">
                                                         @foreach ( config('enum.assists') as $key=>$assist )
                                                             <input type="radio" name="assist-1" id="a1-{{ $assist }}" value="{{ $key }}">
@@ -141,6 +143,7 @@
                                                     <div class="el__img">
                                                         fighter 3
                                                     </div>
+                                                    <input type="number" name="choice_3" value="" id="choice_3" class="hide">
                                                     <div class="el__move">
                                                         @foreach ( config('enum.assists') as $key=>$assist )
                                                             <input type="radio" name="assist-2" id="a2-{{ $assist }}" value="{{ $key }}">
@@ -278,17 +281,17 @@
                                                             <div class="assist">
                                                                 <div class="assist__container --a1">
                                                                     <img src="#" alt="#">
-                                                                    <div class="assist__move --B">
+                                                                    <div class="assist__move">
                                                                         <span>
-                                                                            B
+                                                                            
                                                                         </span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="assist__container --a2">
                                                                     <img src="#" alt="#">
-                                                                    <div class="assist__move --B">
+                                                                    <div class="assist__move">
                                                                         <span>
-                                                                            B
+                                                                            
                                                                         </span>
                                                                     </div>
                                                                 </div>
@@ -299,9 +302,7 @@
                                                         <div class="r-header__container">
                                                             <div class="categories">
                                                                 <div class="categories__list">
-                                                                    <div class="categories__el">
-                                                                        Universal
-                                                                    </div>
+
                                                                 </div>
                                                             </div>
                                                             <div class="damage">
@@ -342,7 +343,7 @@
                                                         <h3 class="title --note">
                                                             My First Combo Note
                                                         </h3>
-                                                        <button type="button" class="btn btn-primary --vod">
+                                                        <button type="button" class="btn btn-primary --vod hide">
                                                             <svg class="icon icon-play">
                                                                 <use xlink:href="#icon-play"></use>
                                                             </svg>
@@ -392,7 +393,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="alert alert-primary mt-3" role="alert">
+                                        <div class="alert alert-primary mt-3 hide" role="alert">
                                             <svg class="icon icon-edit mr-3">
                                                 <use xlink:href="#icon-edit"></use>
                                             </svg>

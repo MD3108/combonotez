@@ -24,6 +24,7 @@ class CreateFighterNotesTable extends Migration
                 ->references('id')
                 ->on('notes')
                 ->onDelete(('cascade'));
+            //$table->integer('sort_key')->default(1);
         });
     }
 

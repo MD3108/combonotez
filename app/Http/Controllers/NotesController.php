@@ -59,7 +59,6 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
            'name' => 'required|max:45',
            'notation' => 'required',
@@ -73,15 +72,14 @@ class NotesController extends Controller
            'fighters' => 'required|max:3',
            'categories' => 'min:1',
         ]);
-
-        //dd($request->fighters[0]);
+        
+        
         $note = Note::create([
            // DB Col  => input name
            'name' => $request->input(('name')),
            'notations' => $request->input(('notation')),
-           'assistOne' => (int)$request-> get(('assist-1')),
-           'assistOne' => (int)$request-> get(('assist-1')),
-           'assistTwo' => (int)$request-> get(('assist-2')),
+           'assistOne' => (int)$request->input(('assist-1')),
+           'assistTwo' => (int)$request->input(('assist-2')),
            'damage' => (int)$request->input(('damage')),
            'ki_start' => (float)$request->input(('ki-start')),
            'ki_end' => (float)$request->input(('ki-end')),
@@ -89,16 +87,30 @@ class NotesController extends Controller
            'youtube_url' => $request->input(('youtube')),
            'user_id' => auth()->user()->id,
         ]);
-       
-        foreach( $request->fighters as $fighter){
-           $note->fighters()->attach((int)$fighter);
+
+        for($i = 1 ; $i <=4 ; $i++){
+            $fighter = $request->input('choice_'. $i);
+            if($fighter != null){
+                $note->fighters()->attach((int)$fighter);
+            }
         }
+        
+        //foreach( $request->fighters as $fighter){
+        //    //$counter = 1;
+        //    $note->fighters()->attach((int)$fighter, ['sort_key', ]);
+        //    //$counter ++;
+        //    /*if($counter == 2){
+                //dd([
+                //    $request->fighters,
+                //    $fighter,
+                //]);
+        //    }*/
+        //}
        
         foreach( $request->categories as $category){
            $note->categories()->attach((int)$category);
         }
        
-
         return redirect('/note')
             ->with('message', 'Your Note has been created');
 

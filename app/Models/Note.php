@@ -36,7 +36,7 @@ class Note extends Model
     }
 
     public function fighters(){
-        return $this->belongsToMany(Fighter::class);
+        return $this->belongsToMany(Fighter::class);//->withPivot(['sort_key'])
     }
 
     public function categories(){

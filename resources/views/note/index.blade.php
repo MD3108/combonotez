@@ -45,20 +45,35 @@
                                                         </div>
                                                         <div class="assist">
                                                         @elseif(!empty($note->fighters[$i]) )
-                                                            <div class="assist__container --a{{ $i }}">
-                                                                <img src="{{ asset('/storage'. $note->fighters[$i]->image_path ) }}" alt="{{ $note->fighters[$i]->name }}">
-                                                               
-                                                                @foreach ( config('enum.assists') as $key=>$assist )
-                                                                @if($note->assistOne == $key)
-                                                                <div class="assist__move --{{ $assist }}">
-                                                                    <span>
-                                                                        {{ $assist }}
-                                                                    </span>
-                                                                </div>
-                                                                @endif
-                                                                @endforeach
+                                                            @if( $i == 1 )
+                                                                <div class="assist__container --a{{ $i }}">
+                                                                    <img src="{{ asset('/storage'. $note->fighters[$i]->image_path ) }}" alt="{{ $note->fighters[$i]->name }}">
                                                                 
-                                                            </div>
+                                                                    @foreach ( config('enum.assists') as $key=>$assist )
+                                                                    @if($note->assistOne == $key)
+                                                                    <div class="assist__move --{{ $assist }}">
+                                                                        <span>
+                                                                            {{ $assist }}
+                                                                        </span>
+                                                                    </div>
+                                                                    @endif
+                                                                    @endforeach
+                                                                </div>
+                                                            @elseif( $i == 2 )
+                                                                <div class="assist__container --a{{ $i }}">
+                                                                    <img src="{{ asset('/storage'. $note->fighters[$i]->image_path ) }}" alt="{{ $note->fighters[$i]->name }}">
+                                                                
+                                                                    @foreach ( config('enum.assists') as $key=>$assist )
+                                                                    @if($note->assistTwo == $key)
+                                                                    <div class="assist__move --{{ $assist }}">
+                                                                        <span>
+                                                                            {{ $assist }}
+                                                                        </span>
+                                                                    </div>
+                                                                    @endif
+                                                                    @endforeach
+                                                                </div>
+                                                            @endif
                                                         @endif
                                                     @endfor
                                                         </div>
