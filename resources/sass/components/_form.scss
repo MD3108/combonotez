@@ -39,6 +39,9 @@
                             right: inherit;
                             flex-basis: 30%;
                         }
+                        &.--clear{
+                            width: 7vw;
+                        }
                         &.--delay{
                             &:hover{
                                 position: relative;

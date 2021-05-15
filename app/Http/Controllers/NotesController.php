@@ -72,8 +72,7 @@ class NotesController extends Controller
            'fighters' => 'required|max:3',
            'categories' => 'min:1',
         ]);
-        
-        
+
         $note = Note::create([
            // DB Col  => input name
            'name' => $request->input(('name')),
@@ -94,18 +93,6 @@ class NotesController extends Controller
                 $note->fighters()->attach((int)$fighter);
             }
         }
-        
-        //foreach( $request->fighters as $fighter){
-        //    //$counter = 1;
-        //    $note->fighters()->attach((int)$fighter, ['sort_key', ]);
-        //    //$counter ++;
-        //    /*if($counter == 2){
-                //dd([
-                //    $request->fighters,
-                //    $fighter,
-                //]);
-        //    }*/
-        //}
        
         foreach( $request->categories as $category){
            $note->categories()->attach((int)$category);
@@ -136,8 +123,12 @@ class NotesController extends Controller
      */
     public function edit($id)
     {
-        return view('note.edit')
-            ->with('note', Note::where('id', $id)->first());
+        $fighters = Fighter::all();
+        $categories = Category::all();
+        return view('note.edit',[
+            'fighters' => $fighters,
+            'categories' => $categories,
+        ])->with('note', Note::where('id', $id)->first());
     }
 
     /**
@@ -150,25 +141,44 @@ class NotesController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'fighter' => 'required',
-            'name' => 'required|max:255',
-            'notation' => 'required',
-            'damage' => 'required',
-            'ki-start' => 'required',
-            'ki-end' => 'required',
+           'name' => 'required|max:45',
+           'notation' => 'required',
+           'assist-1' => 'required_if:fighters[2], filled|integer|between:1,3',
+           'assist-2' => 'required_if:fighters[3], filled|integer|between:1,3',
+           'damage' => 'required|between:0,999999',
+           'ki-start' => 'required',
+           'ki-end' => 'required',
+           'difficulty' => 'required',
+           'youtube' =>  'nullable||url',
+           'fighters' => 'required|max:3',
+           'categories' => 'min:1',
+        ]);
+        
+        $note = Note::create([
+           // DB Col  => input name
+           'name' => $request->input(('name')),
+           'notations' => $request->input(('notation')),
+           'assistOne' => (int)$request->input(('assist-1')),
+           'assistTwo' => (int)$request->input(('assist-2')),
+           'damage' => (int)$request->input(('damage')),
+           'ki_start' => (float)$request->input(('ki-start')),
+           'ki_end' => (float)$request->input(('ki-end')),
+           'difficulty' => (int)$request-> get(('difficulty')),
+           'youtube_url' => $request->input(('youtube')),
+           'user_id' => auth()->user()->id,
         ]);
 
-        Note::where('id', $id)
-            ->update([
-                'fighter' => $request->input('fighter'),
-                'name' => $request->input('name'),
-                'notation' => $request->input('notation'),
-                'damage' => $request->input('damage'),
-                'ki_start' => $request->input('ki-start'),
-                'ki_end' => $request->input('ki-end'),
-                'user_id' => auth()->user()->id
-            ]);
-
+        for($i = 1 ; $i <=4 ; $i++){
+            $fighter = $request->input('choice_'. $i);
+            if($fighter != null){
+                $note->fighters()->attach((int)$fighter);
+            }
+        }
+       
+        foreach( $request->categories as $category){
+           $note->categories()->attach((int)$category);
+        }
+       
         return redirect('/note')
             ->with('message', 'Your Note has been updated');
     }

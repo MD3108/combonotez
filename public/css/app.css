@@ -10455,6 +10455,9 @@ iframe {
   align-items: center;
   margin-bottom: 3.75rem;
 }
+.section.--how-to-use .create-note .step img {
+  box-shadow: 0 0.333rem 0.444rem rgba(6, 28, 45, 0.1);
+}
 .section.--how-to-use .create-note .step:last-child {
   margin-bottom: 4.375rem;
 }
@@ -10653,6 +10656,9 @@ iframe {
   bottom: inherit;
   right: inherit;
   flex-basis: 30%;
+}
+.main.--form .section.--form .row .btn.--clear {
+  width: 7vw;
 }
 .main.--form .section.--form .row .btn.--delay:hover {
   position: relative;
