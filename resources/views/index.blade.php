@@ -353,7 +353,11 @@
                                     </p>
                                 </div>
                                 <!--add if user than go to page if not user register bring to register-->
-                                <a href="{{ url('/note/create') }}" role="button" class="btn btn-primary btn-lg --form">Sign up & create</a>
+                                @if(isset(Auth::user()->id) )
+                                <a href="{{ url('/note/create') }}" role="button" class="btn btn-primary btn-lg --form">Create Note</a>
+                                @else
+                                <a href="{{ url('/note/register') }}" role="button" class="btn btn-primary btn-lg --form">Sign up & create</a>
+                                @endif
                             </div>
                             <img class="" src="{{ asset('/storage/images/form-4.jpg') }}" alt="">
                         </div>

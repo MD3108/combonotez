@@ -26,7 +26,7 @@
                             </div>
                         </a>
                     </div>
-                    <a href="{{ url()->previous() }}" class="btn-close --close " aria-label="Close" >
+                    <a href="{{ url('/') }}" class="btn-close --close " aria-label="Close" >
                         <svg class="icon icon-close --light">
                             <use xlink:href="#icon-close"></use>
                         </svg>
@@ -91,7 +91,8 @@
                         </div>
                     
                         <div class="form-group ">
-                            <div class="">
+                            <div class="fg__btns">
+                                <small>You have an account? <a class="link" href="{{ route('login') }}">Login here</a> </small>
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>

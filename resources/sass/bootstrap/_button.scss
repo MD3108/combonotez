@@ -1,6 +1,9 @@
 .btn{
     transition: all .25s ease-out;
     box-shadow: $box-shadow;
+    &-primary{
+        //border-color: transparent;
+    }
     &:hover{
         transform: translateY(.025rem);
         box-shadow: 0 0.222rem 0.333rem rgb(6 28 45 / 15%);

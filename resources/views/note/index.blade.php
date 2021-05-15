@@ -127,9 +127,9 @@
                                         </div>
                                         <div class="content__body">
                                             <div class="body__title">
-                                                <H3 class="title --note">
+                                                <span class="title --note">
                                                     {{ $note->name }}
-                                                </H3>
+                                                </span>
                                                 @if (!empty($note->youtube_url))
                                                     <button type="button" class="btn btn-primary --vod">
                                                         <svg class="icon icon-play">
@@ -170,7 +170,7 @@
                                             <div class="footer__left">
                                                 <div class="l-footer__container">
                                                     <div class="user">
-                                                        <!--<img src="#" alt="User">-->
+                                                        {{-- <imgsrc="#"alt="User"> --}}
                                                         <div class="user__info">
                                                             <span>
                                                                 {{ $note->user->name }}
@@ -275,5 +275,5 @@
     <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
     <script src="{{ URL('/js/masonry.js') }}"></script>
     <script src="{{ URL('/js/vod.js') }}"></script>
-    <!--<script src="{{-- URL('/js/render.js') --}}"></script>
+    
 @endsection

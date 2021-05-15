@@ -99,6 +99,9 @@
     
 }
 .form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &__part{
         display: flex;
         justify-content: center;
@@ -376,11 +379,18 @@
                         &__body{
                             .body{
                                 &__title{
+                                    margin-bottom: $m-quarter-gutter;
                                     & .btn{
                                         &.--vod{
-                                            position: inherit;
-                                            bottom: inherit;
-                                            right: inherit;
+                                            position: relative;
+                                            background-color: $dark-blue;
+                                            color: $blue;
+                                            height: 2.25rem;
+                                            width: 2.25rem;
+                                            flex-basis: 2.25rem;
+                                            border-radius: 1.125rem;
+                                            bottom: auto;
+                                            right: auto;
                                             & svg {
                                                 position: inherit;
                                                 top: inherit;

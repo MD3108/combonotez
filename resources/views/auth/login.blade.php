@@ -26,7 +26,7 @@
                             </div>
                         </a>
                     </div>
-                    <a href="{{ url()->previous() }}" class="btn-close --close " aria-label="Close" >
+                    <a href="{{ url('/') }}" class="btn-close --close " aria-label="Close" >
                         <svg class="icon icon-close --light">
                             <use xlink:href="#icon-close"></use>
                         </svg>
@@ -35,7 +35,19 @@
                 <h1 class="title --h3">
                     {{ __('Sign in') }}
                 </h1>
-
+                @php
+                    $homeURL = url('/').'/';
+                @endphp
+                @guest
+                    @if( url()->previous() == $homeURL  || url()->previous() == url('/note') || url()->previous() == url('/guide') )
+                    <div class="alert alert-warning">
+                        <svg class="icon icon-warning mr-3">
+                            <use xlink:href="#icon-warning"></use>
+                        </svg>
+                        Login&nbsp;/&nbsp;Register, to create combo notes
+                    </div>
+                    @endif
+                @endguest
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -86,6 +98,7 @@
 
                         <div class="form-group">
                             <div class="fg__btns">
+                                <small>Don't own an account yet? <a class="link" href="{{ route('register') }}">Sign up here</a> </small>
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
