@@ -35,6 +35,10 @@
 </head>
 <body class="body --form">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <!--Play-->
+        <symbol id="icon-play" viewBox="0 0 28 32">
+            <path d="M26.341 14.094c1.253 0.725 1.253 2.534 0 3.259l-22.079 12.765c-1.255 0.725-2.825-0.18-2.825-1.63v-25.53c0-1.45 1.57-2.355 2.825-1.63l22.079 12.765z"></path>
+        </symbol>
         <!--Warning-->
             <symbol id="icon-warning" viewBox="0 0 10 32">
                 <path d="M0.594 27.459c0-2.25 1.824-4.074 4.074-4.074s4.074 1.824 4.074 4.074c0 2.25-1.824 4.074-4.074 4.074s-4.074-1.824-4.074-4.074z"></path>

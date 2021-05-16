@@ -11019,11 +11019,6 @@ iframe {
   bottom: auto;
   right: auto;
 }
-.form__part.--check .card__content .content__body .body__title .btn.--vod svg {
-  position: inherit;
-  top: inherit;
-  left: inherit;
-}
 
 .progression {
   display: flex;

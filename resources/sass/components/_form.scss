@@ -19,6 +19,11 @@
                         position: absolute;
                         bottom: $m-gutter;
                         right: $m-gutter;
+                        &-primary.--vod{
+                            & svg {
+                                
+                            }
+                        }
                         &.--previous{
                             top: $m-gutter;
                             left: $m-gutter;
@@ -391,11 +396,6 @@
                                             border-radius: 1.125rem;
                                             bottom: auto;
                                             right: auto;
-                                            & svg {
-                                                position: inherit;
-                                                top: inherit;
-                                                left: inherit;
-                                            }
                                         }
                                     }
                                 }
