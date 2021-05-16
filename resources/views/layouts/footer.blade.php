@@ -16,7 +16,7 @@
                     </div>
                     <div>
                         <small>
-                            © Daniel De Pinho Lucas
+                            © Daniel De Pinho Lucas aka minipinho
                         </small>
                     </div>
                 </div>

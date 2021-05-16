@@ -151,7 +151,7 @@ class NotesController extends Controller
            'difficulty' => 'required',
            'youtube' =>  'nullable||url',
            'fighters' => 'required|max:3',
-           'categories' => 'min:1',
+           'categories' => '',
         ]);
         
         $note = Note::create([
@@ -174,9 +174,12 @@ class NotesController extends Controller
                 $note->fighters()->attach((int)$fighter);
             }
         }
-       
+        
+        dd($request->categories);
         foreach( $request->categories as $category){
-           $note->categories()->attach((int)$category);
+            if($category != null){
+                $note->categories()->attach((int)$category);
+            }
         }
        
         return redirect('/note')
