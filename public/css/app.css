@@ -10065,6 +10065,60 @@ h3 {
   width: 100%;
   height: 100%;
 }
+.card.--filter {
+  position: fixed;
+  top: 90px;
+  left: auto;
+  right: auto;
+  z-index: 30;
+  width: 100%;
+  max-width: 1400px;
+}
+.card.--filter .filter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.card.--filter .filter .title {
+  margin-bottom: 0;
+}
+.card.--filter .filter__title {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.45;
+}
+.card.--filter .filter__title .title {
+  padding-left: 0.3125rem;
+}
+.card.--filter .filter__tabs {
+  display: flex;
+  align-items: center;
+  margin-left: calc(.625rem * 4);
+  width: 64vw;
+}
+.card.--filter .filter__tabs .btn.--dd {
+  cursor: pointer;
+  margin-left: auto;
+  box-shadow: inherit;
+}
+.card.--filter .filter__tab {
+  margin-right: calc(.625rem * 4);
+}
+.card.--filter .filter__tab .tab__title {
+  cursor: pointer;
+}
+.card.--filter .filter__content {
+  width: 100%;
+}
+.card.--filter.--open {
+  background-color: #061C2D;
+  color: #EBF6FF;
+}
+.card.--filter.--open .icon-filter, .card.--filter.--open .icon-drop-down {
+  fill: #EBF6FF;
+}
 .card__content .content__header {
   display: flex;
   margin-bottom: calc(.625rem * 4);
@@ -10394,6 +10448,7 @@ h3 {
 }
 ::-webkit-resizer{
 }*/
+/*ALL pages*/
 .body {
   padding-top: 76px;
 }
@@ -10446,6 +10501,8 @@ iframe {
 .section {
   padding-top: 4.375rem;
   padding-bottom: 4.375rem;
+  /*Home page*/
+  /*Home page*/
 }
 .section.--dark {
   background-color: #061C2D;
@@ -10531,6 +10588,7 @@ iframe {
   box-shadow: none;
 }
 
+/*Nav bar*/
 .logo-letters__part {
   font-size: 1rem;
   line-height: 1rem;
@@ -10551,6 +10609,9 @@ iframe {
   line-height: 2.4375rem;
 }
 
+.container {
+  /*All pages similar looking to Home page and Guide */
+}
 .container.--card {
   background-color: #f8f9fa;
   color: #061C2D;
@@ -10571,6 +10632,7 @@ iframe {
   border-bottom-right-radius: 0.4rem;
 }
 
+/*Guide btn on homepage*/
 .guide__imgs {
   display: flex;
   justify-content: space-between;
@@ -11080,6 +11142,9 @@ iframe {
   margin: 25%;
 }
 
+.grid {
+  margin-top: 6rem;
+}
 .grid-item {
   margin-bottom: 1.25rem;
   max-width: 453px;
@@ -11130,6 +11195,11 @@ body {
   font-size: 2rem;
   line-height: 2rem;
   margin-bottom: 0.625rem;
+}
+.title.--filter {
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  font-weight: 400;
 }
 
 .cb-combo__name {

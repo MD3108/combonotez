@@ -10,7 +10,7 @@
             </a>
         </div>
         <div class="container">
-            <h1 class="text-hide">
+            <h1 class="text-hide m-0">
                 Combo NoteZ
             </h1>
             @if(session()->has('message'))
@@ -21,10 +21,50 @@
             
             <div class="row">
                 <div class="col-12">
-                    <div class="card mb-3">
-                        <h2 class="card-title">
-                            Filter
-                        </h2>
+                    <div class="card --filter">
+                        <div class="filter">
+                            <div class="filter__title">
+                                <svg class="icon icon-filter">
+                                    <use xlink:href="#icon-filter"></use>
+                                </svg>
+                                <h2 class="title --filter">
+                                    Filter
+                                </h2>
+                            </div>
+                            <div class="filter__tabs">
+                                <div class="filter__tab">
+                                    <h3 class="tab__title title --filter --fighters">
+                                        Fighters
+                                    </h3>
+                                </div>
+                                <div class="filter__tab">
+                                    <h3 class="tab__title title --filter --assists">
+                                        Assists
+                                    </h3>
+                                </div>
+                                <div class="filter__tab">
+                                    <h3 class="tab__title title --filter --others">
+                                        Others
+                                    </h3>
+                                </div>
+                                <button class="btn --dd">
+                                    <svg class="icon icon-drop-down">
+                                        <use xlink:href="#icon-drop-down"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="filter__content">
+                                <div class="content__part --fighters" data-visible="false">
+                                   something-1     
+                                </div>
+                                <div class="content__part --assists" data-visible="false">
+                                   somethin-2
+                                </div>
+                                <div class="content__part --other" data-visible="false">
+                                   something-3
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -275,5 +315,5 @@
     <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
     <script src="{{ URL('/js/masonry.js') }}"></script>
     <script src="{{ URL('/js/vod.js') }}"></script>
-    
+    <script src="{{ URL('/js/filter.js') }}"></script>
 @endsection

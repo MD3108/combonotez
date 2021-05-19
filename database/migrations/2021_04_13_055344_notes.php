@@ -18,7 +18,7 @@ class Notes extends Migration
 
             //-- Main --//
             $table->string('name', 45);
-            $table->json('notations');
+            $table->string('notations', 500);
 
             $table->integer('assistOne')->default(1);
             $table->integer('assistTwo')->default(1);

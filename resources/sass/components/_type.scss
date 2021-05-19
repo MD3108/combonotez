@@ -42,6 +42,11 @@ body{
         line-height: $font-size-title-h3;
         margin-bottom: $m-half-gutter;
     }
+    &.--filter{
+            font-size: $font-size-filter;
+            line-height: $font-size-filter;
+            font-weight: $font-weight-base;
+    }
 }
 
 .cb-combo__name{

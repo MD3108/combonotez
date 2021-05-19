@@ -13,7 +13,7 @@
 }
 ::-webkit-resizer{
 }*/
-
+/*ALL pages*/
 .body{
     padding-top: 76px;
     & img{
@@ -72,6 +72,7 @@ iframe{
         background-color: $dark-blue;
         color: $blue;
     }
+    /*Home page*/
     &.--what-is-cnz{
         .content {
             display: flex;
@@ -158,6 +159,7 @@ iframe{
             }
         }
     }
+    /*Home page*/
     &.--guide{
         position: relative;
         .btn.--close{
@@ -169,6 +171,7 @@ iframe{
         }
     }
 }
+/*Nav bar*/
 .logo{
     &-letters{
         &__part{
@@ -193,13 +196,13 @@ iframe{
     }
 }
 .container{
+    /*All pages similar looking to Home page and Guide */
     &.--card{
         background-color: $gray-100;
         color: $dark-blue;
         border-radius: $border-radius;
         border: $border-transparent;
         box-shadow: $box-shadow;
-
         .section{
             &.--dark{
                 margin-left: -5px;
@@ -216,6 +219,7 @@ iframe{
         }
     }
 }
+/*Guide btn on homepage*/
 .guide{
     &__imgs{
         display: flex;
@@ -224,7 +228,6 @@ iframe{
         margin-bottom: $m-spacing-smaller;
     }
     &__buttons{
-        //width: 33%;
         .buttons{
             &__el{
                 margin-bottom: $m-half-gutter;

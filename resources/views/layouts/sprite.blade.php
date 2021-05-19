@@ -84,11 +84,13 @@
     </symbol>
     <!-- Drop-down -->
     <symbol id="icon-drop-down" viewBox="0 0 32 32">
-        <path d="M0 32v-32h32v32h-32z"></path>
+        <!--<path d="M0 32v-32h32v32h-32z"></path>-->
         <path d="M14.487 23.332c0.568 0.568 1.489 0.568 2.057 0l9.257-9.257c0.568-0.568 0.568-1.489 0-2.057s-1.489-0.568-2.057 0l-8.228 8.228-8.228-8.228c-0.568-0.568-1.489-0.568-2.057 0s-0.568 1.489 0 2.057l9.257 9.257zM14.061 21.333v0.97h2.909v-0.97h-2.909z"></path>
     </symbol>
     
     <!-- to use it :
-        -> <svg class="icon icon-plus"><use xlink:href="#icon-plus"></use></svg>
+        ->  <svg class="icon icon-plus">
+                <use xlink:href="#icon-plus"></use>
+            </svg>
     -->
 </svg>
