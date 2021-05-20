@@ -53,11 +53,20 @@
                                     </svg>
                                 </button>
                             </div>
-                            <div class="filter__content">
+                            <form class="filter__content" method="GET">
+                                @csrf
                                 <div class="content__part --fighters" data-visible="false">
                                     <div class="part">
                                        <div class="part__fighters">
-                                            
+                                            @foreach ($fighters as $fighter)
+                                            <input type="checkbox" name="filter-fighter" id="ff-{{ $fighter->id }}" value="{{ $fighter->id }}">
+                                            <label class="fighter" for="ff-{{ $fighter->id }}">
+                                                <img src="{{ asset('/storage/'. $fighter->image_path) }}" alt="{{ $fighter->name }}">
+                                            </label>
+                                            @endforeach
+                                            <button type="button" class="btn --fighter">
+                                                Clear all
+                                            </button>
                                        </div>
                                     </div>    
                                 </div>
@@ -82,7 +91,7 @@
                                        </div>
                                     </div> 
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

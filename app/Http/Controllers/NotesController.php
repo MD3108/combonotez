@@ -26,13 +26,12 @@ class NotesController extends Controller
     public function index()
     {
         $notes = Note::orderBy('updated_at', 'DESC')->paginate(12);
-        //$notations = json_decode($notes->pluck('notation'));
-        //$notes = Note::all();
+        $fighters = Fighter::all();
         abort_if($notes->isEmpty(), 204);
         
         return view('note.index', [
             'notes' => $notes,
-            //'notations' => $notations,
+            'fighters' => $fighters,
         ]);
     }
 

@@ -7,7 +7,6 @@ const tabsContent = document.querySelectorAll('.content__part');
 const dropDown = document.querySelector('.card.--filter .btn.--dd');
 const filterTitle = document.querySelector('.card.--filter .filter__title');
 const tabs = document.querySelectorAll('.filter__tab .tab__title');
-console.log(dropDown);
 
 // * ------------------ //
 // * Direct execution* //
@@ -23,7 +22,6 @@ ddOpenClose(filterTitle);
 
 tabs.forEach( tab => {
     tab.addEventListener('click', (e) => {
-        console.log(tab.classList.contains('--fighters'));
         if(tab.classList.contains('--fighters')){
             tabsContent.forEach( content => {
                 content.setAttribute('data-visible', 'false'); 

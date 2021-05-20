@@ -10041,6 +10041,7 @@ h3 {
   padding: calc(.625rem * 2);
   border: 1px solid transparent !important;
   box-shadow: 0 0.333rem 0.444rem rgba(6, 28, 45, 0.1);
+  /* Filter section */
 }
 .card.--vod {
   position: absolute;
@@ -10073,6 +10074,8 @@ h3 {
   z-index: 30;
   width: 100%;
   max-width: 1400px;
+  /* Filter open */
+  /*End Filter section */
 }
 .card.--filter .filter {
   position: relative;
@@ -10113,12 +10116,87 @@ h3 {
 .card.--filter .filter__content {
   width: 100%;
 }
+.card.--filter .filter__content .content__part .part__fighters input[type=checkbox] {
+  display: none;
+}
+.card.--filter .filter__content .content__part .part__fighters .fighter {
+  margin-bottom: 0;
+}
+.card.--filter .filter__content .content__part .part__fighters .fighter img {
+  width: 0vw;
+}
 .card.--filter.--open {
   background-color: #061C2D;
   color: #EBF6FF;
 }
 .card.--filter.--open .icon-filter, .card.--filter.--open .icon-drop-down {
   fill: #EBF6FF;
+}
+.card.--filter.--open .filter__title {
+  margin-bottom: calc(.625rem * 4);
+}
+.card.--filter.--open .filter__tabs {
+  margin-bottom: calc(.625rem * 4);
+}
+.card.--filter.--open .filter__content {
+  width: 100%;
+}
+.card.--filter.--open .filter__content .content__part .part__fighters {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card.--filter.--open .filter__content .content__part .part__fighters .fighter {
+  position: relative;
+  padding: 1px;
+}
+.card.--filter.--open .filter__content .content__part .part__fighters .fighter img {
+  max-width: 90px;
+  width: 2.8vw;
+  height: auto;
+  background-color: #EBF6FF;
+  border: #061C2D;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+.card.--filter.--open .filter__content .content__part .part__fighters :checked + .fighter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #061C2D;
+  opacity: 0.3;
+  margin: auto;
+  cursor: pointer;
+}
+.card.--filter.--open .filter__content .content__part .part__fighters :checked + .fighter::after {
+  content: "✓";
+  color: #EBF6FF;
+  font-weight: 700;
+  line-height: 2rem;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 1.4vw;
+  height: 1.4vw;
+  background-color: #061C2D;
+  border-radius: 20px;
+  margin: auto;
+  cursor: pointer;
+}
+.card.--filter.--open .filter__content .content__part .part__fighters .btn.--fighter {
+  width: 2.8vw;
+  padding: 0;
+  height: auto;
+  padding-top: 0.3rem;
+  color: #EBF6FF;
+}
+.card.--filter.--open .filter__content .content__part .part__general {
+  margin-top: calc(.625rem * 4);
 }
 .card__content .content__header {
   display: flex;
