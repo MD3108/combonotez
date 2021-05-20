@@ -57,6 +57,7 @@
                 align-items: center;
                 margin-left: $m-double-gutter;
                 width: 64vw;
+                max-width: 1229px;
                 & .btn{
                     &.--dd{
                         cursor: pointer;                        

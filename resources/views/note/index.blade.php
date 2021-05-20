@@ -43,8 +43,8 @@
                                     </h3>
                                 </div>
                                 <div class="filter__tab">
-                                    <h3 class="tab__title title --filter --others">
-                                        Others
+                                    <h3 class="tab__title title --filter --other">
+                                        Other
                                     </h3>
                                 </div>
                                 <button class="btn --dd">
@@ -55,13 +55,32 @@
                             </div>
                             <div class="filter__content">
                                 <div class="content__part --fighters" data-visible="false">
-                                   something-1     
+                                    <div class="part">
+                                       <div class="part__fighters">
+                                            
+                                       </div>
+                                    </div>    
                                 </div>
                                 <div class="content__part --assists" data-visible="false">
-                                   somethin-2
+                                    <div class="part">
+                                       <div class="part__assists">
+                                            Assists
+                                       </div>
+                                    </div> 
                                 </div>
                                 <div class="content__part --other" data-visible="false">
-                                   something-3
+                                    <div class="part">
+                                       <div class="part__other">
+                                            Other
+                                       </div>
+                                    </div> 
+                                </div>
+                                <div class="content__part --general" data-visible="false">
+                                    <div class="part">
+                                       <div class="part__general">
+                                            General
+                                       </div>
+                                    </div> 
                                 </div>
                             </div>
                         </div>

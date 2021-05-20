@@ -10097,6 +10097,7 @@ h3 {
   align-items: center;
   margin-left: calc(.625rem * 4);
   width: 64vw;
+  max-width: 1229px;
 }
 .card.--filter .filter__tabs .btn.--dd {
   cursor: pointer;

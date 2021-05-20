@@ -28,6 +28,7 @@ tabs.forEach( tab => {
             tabsContent.forEach( content => {
                 content.setAttribute('data-visible', 'false'); 
             });
+            tabsContent[tabsContent.length-1].setAttribute('data-visible', 'true');
             tabsContent[0].setAttribute('data-visible', "true");
             if(!dropDown.classList.contains('--close-dd')){
                 dropDown.classList.add('--close-dd');
@@ -37,15 +38,17 @@ tabs.forEach( tab => {
             tabsContent.forEach( content => {
                 content.setAttribute('data-visible', 'false'); 
             });
+            tabsContent[tabsContent.length-1].setAttribute('data-visible', 'true');
             tabsContent[1].setAttribute('data-visible', "true");
             if(!dropDown.classList.contains('--close-dd')){
                 dropDown.classList.add('--close-dd');
                 filter.classList.add('--open');
             }
-        } else if(tab.classList.contains('--others')){
+        } else if(tab.classList.contains('--other')){
             tabsContent.forEach( content => {
                 content.setAttribute('data-visible', 'false'); 
             });
+            tabsContent[tabsContent.length-1].setAttribute('data-visible', 'true');
             tabsContent[2].setAttribute('data-visible', "true");
             if(!dropDown.classList.contains('--close-dd')){
                 dropDown.classList.add('--close-dd');
@@ -76,6 +79,7 @@ function ddOpenClose (target){
             tabsContent.forEach( tab => {
                 tab.setAttribute('data-visible', 'false'); 
             });
+            tabsContent[tabsContent.length-1].setAttribute('data-visible', 'true');
             tabsContent[0].setAttribute('data-visible', "true");
             dropDown.classList.add('--close-dd');
             filter.classList.add('--open');
