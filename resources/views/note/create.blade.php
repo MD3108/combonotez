@@ -200,7 +200,7 @@
                                                     <use xlink:href="#icon-warning"></use>
                                                 </svg>
                                                 <span class="pl-2">
-                                                    Plug in your Game Pad or Stick. If pluged in press one button.
+                                                    Plug in your Game Pad or Stick. If pluged in press a button.
                                                 </span>
                                             </div>
                                         </div>

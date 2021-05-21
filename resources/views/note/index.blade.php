@@ -59,7 +59,7 @@
                                     <div class="part">
                                        <div class="part__fighters">
                                             @foreach ($fighters as $fighter)
-                                            <input type="checkbox" name="filter-fighter" id="ff-{{ $fighter->id }}" value="{{ $fighter->id }}">
+                                            <input type="checkbox" name="filter-fighter[]" id="ff-{{ $fighter->id }}" value="{{ $fighter->id }}">
                                             <label class="fighter" for="ff-{{ $fighter->id }}">
                                                 <img src="{{ asset('/storage/'. $fighter->image_path) }}" alt="{{ $fighter->name }}">
                                             </label>
@@ -73,14 +73,67 @@
                                 <div class="content__part --assists" data-visible="false">
                                     <div class="part">
                                        <div class="part__assists">
-                                            Assists
+                                            @foreach ($fighters as $fighter)
+                                            <div class="assist --filter">
+                                                <select class="assist__select --fighter{{ $fighter->id }}" name="filter-assists[]" id="a-{{ $fighter->id }}">
+                                                    <option value="0">
+                                                        ∀
+                                                    </option>
+                                                    @foreach ( config('enum.assists') as $key=>$assist)
+                                                    <option value="{{ $key }}">
+                                                        {{ $assist }}
+                                                    </option>
+                                                    @endforeach
+                                                </select>
+                                                <label class="assist__fighter" for="a-{{ $fighter->id }}">
+                                                    <img src="{{ asset('/storage/'. $fighter->image_path) }}" alt="{{ $fighter->name }}">
+                                                </label>
+                                            </div>
+                                            @endforeach
                                        </div>
                                     </div> 
                                 </div>
                                 <div class="content__part --other" data-visible="false">
                                     <div class="part">
                                        <div class="part__other">
-                                            Other
+                                            <div class="other__filters --creator">
+                                                <label class="title --h4" for="creator">
+                                                    Creator of Note(s)
+                                                </label>
+                                                <input type="text" id="creator" maxlength="45" placeholder="Search Username">
+                                            </div>
+                                            <div class="other__filters --categories">
+                                                <span class="title --h4">
+                                                    Categories
+                                                </span>
+                                                <div class="categories__list">
+                                                    @foreach ($categories as $category)
+                                                        @if($category->name != "SPARK")
+                                                        <div class="categories__el">
+                                                            <input type="checkbox" name="categories[]" id="{{ $category->name }}" value="{{ $category->id }}">
+                                                            <label for="{{ $category->name }}" >
+                                                                {{ $category->name }}
+                                                            </label>
+                                                        </div>
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                            <div class="other__filters --difficulties">
+                                                <span class="title --h4">
+                                                    Difficulties
+                                                </span>
+                                                <div class="difficulties__list">
+                                                    @foreach (config('enum.difficulties') as $key=>$difficulty)
+                                                    <div class="difficulties__el">
+                                                        <input type="checkbox" name="difficulties[]" id="{{ $difficulty }}" value="{{ $key }}">
+                                                        <label for="{{ $difficulty }}" >
+                                                            {{ $difficulty }}
+                                                        </label>
+                                                    </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
                                        </div>
                                     </div> 
                                 </div>

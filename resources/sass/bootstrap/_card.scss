@@ -84,11 +84,38 @@
                                 & input[type="checkbox"]{
                                     display: none;
                                 }
-                                .fighter{
+                                & .fighter{
                                     margin-bottom: 0;
                                     & img{
                                         width: 0vw;
                                     }                                    
+                                }
+                                & .btn{
+                                    &.--fighter{
+                                        display: none;
+                                    }
+                                }
+                            }
+                            &__assists{
+                                & .assist{
+                                    &.--filter{
+                                        .assist{
+                                            &__select{
+                                                display: none;
+                                            }
+                                            &__fighter{
+                                                margin-bottom: 0;
+                                               & img{
+                                                   width: 0;
+                                               }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            &__other{
+                                & input[type="checkbox"]{
+                                    display: none;
                                 }
                             }
                         }
@@ -109,6 +136,11 @@
                 }
                 &__tabs{
                     margin-bottom: $m-double-gutter;
+                    & .btn{
+                        &.--close-dd{
+                            transform: rotate(-180deg);
+                        }
+                    }
                 }
                 &__content{
                     width: 100%;
@@ -126,7 +158,7 @@
                                             width: 2.8vw;
                                             height: auto;
                                             background-color: $light-blue;
-                                            border: $dark-blue;
+                                            border: $border-dark-blue;
                                             border-radius: $border-radius;
                                             cursor: pointer;
                                         }                                    
@@ -138,13 +170,12 @@
                                         bottom: 0;
                                         right: 0;
                                         left: 0;
-                                        background-color: $dark-blue;
-                                        opacity: .3;
+                                        background-color: $fade-bg;
                                         margin: auto;
                                         cursor: pointer;
                                     }
                                     & :checked + .fighter::after{
-                                        content: "✓";
+                                        content: url('/storage/images/check-light.svg');
                                         color: $light-blue;
                                         font-weight: $font-weight-bold;
                                         line-height: $font-size-title-h3;
@@ -154,8 +185,8 @@
                                         bottom: 0;
                                         right: 0;
                                         left: 0;
-                                        width: 1.4vw;
-                                        height: 1.4vw;
+                                        width: 2vw;
+                                        height: 2vw;
                                         background-color: $dark-blue;
                                         border-radius: 20px;
                                         margin: auto;
@@ -163,6 +194,7 @@
                                     }
                                     & .btn{
                                         &.--fighter{
+                                            display: inline-block;
                                             width: 2.8vw;
                                             padding: 0;
                                             height: auto;
@@ -171,6 +203,177 @@
                                         }
                                     }
                                 }
+                                &__assists{
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    & .assist{
+                                        &.--filter{
+                                            position: relative;
+                                            .assist{
+                                                &__select{
+                                                    display: block;
+                                                    position: absolute;
+                                                    bottom: 0;
+                                                    right: 0;
+                                                    z-index: 5;
+                                                    border: $border-dark-blue;
+                                                    border-bottom-right-radius: $border-radius;
+                                                    cursor: pointer;
+                                                    & option{
+                                                        color: $light-blue;
+                                                        cursor: pointer;
+                                                        &[value="0"]{
+                                                            background-color: $primary;
+                                                        }
+                                                        &[value="1"]{
+                                                            background-color: $red-assist;
+                                                        }
+                                                        &[value="2"]{
+                                                            background-color: $blue-assist;
+                                                        }
+                                                        &[value="3"]{
+                                                            background-color: $green-assist;
+                                                        }
+                                                    }
+                                                }
+                                                &__fighter{
+                                                    position: relative;
+                                                    padding: 1px;
+                                                    & img{
+                                                        max-width: 90px;
+                                                        width: 2.8vw;
+                                                        height: auto;
+                                                        background-color: $light-blue;
+                                                        border: $border-dark-blue;
+                                                        border-radius: $border-radius;
+                                                        
+                                                    }  
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                &__other{
+                                    display: flex;
+                                    justify-content: space-between;
+                                    .other{
+                                        &__filters{
+                                            flex: 1 1 33%;
+                                            &.--creator{
+                                                display: flex;
+                                                flex-wrap: wrap;
+                                                align-content: flex-start;
+                                                justify-content: space-between;
+                                                padding-right: $m-double-gutter;
+                                                margin-right: $m-gutter;
+                                                & input[type="text"]{
+                                                    width: 100%;
+                                                    background-color: $light-fade-bg;
+                                                    border: none;
+                                                    border-radius: $border-radius;
+                                                    font-size: $font-size-filter;
+                                                    line-height: $font-size-filter;
+                                                    padding: $m-quarter-gutter $m-half-gutter;
+                                                    color: $light-blue;
+                                                    &::placeholder{
+                                                        color: $light-blue;
+                                                    }
+                                                }
+                                            }
+                                            &.--categories{
+                                                
+                                                & .categories{
+                                                    &__list{
+                                                        display: flex;
+                                                        justify-content: space-between;
+                                                        align-content: flex-start;
+                                                        flex-wrap: wrap;
+                                                    }
+                                                    &__el{                                                        
+                                                        & label{
+                                                            background-color: $light-fade-bg;
+                                                            border: $border-dark-blue;
+                                                            border-radius: $border-radius;
+                                                            padding: .75rem .9375rem;
+                                                            line-height: $font-size-base;
+                                                            font-size: $font-size-base;
+                                                            margin-bottom: 0;
+                                                            cursor: pointer;                                                            
+                                                        }
+                                                        & :checked + label{
+                                                            background-color: $primary;
+                                                            color: $dark-blue;
+                                                            padding-left: 2.9375rem;
+                                                            position: relative;
+                                                        }
+                                                        & :checked + label::before{
+                                                            content: url('/storage/images/check.svg');
+                                                            fill: $dark-blue;
+                                                            color: $dark-blue;
+                                                            display: inline-block;
+                                                            max-height: $font-size-base;
+                                                            max-width: $font-size-base;
+                                                            position: absolute;
+                                                            top: auto;
+                                                            bottom: auto;
+                                                            left: .9375rem;
+                                                            right: 0;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            &.--difficulties{
+                                                margin-left: $m-spacing;
+                                                & .difficulties{
+                                                    &__list{
+                                                        display: flex;
+                                                        justify-content: space-between;
+                                                        align-content: flex-start;
+                                                        flex-wrap: wrap;
+                                                    }
+                                                    &__el{                                                        
+                                                        & label{
+                                                            background-color: $light-fade-bg;
+                                                            border: $border-dark-blue;
+                                                            border-radius: $border-radius;
+                                                            padding: .75rem .9375rem;
+                                                            line-height: $font-size-base;
+                                                            font-size: $font-size-base;
+                                                            margin-bottom: 0;
+                                                            cursor: pointer;                                                            
+                                                        }
+                                                        & :checked + label{
+                                                            background-color: $primary;
+                                                            color: $dark-blue;
+                                                            padding-left: 2.9375rem;
+                                                            position: relative;
+                                                        }
+                                                        & :checked + label::before{
+                                                            content: url('/storage/images/check.svg');
+                                                            fill: $dark-blue;
+                                                            color: $dark-blue;
+                                                            display: inline-block;
+                                                            max-height: $font-size-base;
+                                                            max-width: $font-size-base;
+                                                            position: absolute;
+                                                            top: auto;
+                                                            bottom: auto;
+                                                            left: .9375rem;
+                                                            right: 0;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            & .title.--h4{
+                                                display: block;
+                                                width: 100%;
+                                                font-weight: $font-weight-base;
+                                                margin-bottom: $m-gutter;
+                                            }
+                                        }
+                                    }
+                                }
+
                                 &__general{
                                     margin-top: $m-double-gutter;
                                 }

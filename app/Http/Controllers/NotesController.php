@@ -27,11 +27,13 @@ class NotesController extends Controller
     {
         $notes = Note::orderBy('updated_at', 'DESC')->paginate(12);
         $fighters = Fighter::all();
+        $categories = Category::all();
         abort_if($notes->isEmpty(), 204);
         
         return view('note.index', [
             'notes' => $notes,
             'fighters' => $fighters,
+            'categories' => $categories,
         ]);
     }
 
