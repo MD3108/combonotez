@@ -10918,6 +10918,15 @@ iframe {
 .section.--what-is-cnz .content__el.--right {
   margin-left: 0.625rem;
 }
+.section.--how-to-use h2 ~ span.--sub {
+  margin-bottom: 3.125rem;
+}
+.section.--how-to-use .discover h4.title {
+  line-height: 2rem;
+}
+.section.--how-to-use .discover__find {
+  margin-bottom: 3.75rem;
+}
 .section.--how-to-use .discover__find .find__filter {
   margin-bottom: calc(.625rem * 2);
 }
@@ -10961,7 +10970,7 @@ iframe {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 3.75rem;
+  margin-bottom: 4.375rem;
 }
 .section.--how-to-use .create-note .step img {
   box-shadow: 0 0.333rem 0.444rem rgba(6, 28, 45, 0.1);
@@ -11481,7 +11490,7 @@ body {
   margin-bottom: 1.875rem;
 }
 .title.--has-sub {
-  margin-bottom: inherit;
+  margin-bottom: 0.625rem;
 }
 .title.--main {
   font-size: 3.8125rem;

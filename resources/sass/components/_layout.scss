@@ -99,8 +99,17 @@ iframe{
         }
     }
     &.--how-to-use{
+        & h2{
+            & ~ span.--sub{
+                margin-bottom: $m-spacing-small;
+            }
+        }
         .discover{
+            & h4.title{
+                line-height: $font-size-title-h3;
+            }
             &__find{
+                margin-bottom: $m-spacing;
                 .find{
                     &__filter{
                         margin-bottom: $m-gutter;
@@ -156,7 +165,7 @@ iframe{
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                margin-bottom: $m-spacing;
+                margin-bottom: $m-spacing-big;
                 & img{
                     box-shadow: $box-shadow;
                 }

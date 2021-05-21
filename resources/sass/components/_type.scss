@@ -8,7 +8,7 @@ body{
     font-size: $font-size-title-h2;
     margin-bottom: $m-h2;
     &.--has-sub{
-        margin-bottom: inherit;
+        margin-bottom: $m-half-gutter;
     }
     &.--main{
         font-size: $font-size-title-h1;
