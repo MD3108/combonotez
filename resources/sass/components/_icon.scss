@@ -56,6 +56,11 @@
         }
     }
 
+    &-blocked{
+        max-width: inherit;
+        max-height: inherit;
+    }
+
     .btn.--close{
         position: absolute;
         top: $m-gutter;

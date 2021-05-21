@@ -7,7 +7,6 @@ var msnry = new Masonry( grid, {
 });
 
 let elem = document.querySelector('.grid');
-console.log(elem);
 
 let infScroll = new InfiniteScroll( elem, {
   // options

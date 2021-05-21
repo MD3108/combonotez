@@ -65,3 +65,23 @@ $border-transparent: 1px solid transparent;
 $box-shadow-sm: 0 0.333rem 0.444rem rgba($dark-blue, .1);
 $box-shadow: 0 0.333rem 0.444rem rgba($dark-blue, .1);
 $box-shadow-lg: 0 0.333rem 0.444rem rgba($dark-blue, .1);
+
+//** Form Range **//
+$form-range-track-width:          100%;
+$form-range-track-height:         .625rem;
+$form-range-track-cursor:         pointer;
+$form-range-track-bg:             $light-fade-bg;
+$form-range-track-border-radius:  1rem;
+$form-range-track-box-shadow:     $box-shadow;
+
+$form-range-thumb-width:                   1.5625rem;
+$form-range-thumb-height:                  $form-range-thumb-width;
+$form-range-thumb-bg:                      $light-blue;
+$form-range-thumb-border:                  $border-dark-blue;
+$form-range-thumb-border-radius:           $form-range-thumb-width;
+$form-range-thumb-box-shadow:              $box-shadow;
+$form-range-thumb-focus-box-shadow:        0 0 0 1px $body-bg, $input-focus-box-shadow;
+$form-range-thumb-focus-box-shadow-width:  $input-focus-width; // For focus box shadow issue in Edge
+$form-range-thumb-active-bg:               tint-color($primary, 70%);
+$form-range-thumb-disabled-bg:             $light-fade-bg;
+$form-range-thumb-transition:              background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;

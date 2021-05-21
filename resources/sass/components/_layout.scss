@@ -57,6 +57,9 @@ iframe{
 .hide{
     display: none !important;
 }
+.visually-hidden{
+    visibility: hidden;
+}
 .active{
     color: $primary !important;
     & .icon{

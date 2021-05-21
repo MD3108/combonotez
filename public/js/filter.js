@@ -7,6 +7,7 @@ const tabsContent = document.querySelectorAll('.content__part');
 const dropDown = document.querySelector('.card.--filter .btn.--dd');
 const filterTitle = document.querySelector('.card.--filter .filter__title');
 const tabs = document.querySelectorAll('.filter__tab .tab__title');
+const damageRange = document.getElementById('damageRange');
 
 // * ------------------ //
 // * Direct execution* //
@@ -19,6 +20,11 @@ isVisible(tabsContent);
 
 ddOpenClose(dropDown);
 ddOpenClose(filterTitle);
+
+//https://www.bauer.uh.edu/parks/slider.htm
+damageRange.addEventListener('change', (e) => {
+    show_value2(e.currentTarget.value);
+});
 
 tabs.forEach( tab => {
     tab.addEventListener('click', (e) => {
@@ -91,4 +97,9 @@ function ddOpenClose (target){
         }
         isVisible(tabsContent);
     });
+}
+
+function show_value2(x)
+{
+ document.getElementById("slider_value2").innerHTML=x;
 }

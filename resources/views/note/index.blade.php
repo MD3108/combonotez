@@ -77,13 +77,16 @@
                                             <div class="assist --filter">
                                                 <select class="assist__select --fighter{{ $fighter->id }}" name="filter-assists[]" id="a-{{ $fighter->id }}">
                                                     <option value="0">
-                                                        ∀
+                                                        -
                                                     </option>
                                                     @foreach ( config('enum.assists') as $key=>$assist)
                                                     <option value="{{ $key }}">
                                                         {{ $assist }}
                                                     </option>
                                                     @endforeach
+                                                    <option value="4">
+                                                        ∀
+                                                    </option>
                                                 </select>
                                                 <label class="assist__fighter" for="a-{{ $fighter->id }}">
                                                     <img src="{{ asset('/storage/'. $fighter->image_path) }}" alt="{{ $fighter->name }}">
@@ -140,7 +143,53 @@
                                 <div class="content__part --general" data-visible="false">
                                     <div class="part">
                                        <div class="part__general">
-                                            General
+                                            <div class="general__filters --damage">
+                                                <div class="damage">
+                                                    <div class="damage__slider">
+                                                        <div class="slider__header">
+                                                            <label for="damageRange" class="form-label">More than</label>
+                                                            <span class="header__field">
+                                                                <span id="slider_value2" class="value">
+                                                                    0
+                                                                </span>
+                                                                &nbsp;Damage
+                                                            </span>
+                                                        </div>
+                                                        <input type="range" class="form-range --damage" value="0" min="0" max="10000" step="100" id="damageRange">
+                                                    </div>
+                                                    <div class="damage__spark">
+                                                        <input type="checkbox" name="classics[]" id="spark" value="1">
+                                                        <label for="spark">
+                                                            <svg class="icon icon-blocked">
+                                                                <use xlink:href="#icon-blocked"></use>
+                                                            </svg>
+                                                            <img src="{{ asset('/storage/images/buttons/SPARK.png') }}" alt="SPARK">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="general__filters --classics">
+                                                <div class="classics__list">
+                                                    <div class="classics__el">
+                                                        <input type="checkbox" name="classics[]" id="popular" value="1">
+                                                        <label for="popular">
+                                                            Popular
+                                                        </label>
+                                                    </div>
+                                                    <div class="classics__el">
+                                                        <input type="checkbox" name="classics[]" id="newest" value="2">
+                                                        <label for="newest">
+                                                            Newest
+                                                        </label>
+                                                    </div>
+                                                    <div class="classics__el">
+                                                        <input type="checkbox" name="classics[]" id="favorites" value="3">
+                                                        <label for="favorites">
+                                                            Favorites
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                        </div>
                                     </div> 
                                 </div>
@@ -376,11 +425,10 @@
                         @endforeach
                     </div>
                     <div class="page-load-status">
-                        <div class="loader-ellips infinite-scroll-request">
-                          <span class="loader-ellips__dot"></span>
-                          <span class="loader-ellips__dot"></span>
-                          <span class="loader-ellips__dot"></span>
-                          <span class="loader-ellips__dot"></span>
+                        <div class="loader-ellips infinite-scroll-request d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
                         </div>
                         <p class="infinite-scroll-last text-md-center m-auto">You have seen all notes, create some more!</p>
                         <p class="infinite-scroll-error text-md-center m-auto">No more pages to load</p>
