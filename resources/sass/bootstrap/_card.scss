@@ -245,6 +245,22 @@
                                                             background-color: $primary;
                                                         }
                                                     }
+                                                    &.--A{
+                                                        color: $light-blue;
+                                                        background-color: $red-assist;
+                                                    }
+                                                    &.--B{
+                                                        color: $light-blue;
+                                                        background-color: $blue-assist;
+                                                    }
+                                                    &.--C{
+                                                        color: $light-blue;
+                                                        background-color: $green-assist;
+                                                    }
+                                                    &.--any{
+                                                        color: $light-blue;
+                                                        background-color: $primary;
+                                                    }
                                                 }
                                                 &__fighter{
                                                     position: relative;
@@ -259,7 +275,18 @@
                                                         
                                                     }  
                                                 }
+
                                             }
+                                        }
+                                    }
+                                    & .btn{
+                                        &.--assist{
+                                            display: inline-block;
+                                            width: 2.8vw;
+                                            padding: 0;
+                                            height: auto;
+                                            padding-top: .3rem;
+                                            color: $light-blue;
                                         }
                                     }
                                 }
@@ -482,8 +509,6 @@
                                             }
                                         }
                                     }
-                                    
-                                    
                                 }
                             }
                         }

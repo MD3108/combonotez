@@ -93,6 +93,9 @@
                                                 </label>
                                             </div>
                                             @endforeach
+                                            <button type="button" class="btn --assist">
+                                                Clear all
+                                            </button>
                                        </div>
                                     </div> 
                                 </div>

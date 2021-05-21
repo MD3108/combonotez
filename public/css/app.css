@@ -10256,6 +10256,22 @@ h3 {
 .card.--filter.--open .filter__content .content__part .part__assists .assist.--filter .assist__select option[value="4"] {
   background-color: #FFAA2B;
 }
+.card.--filter.--open .filter__content .content__part .part__assists .assist.--filter .assist__select.--A {
+  color: #EBF6FF;
+  background-color: #F85656;
+}
+.card.--filter.--open .filter__content .content__part .part__assists .assist.--filter .assist__select.--B {
+  color: #EBF6FF;
+  background-color: #1085DE;
+}
+.card.--filter.--open .filter__content .content__part .part__assists .assist.--filter .assist__select.--C {
+  color: #EBF6FF;
+  background-color: #3DAF4A;
+}
+.card.--filter.--open .filter__content .content__part .part__assists .assist.--filter .assist__select.--any {
+  color: #EBF6FF;
+  background-color: #FFAA2B;
+}
 .card.--filter.--open .filter__content .content__part .part__assists .assist.--filter .assist__fighter {
   position: relative;
   padding: 1px;
@@ -10267,6 +10283,14 @@ h3 {
   background-color: #EBF6FF;
   border: 1px solid #061C2D;
   border-radius: 0.4rem;
+}
+.card.--filter.--open .filter__content .content__part .part__assists .btn.--assist {
+  display: inline-block;
+  width: 2.8vw;
+  padding: 0;
+  height: auto;
+  padding-top: 0.3rem;
+  color: #EBF6FF;
 }
 .card.--filter.--open .filter__content .content__part .part__other {
   display: flex;
