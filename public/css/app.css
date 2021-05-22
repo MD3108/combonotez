@@ -11591,6 +11591,9 @@ iframe {
   max-width: 453px;
   width: 33.333%;
 }
+.grid.--open {
+  margin-top: calc(21.3125rem + 1.875rem);
+}
 
 body {
   color: #061C2D;

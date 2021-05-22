@@ -9,6 +9,7 @@ const filterTitle = document.querySelector('.card.--filter .filter__title');
 const tabs = document.querySelectorAll('.filter__tab .tab__title');
 const damageRange = document.getElementById('damageRange');
 const assistSelect = document.querySelectorAll('.part__assists .assist__select');
+const notesGrid = document.querySelector('.grid');
 console.log(assistSelect);
 
 // * ------------------ //
@@ -105,6 +106,7 @@ tabs.forEach( tab => {
                 filter.classList.add('--open');
             }
         }
+        notesGrid.classList.add('--open');
         isVisible(tabsContent);
     });
 });
@@ -135,6 +137,7 @@ function ddOpenClose (target){
             tabs[0].classList.add('active');
             dropDown.classList.add('--close-dd');
             filter.classList.add('--open');
+            notesGrid.classList.add('--open');
         }    
         else{
             tabsContent.forEach( tab => {
@@ -142,6 +145,7 @@ function ddOpenClose (target){
             });
             dropDown.classList.remove('--close-dd');
             filter.classList.remove('--open');
+            notesGrid.classList.remove('--open');
         }
         isVisible(tabsContent);
     });
