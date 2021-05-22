@@ -14,4 +14,8 @@ class PagesController extends Controller
     public function guide(){
         return view('guide');
     }
+
+    public function credits(){
+        return view('credits');
+    }
 }

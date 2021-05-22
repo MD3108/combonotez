@@ -130,7 +130,38 @@ iframe{
                         justify-content: center;
                         max-width: 453px;
                         .card{
-                            width: 453px
+                            width: 453px;
+                            & .fighter{
+                                &:hover{
+                                    position: relative;
+                                    &::before{
+                                        position: absolute;
+                                        opacity: 80%;
+                                        right: 93%;
+                                        content: "▶";
+                                        transform: rotate(0deg);
+                                        font-size: $font-size-base;
+                                        font-family: $font-family-sans-serif-condensed;
+                                        padding: $m-half-gutter;
+                                        color: $dark-blue;
+                                        border-radius: $border-radius;
+                                        white-space: nowrap;
+                                    }
+                                    &::after{
+                                        position: absolute;
+                                        opacity: 80%;
+                                        right: 118%;
+                                        content: "Main Fighter";
+                                        font-size: $font-size-base;
+                                        font-family: $font-family-sans-serif-condensed;
+                                        padding: $m-half-gutter;
+                                        background-color: $dark-blue;
+                                        color: $light-blue;
+                                        border-radius: $border-radius;
+                                        white-space: nowrap;
+                                    }
+                                }
+                            }
                         }
                     }
                 }

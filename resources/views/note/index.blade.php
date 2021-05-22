@@ -3,7 +3,7 @@
 @section('content')
     <section>
         <div class="guide">
-            <a href="/guide" class="btn --guide">
+            <a href="{{ url('/guide') }}" class="btn --guide">
                 <svg class="icon icon-info">
                     <use xlink:href="#icon-info"></use>
                 </svg>
@@ -378,7 +378,7 @@
                                                             </div>
                                                             <div class="update__menu ">
                                                                 <div class="menu__edit">
-                                                                    <a class="btn card-link" href="/note/{{ $note->id }}/edit" >
+                                                                    <a class="btn card-link" href="{{ url('/note/'. $note->id .'/edit') }}" >
                                                                         <svg class="icon icon-edit">
                                                                             <use xlink:href="#icon-edit"></use>
                                                                         </svg>

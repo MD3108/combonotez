@@ -19,6 +19,8 @@ Route::get('/',  [PagesController::class, 'index'] );
 
 Route::get('/guide',  [PagesController::class, 'guide'] );
 
+Route::get('/credits',  [PagesController::class, 'credits'] );
+
 Route::resource('/note',  NotesController::class);
 
 Auth::routes();

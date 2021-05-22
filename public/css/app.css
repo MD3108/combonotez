@@ -11061,6 +11061,35 @@ iframe {
 .section.--how-to-use .discover__read .read__note .card {
   width: 453px;
 }
+.section.--how-to-use .discover__read .read__note .card .fighter:hover {
+  position: relative;
+}
+.section.--how-to-use .discover__read .read__note .card .fighter:hover::before {
+  position: absolute;
+  opacity: 80%;
+  right: 93%;
+  content: "▶";
+  transform: rotate(0deg);
+  font-size: 1.125rem;
+  font-family: "Saira Condensed", condensed;
+  padding: 0.625rem;
+  color: #061C2D;
+  border-radius: 0.4rem;
+  white-space: nowrap;
+}
+.section.--how-to-use .discover__read .read__note .card .fighter:hover::after {
+  position: absolute;
+  opacity: 80%;
+  right: 118%;
+  content: "Main Fighter";
+  font-size: 1.125rem;
+  font-family: "Saira Condensed", condensed;
+  padding: 0.625rem;
+  background-color: #061C2D;
+  color: #EBF6FF;
+  border-radius: 0.4rem;
+  white-space: nowrap;
+}
 .section.--how-to-use .discover__read .btn-primary.--discover {
   margin: auto;
   margin-top: 3.75rem;
@@ -11252,10 +11281,11 @@ iframe {
   white-space: nowrap;
 }
 .main.--form .section.--form .col-9 {
-  max-width: 1048px;
+  max-width: 1046px;
   width: 100%;
-  min-height: 90vh;
-  padding: calc(.625rem * 2);
+  min-height: 920px;
+  height: 84.7222222222vh;
+  padding: 4.375rem calc(.625rem * 2);
 }
 .main.--form .section.--form .col-3 {
   display: flex;
@@ -11559,7 +11589,7 @@ iframe {
   color: #FFAA2B;
 }
 .progression__el.done::after {
-  content: "✓";
+  content: url("/storage/images/check-primary.svg");
   font-size: 700;
   position: absolute;
   right: 0;

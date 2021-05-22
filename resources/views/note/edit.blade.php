@@ -424,7 +424,7 @@
                         </div>
                         
                         <div class="col-3">
-                            <a href="/note" class="btn-close --close " aria-label="Close" >
+                            <a href="{{ url('/note') }}" class="btn-close --close " aria-label="Close" >
                                 <svg class="icon icon-close --light">
                                     <use xlink:href="#icon-close"></use>
                                 </svg>

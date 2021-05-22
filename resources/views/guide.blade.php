@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="guide">
-        <a href="/note" class="btn --guide">
+        <a href="{{ url('/note') }}" class="btn --guide">
             <svg class="icon icon-info">
                 <use xlink:href="#icon-info"></use>
             </svg>
@@ -10,7 +10,7 @@
     </div>
     <div class="container --card">
         <section class="section --guide">
-            <a href="/note" class="btn --close">
+            <a href="{{ url('/note') }}" class="btn --close">
                 <svg class="icon icon-close">
                     <use xlink:href="#icon-close"></use>
                 </svg>
