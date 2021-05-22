@@ -410,7 +410,6 @@
                                         }
                                     }
                                 }
-
                                 &__general{
                                     display: flex;
                                     align-items: center;
@@ -425,7 +424,125 @@
                                                 & .damage{
                                                     display: flex;
                                                     align-items: center;
-                                                    &__slider{}
+                                                    &__slider{
+                                                        font-size: $font-size-filter;
+                                                        line-height: $font-size-filter;
+                                                        & .slider{
+                                                            &__header{
+                                                                & .header{
+                                                                    &__field{
+                                                                        width: 100%;
+                                                                        background-color: $light-fade-bg;
+                                                                        border: none;
+                                                                        border-radius: $border-radius;
+                                                                        padding: $m-quarter-gutter $m-half-gutter;
+                                                                        color: $light-blue;
+                                                                        min-width: 167px;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        //https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+                                                        //remove basic style
+                                                        & input[type=range] {
+                                                            margin-top: $m-half-gutter;
+                                                            -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+                                                            width: 100%; /* Specific width is required for Firefox. */
+                                                            background: transparent; /* Otherwise white in Chrome */                                                                                     
+                                                            &::-webkit-slider-thumb {
+                                                                -webkit-appearance: none;
+                                                                margin-top:  -6.5px;
+                                                                border: $form-range-thumb-border;
+                                                                border-radius: $form-range-thumb-border-radius;
+                                                                width: $form-range-thumb-width;
+                                                                height: $form-range-thumb-height;
+                                                                background: $form-range-thumb-bg;
+                                                                cursor: $form-range-track-cursor;
+                                                                box-shadow: $form-range-thumb-box-shadow;
+                                                            }
+                                                            &::-webkit-slider-runnable-track{
+                                                                width: $form-range-track-width;
+                                                                height: $form-range-track-height;
+                                                                cursor: $form-range-track-cursor;
+                                                                box-shadow: $form-range-track-box-shadow;
+                                                                background: $form-range-track-bg;
+                                                                border-radius: $form-range-track-border-radius;
+                                                                border: $form-range-track-border;
+                                                            }
+                                                            &:focus {
+                                                                outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+                                                                &::-webkit-slider-runnable-track{
+                                                                    background: $form-range-track-bg;
+                                                                }
+                                                                &::-ms-fill-lower {
+                                                                    background: $form-range-track-bg;
+                                                                }
+                                                                &::-ms-fill-upper {
+                                                                    background: $form-range-thumb-bg;
+                                                                }
+                                                            }
+                                                            &::-ms-thumb{
+                                                                margin: 0;
+                                                                border: $form-range-thumb-border;
+                                                                border-radius: $form-range-thumb-border-radius;
+                                                                width: $form-range-thumb-width;
+                                                                height: $form-range-thumb-height;
+                                                                background: $form-range-thumb-bg;
+                                                                cursor: pointer;
+                                                                box-shadow: $form-range-thumb-box-shadow;
+                                                            }
+                                                            &::-ms-track {
+                                                                width: 100%;
+                                                                cursor: pointer;
+                                                                
+                                                                /* Hides the slider so custom styles can be added */
+                                                                background: transparent; 
+                                                                border-color: transparent;
+                                                                color: transparent;
+                                                            }                                                            
+                                                            &::-ms-track{
+                                                                width: $form-range-track-width;
+                                                                height: $form-range-track-height;
+                                                                cursor: $form-range-track-cursor;
+                                                                box-shadow: $form-range-track-box-shadow;
+                                                                background: transparent;
+                                                                background-color: transparent;
+                                                                color: transparent;
+                                                                border-radius: $form-range-track-border-radius;
+                                                                border: $form-range-track-border;
+                                                            }
+                                                            &::-ms-fill-lower {
+                                                                background: $form-range-track-bg;
+                                                                border: $form-range-track-border;
+                                                                border-radius: $form-range-track-border-radius;
+                                                                box-shadow: $form-range-track-box-shadow;
+                                                            }
+                                                            &::-ms-fill-upper{
+                                                                background: $form-range-thumb-bg;
+                                                                border: $form-range-thumb-border;
+                                                                border-radius: $form-range-thumb-border-radius;
+                                                                box-shadow: $form-range-thumb-box-shadow;
+                                                            }
+                                                            &::-moz-range-thumb {
+                                                                border: $form-range-thumb-border;
+                                                                border-radius: $form-range-thumb-border-radius;
+                                                                width: $form-range-thumb-width;
+                                                                height: $form-range-thumb-height;
+                                                                background: $form-range-thumb-bg;
+                                                                cursor: $form-range-track-cursor;
+                                                                box-shadow: $form-range-thumb-box-shadow;
+                                                            }
+                                                            &::-moz-range-track{
+                                                                width: $form-range-track-width;
+                                                                height: $form-range-track-height;
+                                                                cursor: $form-range-track-cursor;
+                                                                box-shadow: $form-range-track-box-shadow;
+                                                                background: $form-range-track-bg;
+                                                                border-radius: $form-range-track-border-radius;
+                                                                border: $form-range-track-border;
+                                                            }
+                                                        }
+                                                    }
                                                     &__spark{
                                                         margin-left: $m-spacing-small;
                                                         & label{

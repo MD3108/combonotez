@@ -14,18 +14,18 @@ $body-bg: $blue;
 $text-color: $dark-blue;
 
 // Typography
-$font-family-sans-serif: 'Saira', sans-serif;
-$font-family-sans-serif-condensed: 'Saira Condensed', condensed;
+$font-family-sans-serif:            'Saira', sans-serif;
+$font-family-sans-serif-condensed:  'Saira Condensed', condensed;
 $font-size-base: 1.125rem;
 $line-height-base: 1.388;
 $font-weight-bold: 700;
 
-$font-size-title-h1: 3.8125rem; //61px
-$font-size-title-h2: 3.0625rem; //49px
-$font-size-big: 2.4375rem; //39px
-$font-size-title-h3: 2rem;//32px
-$font-size-title-sub: 1.5625rem;//25px
-$font-size-filter: 1.25rem;//20px
+$font-size-title-h1:    3.8125rem; //61px
+$font-size-title-h2:    3.0625rem; //49px
+$font-size-big:         2.4375rem; //39px
+$font-size-title-h3:    2rem;//32px
+$font-size-title-sub:   1.5625rem;//25px
+$font-size-filter:      1.25rem;//20px
 
 //paddings and margins
 
@@ -34,16 +34,16 @@ $ml-icon-text: .3125rem;
 $p-form-form: 2.5rem;
 
 
-$m-quarter-gutter: .3125rem;//5px
-$m-half-gutter: .625rem;//10px
-$m-gutter: calc(.625rem * 2) ;//20px
-$m-double-gutter: calc(.625rem * 4) ;//40px
-$m-spacing-smaller: 1.875rem;//30px
-$m-spacing-small: 3.125rem;//50px
-$m-spacing: 3.75rem;//60px
-$m-spacing-big: 4.375rem;//70px
-$m-spacing-bigger: 5.625rem;//90px
-$m-space-between-sections: 7.5rem;//120px
+$m-quarter-gutter:          .3125rem;//5px
+$m-half-gutter:             .625rem;//10px
+$m-gutter:                  calc(.625rem * 2) ;//20px
+$m-double-gutter:           calc(.625rem * 4) ;//40px
+$m-spacing-smaller:         1.875rem;//30px
+$m-spacing-small:           3.125rem;//50px
+$m-spacing:                 3.75rem;//60px
+$m-spacing-big:             4.375rem;//70px
+$m-spacing-bigger:          5.625rem;//90px
+$m-space-between-sections:  7.5rem;//120px
 
 $p-button: .9375rem;
 
@@ -54,17 +54,17 @@ $m-h2: 1.875rem;
 $cta : $orange;
 
 //**Border**//
-$border-color: transparent;
-$border-radius: .4rem !default;
-$border-radius-lg: .4rem !default;
-$border-radius-sm: 0.222rem;
-$border-dark-blue: 1px solid $dark-blue;
-$border-transparent: 1px solid transparent;
+$border-color:          transparent;
+$border-radius:         .4rem !default;
+$border-radius-lg:      .4rem !default;
+$border-radius-sm:      0.222rem;
+$border-dark-blue:      1px solid $dark-blue;
+$border-transparent:    1px solid transparent;
 
 //**Box shadow**//
-$box-shadow-sm: 0 0.333rem 0.444rem rgba($dark-blue, .1);
-$box-shadow: 0 0.333rem 0.444rem rgba($dark-blue, .1);
-$box-shadow-lg: 0 0.333rem 0.444rem rgba($dark-blue, .1);
+$box-shadow-sm:  0 0.333rem 0.444rem rgba($dark-blue, .1);
+$box-shadow:     0 0.333rem 0.444rem rgba($dark-blue, .1);
+$box-shadow-lg:  0 0.333rem 0.444rem rgba($dark-blue, .1);
 
 //** Form Range **//
 $form-range-track-width:          100%;
@@ -72,10 +72,12 @@ $form-range-track-height:         .625rem;
 $form-range-track-cursor:         pointer;
 $form-range-track-bg:             $light-fade-bg;
 $form-range-track-border-radius:  1rem;
+$form-range-track-border:         none;
 $form-range-track-box-shadow:     $box-shadow;
 
 $form-range-thumb-width:                   1.5625rem;
 $form-range-thumb-height:                  $form-range-thumb-width;
+$form-range-thumb-half-height:             calc(1.5625rem /2);
 $form-range-thumb-bg:                      $light-blue;
 $form-range-thumb-border:                  $border-dark-blue;
 $form-range-thumb-border-radius:           $form-range-thumb-width;

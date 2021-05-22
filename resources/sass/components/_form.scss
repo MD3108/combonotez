@@ -2,8 +2,8 @@
     &.--form{
         .section{
             &.--form{
-                max-height: 915px;
-                height: 90vh;
+                //max-height: 915px;
+                height: 84.72222222222222vh;
                 min-height: 100%;
                 overflow: auto;
                 padding-top: inherit;
@@ -81,7 +81,7 @@
                     }
                 }
                 & .col-9{
-                    max-width: 1065px;
+                    max-width: 1048px;
                     width: 100%;
                     min-height: 90vh;
                     //height: 84.72222222222222vh;
