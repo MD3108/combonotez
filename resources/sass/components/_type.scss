@@ -8,7 +8,7 @@ body{
     font-size: $font-size-title-h2;
     margin-bottom: $m-h2;
     &.--has-sub{
-        margin-bottom: inherit;
+        margin-bottom: $m-half-gutter;
     }
     &.--main{
         font-size: $font-size-title-h1;
@@ -41,6 +41,11 @@ body{
         font-size: $font-size-title-h3;
         line-height: $font-size-title-h3;
         margin-bottom: $m-half-gutter;
+    }
+    &.--filter{
+            font-size: $font-size-filter;
+            line-height: $font-size-filter;
+            font-weight: $font-weight-base;
     }
 }
 

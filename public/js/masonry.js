@@ -4,10 +4,10 @@ var msnry = new Masonry( grid, {
   percentPosition: true,
   itemSelector: '.grid-item',
   gutter: 20,
+  horizontalOrder: true
 });
 
 let elem = document.querySelector('.grid');
-console.log(elem);
 
 let infScroll = new InfiniteScroll( elem, {
   // options

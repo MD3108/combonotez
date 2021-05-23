@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Utilities\NoteFilters;
+
+use App\Utilities\QueryFilter;
+use App\Utilities\FilterContract;
+
+class Damage extends QueryFilter implements FilterContract
+{
+    public function handle($value): void
+    {
+        // here I'm trying to filter 'notes' name col
+        if($value >0){
+            $this->query->where('damage', '>=', $value)->orderBy('damage', 'ASC');
+        }
+        
+    }
+}

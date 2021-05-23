@@ -13,7 +13,11 @@
 }
 ::-webkit-resizer{
 }*/
-
+/*ALL pages*/
+::selection {
+    color: $light-blue;
+    background: $primary-dark;
+  }
 .body{
     padding-top: 76px;
     & img{
@@ -53,6 +57,9 @@ iframe{
 .hide{
     display: none !important;
 }
+.visually-hidden{
+    visibility: hidden;
+}
 .active{
     color: $primary !important;
     & .icon{
@@ -72,6 +79,7 @@ iframe{
         background-color: $dark-blue;
         color: $blue;
     }
+    /*Home page*/
     &.--what-is-cnz{
         .content {
             display: flex;
@@ -91,8 +99,17 @@ iframe{
         }
     }
     &.--how-to-use{
+        & h2{
+            & ~ span.--sub{
+                margin-bottom: $m-spacing-small;
+            }
+        }
         .discover{
+            & h4.title{
+                line-height: $font-size-title-h3;
+            }
             &__find{
+                margin-bottom: $m-spacing;
                 .find{
                     &__filter{
                         margin-bottom: $m-gutter;
@@ -113,7 +130,38 @@ iframe{
                         justify-content: center;
                         max-width: 453px;
                         .card{
-                            width: 453px
+                            width: 453px;
+                            & .fighter{
+                                &:hover{
+                                    position: relative;
+                                    &::before{
+                                        position: absolute;
+                                        opacity: 80%;
+                                        right: 93%;
+                                        content: "▶";
+                                        transform: rotate(0deg);
+                                        font-size: $font-size-base;
+                                        font-family: $font-family-sans-serif-condensed;
+                                        padding: $m-half-gutter;
+                                        color: $dark-blue;
+                                        border-radius: $border-radius;
+                                        white-space: nowrap;
+                                    }
+                                    &::after{
+                                        position: absolute;
+                                        opacity: 80%;
+                                        right: 118%;
+                                        content: "Main Fighter";
+                                        font-size: $font-size-base;
+                                        font-family: $font-family-sans-serif-condensed;
+                                        padding: $m-half-gutter;
+                                        background-color: $dark-blue;
+                                        color: $light-blue;
+                                        border-radius: $border-radius;
+                                        white-space: nowrap;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -148,7 +196,7 @@ iframe{
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                margin-bottom: $m-spacing;
+                margin-bottom: $m-spacing-big;
                 & img{
                     box-shadow: $box-shadow;
                 }
@@ -158,6 +206,7 @@ iframe{
             }
         }
     }
+    /*Home page*/
     &.--guide{
         position: relative;
         .btn.--close{
@@ -169,6 +218,7 @@ iframe{
         }
     }
 }
+/*Nav bar*/
 .logo{
     &-letters{
         &__part{
@@ -193,13 +243,13 @@ iframe{
     }
 }
 .container{
+    /*All pages similar looking to Home page and Guide */
     &.--card{
         background-color: $gray-100;
         color: $dark-blue;
         border-radius: $border-radius;
         border: $border-transparent;
         box-shadow: $box-shadow;
-
         .section{
             &.--dark{
                 margin-left: -5px;
@@ -216,6 +266,7 @@ iframe{
         }
     }
 }
+/*Guide btn on homepage*/
 .guide{
     &__imgs{
         display: flex;
@@ -224,7 +275,6 @@ iframe{
         margin-bottom: $m-spacing-smaller;
     }
     &__buttons{
-        //width: 33%;
         .buttons{
             &__el{
                 margin-bottom: $m-half-gutter;

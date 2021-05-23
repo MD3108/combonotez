@@ -27,6 +27,614 @@
             height: 100%;
         }
     }
+    /* Filter section */
+    &.--filter{
+        position: fixed;
+        top: 90px;
+        left: auto;
+        right: auto;
+        z-index: 30;
+        width: 100%;
+        max-width: 1400px;
+        & .filter{
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            & .title{
+                margin-bottom: 0;
+            }
+            &__title{
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                & .title{
+                    padding-left: $m-quarter-gutter;
+                }
+                opacity: .45;
+            }
+            &__tabs{
+                display: flex;
+                align-items: center;
+                margin-left: $m-double-gutter;
+                width: 64vw;
+                max-width: 1229px;
+                & .btn{
+                    &.--dd{
+                        cursor: pointer;                        
+                        margin-left: auto;
+                        box-shadow: inherit;
+                    }
+                }
+            }
+            &__tab{
+                margin-right: $m-double-gutter;
+                & .tab{
+                    &__title{
+                        cursor: pointer;
+                    }
+                }
+            }
+            &__content{
+                width: 100%;
+                & .content{
+                    &__part{
+                        & .part{
+                            &__fighters{
+                                & input[type="checkbox"]{
+                                    display: none;
+                                }
+                                & .fighter{
+                                    margin-bottom: 0;
+                                    & img{
+                                        width: 0vw;
+                                    }                                    
+                                }
+                                & .btn{
+                                    &.--fighter{
+                                        display: none;
+                                    }
+                                }
+                            }
+                            &__assists{
+                                & .assist{
+                                    &.--filter{
+                                        .assist{
+                                            &__select{
+                                                display: none;
+                                            }
+                                            &__fighter{
+                                                margin-bottom: 0;
+                                               & img{
+                                                   width: 0;
+                                               }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            &__other{
+                                & input[type="checkbox"]{
+                                    display: none;
+                                }
+                            }
+                            &__general{
+                                display: none;
+                                & input[type="checkbox"]{
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        /* Filter open */
+        &.--open{
+            background-color: $dark-blue;
+            color: $light-blue;
+            & .icon-filter, & .icon-drop-down{
+                fill: $light-blue;
+            }
+            & .filter{
+                &__title{
+                    margin-bottom: $m-double-gutter;
+                }
+                &__tabs{
+                    margin-bottom: $m-double-gutter;
+                    & .btn{
+                        &.--close-dd{
+                            transform: rotate(-180deg);
+                        }
+                    }
+                }
+                &__content{
+                    width: 100%;
+                    & .content{
+                        &__part{
+                            & .part{
+                                &__fighters{
+                                    display: flex;
+                                    flex-wrap: wrap;                                    
+                                    & .fighter{
+                                        position: relative;
+                                        padding: 1px;
+                                        & img{
+                                            max-width: 59px;
+                                            width: 2.8vw;
+                                            height: auto;
+                                            background-color: $light-blue;
+                                            border: $border-dark-blue;
+                                            border-radius: $border-radius;
+                                            cursor: pointer;
+                                        }                                    
+                                    }
+                                    & :checked + .fighter::before{
+                                        content: "";
+                                        position: absolute;
+                                        top: 0;
+                                        bottom: 0;
+                                        right: 0;
+                                        left: 0;
+                                        background-color: $fade-bg;
+                                        margin: auto;
+                                        cursor: pointer;
+                                    }
+                                    & :checked + .fighter::after{
+                                        content: url('/storage/images/check-light.svg');
+                                        color: $light-blue;
+                                        font-weight: $font-weight-bold;
+                                        line-height: $font-size-title-h3;
+                                        text-align: center;
+                                        position: absolute;
+                                        top: 0;
+                                        bottom: 0;
+                                        right: 0;
+                                        left: 0;
+                                        width: 2vw;
+                                        height: 2vw;
+                                        background-color: $dark-blue;
+                                        border-radius: 20px;
+                                        margin: auto;
+                                        cursor: pointer;
+                                    }
+                                    & .btn{
+                                        &.--fighter{
+                                            display: inline-block;
+                                            width: 2.8vw;
+                                            padding: 0;
+                                            height: auto;
+                                            padding-top: .3rem;
+                                            color: $light-blue;
+                                        }
+                                    }
+                                }
+                                &__assists{
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    & .assist{
+                                        &.--filter{
+                                            position: relative;
+                                            .assist{
+                                                &__select{
+                                                    display: block;
+                                                    position: absolute;
+                                                    bottom: 0;
+                                                    right: 0;
+                                                    z-index: 5;
+                                                    border: $border-dark-blue;
+                                                    border-bottom-right-radius: $border-radius;
+                                                    cursor: pointer;
+                                                    & option{
+                                                        color: $light-blue;
+                                                        cursor: pointer;
+                                                        &[value="0"]{
+                                                            color: $dark-blue;
+                                                            background-color: $light-blue;
+                                                        }
+                                                        &[value="1"]{
+                                                            background-color: $red-assist;
+                                                        }
+                                                        &[value="2"]{
+                                                            background-color: $blue-assist;
+                                                        }
+                                                        &[value="3"]{
+                                                            background-color: $green-assist;
+                                                        }
+                                                        &[value="4"]{
+                                                            background-color: $primary;
+                                                        }
+                                                    }
+                                                    &.--A{
+                                                        color: $light-blue;
+                                                        background-color: $red-assist;
+                                                    }
+                                                    &.--B{
+                                                        color: $light-blue;
+                                                        background-color: $blue-assist;
+                                                    }
+                                                    &.--C{
+                                                        color: $light-blue;
+                                                        background-color: $green-assist;
+                                                    }
+                                                    &.--any{
+                                                        color: $light-blue;
+                                                        background-color: $primary;
+                                                    }
+                                                }
+                                                &__fighter{
+                                                    position: relative;
+                                                    padding: 1px;
+                                                    & img{
+                                                        max-width: 59px;
+                                                        width: 2.8vw;
+                                                        height: auto;
+                                                        background-color: $light-blue;
+                                                        border: $border-dark-blue;
+                                                        border-radius: $border-radius;
+                                                        
+                                                    }  
+                                                }
+
+                                            }
+                                        }
+                                    }
+                                    & .btn{
+                                        &.--assist{
+                                            display: inline-block;
+                                            width: 2.8vw;
+                                            padding: 0;
+                                            height: auto;
+                                            padding-top: .3rem;
+                                            color: $light-blue;
+                                        }
+                                    }
+                                }
+                                &__other{
+                                    display: flex;
+                                    justify-content: space-between;
+                                    .other{
+                                        &__filters{
+                                            flex: 1 1 33%;
+                                            &.--creator{
+                                                display: flex;
+                                                flex-wrap: wrap;
+                                                align-content: flex-start;
+                                                justify-content: space-between;
+                                                padding-right: $m-double-gutter;
+                                                margin-right: $m-gutter;
+                                                & input[type="text"]{
+                                                    width: 100%;
+                                                    background-color: $light-fade-bg;
+                                                    border: none;
+                                                    border-radius: $border-radius;
+                                                    font-size: $font-size-filter;
+                                                    line-height: $font-size-filter;
+                                                    padding: $m-quarter-gutter $m-half-gutter;
+                                                    color: $light-blue;
+                                                    &::placeholder{
+                                                        color: $light-blue;
+                                                    }
+                                                }
+                                            }
+                                            &.--categories{
+                                                
+                                                & .categories{
+                                                    &__list{
+                                                        display: flex;
+                                                        justify-content: space-between;
+                                                        align-content: flex-start;
+                                                        flex-wrap: wrap;
+                                                    }
+                                                    &__el{                                                        
+                                                        & label{
+                                                            background-color: $light-fade-bg;
+                                                            border: $border-dark-blue;
+                                                            border-radius: $border-radius;
+                                                            padding: .75rem .9375rem;
+                                                            line-height: $font-size-base;
+                                                            font-size: $font-size-base;
+                                                            margin-bottom: 0;
+                                                            cursor: pointer;                                                            
+                                                        }
+                                                        & :checked + label{
+                                                            background-color: $primary;
+                                                            color: $dark-blue;
+                                                            padding-left: 2.9375rem;
+                                                            position: relative;
+                                                        }
+                                                        & :checked + label::before{
+                                                            content: url('/storage/images/check.svg');
+                                                            fill: $dark-blue;
+                                                            color: $dark-blue;
+                                                            display: inline-block;
+                                                            max-height: $font-size-base;
+                                                            max-width: $font-size-base;
+                                                            position: absolute;
+                                                            top: auto;
+                                                            bottom: auto;
+                                                            left: .9375rem;
+                                                            right: 0;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            &.--difficulties{
+                                                margin-left: $m-spacing;
+                                                & .difficulties{
+                                                    &__list{
+                                                        display: flex;
+                                                        justify-content: space-between;
+                                                        align-content: flex-start;
+                                                        flex-wrap: wrap;
+                                                    }
+                                                    &__el{                                                        
+                                                        & label{
+                                                            background-color: $light-fade-bg;
+                                                            border: $border-dark-blue;
+                                                            border-radius: $border-radius;
+                                                            padding: .75rem .9375rem;
+                                                            line-height: $font-size-base;
+                                                            font-size: $font-size-base;
+                                                            margin-bottom: 0;
+                                                            cursor: pointer;                                                            
+                                                        }
+                                                        & :checked + label{
+                                                            background-color: $primary;
+                                                            color: $dark-blue;
+                                                            padding-left: 2.9375rem;
+                                                            position: relative;
+                                                        }
+                                                        & :checked + label::before{
+                                                            content: url('/storage/images/check.svg');
+                                                            fill: $dark-blue;
+                                                            color: $dark-blue;
+                                                            display: inline-block;
+                                                            max-height: $font-size-base;
+                                                            max-width: $font-size-base;
+                                                            position: absolute;
+                                                            top: auto;
+                                                            bottom: auto;
+                                                            left: .9375rem;
+                                                            right: 0;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            & .title.--h4{
+                                                display: block;
+                                                width: 100%;
+                                                font-weight: $font-weight-base;
+                                                margin-bottom: $m-gutter;
+                                            }
+                                        }
+                                    }
+                                }
+                                &__general{
+                                    display: flex;
+                                    align-items: center;
+                                    margin-top: $m-double-gutter;
+                                    & .general{
+                                        &__filters{
+                                            margin-right: $m-spacing;
+                                            &:last-child{
+                                                margin-right: 0;
+                                            }
+                                            &.--damage{
+                                                & .damage{
+                                                    display: flex;
+                                                    align-items: center;
+                                                    &__slider{
+                                                        font-size: $font-size-filter;
+                                                        line-height: $font-size-filter;
+                                                        & .slider{
+                                                            &__header{
+                                                                & .header{
+                                                                    &__field{
+                                                                        width: 100%;
+                                                                        background-color: $light-fade-bg;
+                                                                        border: none;
+                                                                        border-radius: $border-radius;
+                                                                        padding: $m-quarter-gutter $m-half-gutter;
+                                                                        color: $light-blue;
+                                                                        min-width: 167px;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        //https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+                                                        //remove basic style
+                                                        & input[type=range] {
+                                                            margin-top: $m-half-gutter;
+                                                            -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+                                                            width: 100%; /* Specific width is required for Firefox. */
+                                                            background: transparent; /* Otherwise white in Chrome */                                                                                     
+                                                            &::-webkit-slider-thumb {
+                                                                -webkit-appearance: none;
+                                                                margin-top:  -6.5px;
+                                                                border: $form-range-thumb-border;
+                                                                border-radius: $form-range-thumb-border-radius;
+                                                                width: $form-range-thumb-width;
+                                                                height: $form-range-thumb-height;
+                                                                background: $form-range-thumb-bg;
+                                                                cursor: $form-range-track-cursor;
+                                                                box-shadow: $form-range-thumb-box-shadow;
+                                                            }
+                                                            &::-webkit-slider-runnable-track{
+                                                                width: $form-range-track-width;
+                                                                height: $form-range-track-height;
+                                                                cursor: $form-range-track-cursor;
+                                                                box-shadow: $form-range-track-box-shadow;
+                                                                background: $form-range-track-bg;
+                                                                border-radius: $form-range-track-border-radius;
+                                                                border: $form-range-track-border;
+                                                            }
+                                                            &:focus {
+                                                                outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+                                                                &::-webkit-slider-runnable-track{
+                                                                    background: $form-range-track-bg;
+                                                                }
+                                                                &::-ms-fill-lower {
+                                                                    background: $form-range-track-bg;
+                                                                }
+                                                                &::-ms-fill-upper {
+                                                                    background: $form-range-thumb-bg;
+                                                                }
+                                                            }
+                                                            &::-ms-thumb{
+                                                                margin: 0;
+                                                                border: $form-range-thumb-border;
+                                                                border-radius: $form-range-thumb-border-radius;
+                                                                width: $form-range-thumb-width;
+                                                                height: $form-range-thumb-height;
+                                                                background: $form-range-thumb-bg;
+                                                                cursor: pointer;
+                                                                box-shadow: $form-range-thumb-box-shadow;
+                                                            }
+                                                            &::-ms-track {
+                                                                width: 100%;
+                                                                cursor: pointer;
+                                                                
+                                                                /* Hides the slider so custom styles can be added */
+                                                                background: transparent; 
+                                                                border-color: transparent;
+                                                                color: transparent;
+                                                            }                                                            
+                                                            &::-ms-track{
+                                                                width: $form-range-track-width;
+                                                                height: $form-range-track-height;
+                                                                cursor: $form-range-track-cursor;
+                                                                box-shadow: $form-range-track-box-shadow;
+                                                                background: transparent;
+                                                                background-color: transparent;
+                                                                color: transparent;
+                                                                border-radius: $form-range-track-border-radius;
+                                                                border: $form-range-track-border;
+                                                            }
+                                                            &::-ms-fill-lower {
+                                                                background: $form-range-track-bg;
+                                                                border: $form-range-track-border;
+                                                                border-radius: $form-range-track-border-radius;
+                                                                box-shadow: $form-range-track-box-shadow;
+                                                            }
+                                                            &::-ms-fill-upper{
+                                                                background: $form-range-thumb-bg;
+                                                                border: $form-range-thumb-border;
+                                                                border-radius: $form-range-thumb-border-radius;
+                                                                box-shadow: $form-range-thumb-box-shadow;
+                                                            }
+                                                            &::-moz-range-thumb {
+                                                                border: $form-range-thumb-border;
+                                                                border-radius: $form-range-thumb-border-radius;
+                                                                width: $form-range-thumb-width;
+                                                                height: $form-range-thumb-height;
+                                                                background: $form-range-thumb-bg;
+                                                                cursor: $form-range-track-cursor;
+                                                                box-shadow: $form-range-thumb-box-shadow;
+                                                            }
+                                                            &::-moz-range-track{
+                                                                width: $form-range-track-width;
+                                                                height: $form-range-track-height;
+                                                                cursor: $form-range-track-cursor;
+                                                                box-shadow: $form-range-track-box-shadow;
+                                                                background: $form-range-track-bg;
+                                                                border-radius: $form-range-track-border-radius;
+                                                                border: $form-range-track-border;
+                                                            }
+                                                        }
+                                                    }
+                                                    &__spark{
+                                                        margin-left: $m-spacing-small;
+                                                        & label{
+                                                            position: relative;
+                                                            background-color: $light-fade-bg;
+                                                            border-radius: 100%;
+                                                            padding: $m-quarter-gutter;
+                                                            margin: auto;
+                                                            cursor: pointer;
+                                                            & .icon{
+                                                                &-blocked{
+                                                                    width: 83%;
+                                                                    height: 83%;
+                                                                    position: absolute;
+                                                                    top: auto;
+                                                                    left: auto;
+                                                                    right: auto;
+                                                                    bottom: auto;
+                                                                }
+                                                            }
+                                                            img{
+                                                                -webkit-touch-callout: none; /* iOS Safari */
+                                                                -webkit-user-select: none; /* Safari */
+                                                                -khtml-user-select: none; /* Konqueror HTML */
+                                                                -moz-user-select: none; /* Old versions of Firefox */
+                                                                -ms-user-select: none; /* Internet Explorer/Edge */
+                                                                user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+                                                            }
+                                                        }
+                                                        & :checked + label{
+                                                            cursor: pointer;
+                                                            & .icon-blocked{
+                                                                display: none;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            &.--classics{
+                                                & .classics{
+                                                    &__list{
+                                                        display: flex;
+                                                        flex-wrap: nowrap;
+                                                    }
+                                                    &__el{   
+                                                        margin-left: $m-spacing-small;
+                                                        &:first-child{
+                                                            margin-left: 0;
+                                                        }                                                     
+                                                        & label{
+                                                            background-color: $light-fade-bg;
+                                                            border: $border-dark-blue;
+                                                            border-radius: $border-radius;
+                                                            padding: .75rem .9375rem;
+                                                            line-height: $font-size-base;
+                                                            font-size: $font-size-base;
+                                                            margin-bottom: 0;
+                                                            cursor: pointer;                                                            
+                                                        }
+                                                        & :checked + label{
+                                                            background-color: $primary;
+                                                            color: $dark-blue;
+                                                            padding-left: 2.9375rem;
+                                                            position: relative;
+                                                        }
+                                                        & :checked + label::before{
+                                                            content: url('/storage/images/check.svg');
+                                                            fill: $dark-blue;
+                                                            color: $dark-blue;
+                                                            display: inline-block;
+                                                            max-height: $font-size-base;
+                                                            max-width: $font-size-base;
+                                                            position: absolute;
+                                                            top: auto;
+                                                            bottom: auto;
+                                                            left: .9375rem;
+                                                            right: 0;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        /*End Filter section */
+    }
     &__content{
         .content{
             &__header{

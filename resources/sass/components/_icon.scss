@@ -43,17 +43,22 @@
         stroke-width: 1.3333 ;
         stroke: $dark-blue;
         &.--fill{
-            position: absolute;
-            top: auto;
-            left: 0;
-            bottom: auto;
-            z-index: 10;
+            //position: absolute;
+            //top: auto;
+            //left: 0;
+            //bottom: auto;
+            //z-index: 10;
         }
     }
     &-close{
         &.--light{
             fill:$light-blue;
         }
+    }
+
+    &-blocked{
+        max-width: inherit;
+        max-height: inherit;
     }
 
     .btn.--close{

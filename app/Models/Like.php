@@ -9,11 +9,21 @@ class Like extends Model
 {
     use HasFactory;
 
-    public function notes() {
-        return $this->belongsToMany(Note::class);
+    public function user()
+    {
+        return $this->belongsTo(User::class)->withDefault();
     }
 
-    public function users(){
-        return $this->belongsToMany((User::class));
+    public function likeable()
+    {
+        return $this->morphTo();
     }
+
+    //public function notes() {
+    //    return $this->belongsToMany(Note::class);
+    //}
+
+    //public function users(){
+    //    return $this->belongsToMany((User::class));
+    //}
 }

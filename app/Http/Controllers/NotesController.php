@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\CategoryNote;
 use App\Models\Fighter;
-use App\Models\FighterNote;
-use App\Models\Like;
 use Illuminate\Http\Request;
 use App\Models\Note;
-use Database\Seeders\FighterNoteSeeder;
+//use App\Models\User;
 
 class NotesController extends Controller
 {
@@ -23,16 +20,31 @@ class NotesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        //dd(request()->all());
+        //dd(request('creator'));
+        //dd(Note::with('categories')->filterBy(request()->all())->paginate(12));
+        //dd(Note::where('name', 'Sam Reichert'));
+
+
         $notes = Note::orderBy('updated_at', 'DESC')->paginate(12);
-        //$notations = json_decode($notes->pluck('notation'));
-        //$notes = Note::all();
+        $fighters = Fighter::all();
+        $categories = Category::all();
+        //$users = User::all();
         abort_if($notes->isEmpty(), 204);
         
+        if( !empty (request()->all()) ){
+            //dd(request()->all());
+            $notes = Note::filterBy(request()->all())->paginate(12);
+        }
+        //dd($notes);
+
         return view('note.index', [
             'notes' => $notes,
-            //'notations' => $notations,
+            'fighters' => $fighters,
+            'categories' => $categories,
+            //'users' => $users,
         ]);
     }
 

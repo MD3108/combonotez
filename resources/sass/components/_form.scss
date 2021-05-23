@@ -2,8 +2,8 @@
     &.--form{
         .section{
             &.--form{
-                max-height: 915px;
-                height: 90vh;
+                //max-height: 915px;
+                height: 84.72222222222222vh;
                 min-height: 100%;
                 overflow: auto;
                 padding-top: inherit;
@@ -81,11 +81,11 @@
                     }
                 }
                 & .col-9{
-                    max-width: 1065px;
+                    max-width: 1046px;
                     width: 100%;
-                    min-height: 90vh;
-                    //height: 84.72222222222222vh;
-                    padding: $m-gutter;
+                    min-height: 920px;
+                    height: 84.72222222222222vh;
+                    padding: $m-spacing-big $m-gutter;
                 }
                 & .col-3{
                     display: flex;
@@ -442,7 +442,7 @@
             position: relative;
             color: $primary;
             &::after{
-                content: '\2713';
+                content: url('/storage/images/check-primary.svg');//'\2713'
                 font-size: $font-weight-bold;
                 position: absolute;
                 right: 0;

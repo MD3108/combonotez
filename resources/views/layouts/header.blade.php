@@ -25,17 +25,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-                <!--<li class="nav-item">
-                    <a class="nav-link" href="/">
-                        Credits
-                    </a>
-                </li>-->
+                <!---->
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('note') ? 'active' : '' }}" href="/note">
+                    <a class="nav-link {{ request()->is('note') ? 'active' : '' }}" href="{{ url('/note') }}">
                         Combo Notes
                         <svg class="icon icon-search">
                             <use xlink:href="#icon-search"></use>
                         </svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('credits') ? 'active' : '' }}" href="{{ url('credits') }}">
+                        Credits
                     </a>
                 </li>
             </ul>
@@ -56,7 +57,7 @@
                         </li>
                     @endif
                     <li class="nav-item">
-                        <a class="btn btn-primary nav-link " href="/note/login">
+                        <a class="btn btn-primary nav-link " href="{{ url('/note/login') }}">
                             Create Combo
                             <svg class="icon icon-add">
                                 <use xlink:href="#icon-add"></use>
@@ -82,7 +83,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-primary nav-link " href="/note/create">
+                        <a class="btn btn-primary nav-link " href="{{ url('/note/create') }}">
                             Create Combo
                             <svg class="icon icon-add">
                                 <use xlink:href="#icon-add"></use>

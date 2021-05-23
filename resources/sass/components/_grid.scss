@@ -1,9 +1,13 @@
 .grid{
+    margin-top: 6.875rem;
     &-item{
         margin-bottom: 1.25rem;
         // TODO Adjust the width
         //width: calc( (100% / 3) - 0.94% );
         max-width: 453px;
         width: 33.333%;
+    }
+    &.--open{
+        margin-top: calc(21.3125rem + 1.875rem);//341px + 110px
     }
 }

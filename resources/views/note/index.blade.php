@@ -3,14 +3,14 @@
 @section('content')
     <section>
         <div class="guide">
-            <a href="/guide" class="btn --guide">
+            <a href="{{ url('/guide') }}" class="btn --guide">
                 <svg class="icon icon-info">
                     <use xlink:href="#icon-info"></use>
                 </svg>
             </a>
         </div>
         <div class="container">
-            <h1 class="text-hide">
+            <h1 class="text-hide m-0">
                 Combo NoteZ
             </h1>
             @if(session()->has('message'))
@@ -21,10 +21,188 @@
             
             <div class="row">
                 <div class="col-12">
-                    <div class="card mb-3">
-                        <h2 class="card-title">
-                            Filter
-                        </h2>
+                    <div class="card --filter">
+                        <div class="filter">
+                            <div class="filter__title">
+                                <svg class="icon icon-filter">
+                                    <use xlink:href="#icon-filter"></use>
+                                </svg>
+                                <h2 class="title --filter">
+                                    Filter
+                                </h2>
+                            </div>
+                            <div class="filter__tabs">
+                                <div class="filter__tab">
+                                    <h3 class="tab__title title --filter --fighters">
+                                        Fighters
+                                    </h3>
+                                </div>
+                                <div class="filter__tab">
+                                    <h3 class="tab__title title --filter --assists">
+                                        Assists
+                                    </h3>
+                                </div>
+                                <div class="filter__tab">
+                                    <h3 class="tab__title title --filter --other">
+                                        Other
+                                    </h3>
+                                </div>
+                                <button class="btn --dd">
+                                    <svg class="icon icon-drop-down">
+                                        <use xlink:href="#icon-drop-down"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                            <form class="filter__content" method="GET">
+                                @csrf
+                                <div class="content__part --fighters" data-visible="false">
+                                    <div class="part">
+                                       <div class="part__fighters">
+                                            @foreach ($fighters as $fighter)
+                                            <input type="checkbox" name="fighters[]" id="ff-{{ $fighter->id }}" value="{{ $fighter->id }}">
+                                            <label class="fighter" for="ff-{{ $fighter->id }}">
+                                                <img src="{{ asset('/storage/'. $fighter->image_path) }}" alt="{{ $fighter->name }}">
+                                            </label>
+                                            @endforeach
+                                            <button type="button" class="btn --fighter">
+                                                Clear all
+                                            </button>
+                                       </div>
+                                    </div>    
+                                </div>
+                                <div class="content__part --assists" data-visible="false">
+                                    <div class="part">
+                                       <div class="part__assists">
+                                            @foreach ($fighters as $fighter)
+                                            <div class="assist --filter">
+                                                <select class="assist__select --fighter{{ $fighter->id }}" name="assists[]" id="a-{{ $fighter->id }}">
+                                                    <option value="">
+                                                        -
+                                                    </option>
+                                                    @foreach ( config('enum.assists') as $key=>$assist)
+                                                    <option value="{{ $key }}">
+                                                        {{ $assist }}
+                                                    </option>
+                                                    @endforeach
+                                                    <option value="4">
+                                                        ∀
+                                                    </option>
+                                                </select>
+                                                <label class="assist__fighter" for="a-{{ $fighter->id }}">
+                                                    <img src="{{ asset('/storage/'. $fighter->image_path) }}" alt="{{ $fighter->name }}">
+                                                </label>
+                                            </div>
+                                            @endforeach
+                                            <button type="button" class="btn --assist">
+                                                Clear all
+                                            </button>
+                                       </div>
+                                    </div> 
+                                </div>
+                                <div class="content__part --other" data-visible="false">
+                                    <div class="part">
+                                       <div class="part__other">
+                                            <div class="other__filters --creator">
+                                                <label class="title --h4" for="creator">
+                                                    Creator of Note(s)
+                                                </label>
+                                                <!-- At the moment I want to use this as Note name search not user name-->
+                                                <input type="text" name ="creator" id="creator" maxlength="45" placeholder="Search Username"
+                                                 value="{{ request('creator') }}">
+                                            </div>
+                                            <div class="other__filters --categories">
+                                                <span class="title --h4">
+                                                    Categories
+                                                </span>
+                                                <div class="categories__list">
+                                                    @foreach ($categories as $category)
+                                                        @if($category->name != "SPARK")
+                                                        <div class="categories__el">
+                                                            <input type="checkbox" name="categories[]" id="{{ $category->name }}" value="{{ $category->id }}">
+                                                            <label for="{{ $category->name }}" >
+                                                                {{ $category->name }}
+                                                            </label>
+                                                        </div>
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                            <div class="other__filters --difficulties">
+                                                <span class="title --h4">
+                                                    Difficulties
+                                                </span>
+                                                <div class="difficulties__list">
+                                                    @foreach (config('enum.difficulties') as $key=>$difficulty)
+                                                    <div class="difficulties__el">
+                                                        <input type="checkbox" name="difficulties[]" id="{{ $difficulty }}" value="{{ $key }}">
+                                                        <label for="{{ $difficulty }}" >
+                                                            {{ $difficulty }}
+                                                        </label>
+                                                    </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                       </div>
+                                    </div> 
+                                </div>
+                                <div class="content__part --general" data-visible="false">
+                                    <div class="part">
+                                       <div class="part__general">
+                                            <div class="general__filters --damage">
+                                                <div class="damage">
+                                                    <div class="damage__slider">
+                                                        <div class="slider__header">
+                                                            <label for="damageRange" class="form-label">More than</label>
+                                                            <span class="header__field">
+                                                                <span id="slider_value2" class="value">
+                                                                    0
+                                                                </span>
+                                                                &nbsp;Damage
+                                                            </span>
+                                                        </div>
+                                                        <input type="range" name="damage" class="form-range --damage" value="0" min="0" max="10000" step="100" id="damageRange">
+                                                    </div>
+                                                    <div class="damage__spark">
+                                                        <input type="checkbox" name="classics[]" id="spark" value="1">
+                                                        <label for="spark">
+                                                            <svg class="icon icon-blocked">
+                                                                <use xlink:href="#icon-blocked"></use>
+                                                            </svg>
+                                                            <img src="{{ asset('/storage/images/buttons/SPARK.png') }}" alt="SPARK">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="general__filters --classics">
+                                                <div class="classics__list">
+                                                    <div class="classics__el">
+                                                        <input type="checkbox" name="classics[]" id="popular" value="1">
+                                                        <label for="popular">
+                                                            Popular
+                                                        </label>
+                                                    </div>
+                                                    <div class="classics__el">
+                                                        <input checked type="checkbox" name="classics[]" id="newest" value="2">
+                                                        <label for="newest">
+                                                            Newest
+                                                        </label>
+                                                    </div>
+                                                    <div class="classics__el">
+                                                        <input type="checkbox" name="classics[]" id="favorites" value="3">
+                                                        <label for="favorites">
+                                                            Favorites
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-primary" type="submit">
+                                                Apply Filters
+                                            </button>
+                                       </div>
+                                    </div> 
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -192,9 +370,43 @@
                                                             </svg>
                                                         </div>
                                                         <div class="interactions__likes">
-                                                            <svg class="icon icon-like">
-                                                                <use xlink:href="#icon-like"></use>
-                                                            </svg>
+                                                            {{-- var_dump(Auth::user()) --}}
+                                                            
+                                                            @php
+                                                                $user = auth()->user();
+                                                                var_dump($user->hasLiked($note));
+                                                            @endphp
+                                                            @if(isset($user->id))
+                                                                <form action="/note/like" method="POST">
+                                                                    @csrf
+                                                                    @if($user->hasLiked($note))
+                                                                        @method('delete')
+                                                                    @endif
+                                                                    <input type="hidden" name="likeable" value="{{ get_class($note) }}">
+                                                                    <input type="hidden" name="id" value="{{ $note->id }}">
+                                                                    <button type="submit" class="btn btn-primary">
+                                                                        <svg class="icon icon-like {{ $user->hasLiked($note) ? '--fill' : '' }}">
+                                                                            <use xlink:href="#icon-like"></use>
+                                                                        </svg>
+                                                                    </button>
+                                                                </form>
+                                                                <button class="btn btn-secondary" disabled>
+                                                                    {{ $note->likes()->count() }} likes
+                                                                </button>
+                                                            @endif
+                                                            @guest
+                                                                <button class="btn btn-secondary disabled" disabled>
+                                                                    <svg class="icon icon-like">
+                                                                        <use xlink:href="#icon-like"></use>
+                                                                    </svg>
+                                                                    {{ $note->likes()->count() }} 
+                                                                </button>
+                                                            @endguest
+                                                            
+                                                            {{-- $note->user->addLike($note) --}}
+                                                            {{-- $note->user->removeLike($note) --}}
+                                                            {{-- $note->user->hasLiked($note) --}}
+                                                            {{-- $note->likes()->count() --}}
                                                         </div>
                                                         @if (isset(Auth::user()->id) && Auth::user()->id == $note->user_id)
                                                         <div class="interactions__update">
@@ -205,7 +417,7 @@
                                                             </div>
                                                             <div class="update__menu ">
                                                                 <div class="menu__edit">
-                                                                    <a class="btn card-link" href="/note/{{ $note->id }}/edit" >
+                                                                    <a class="btn card-link" href="{{ url('/note/'. $note->id .'/edit') }}" >
                                                                         <svg class="icon icon-edit">
                                                                             <use xlink:href="#icon-edit"></use>
                                                                         </svg>
@@ -255,11 +467,10 @@
                         @endforeach
                     </div>
                     <div class="page-load-status">
-                        <div class="loader-ellips infinite-scroll-request">
-                          <span class="loader-ellips__dot"></span>
-                          <span class="loader-ellips__dot"></span>
-                          <span class="loader-ellips__dot"></span>
-                          <span class="loader-ellips__dot"></span>
+                        <div class="loader-ellips infinite-scroll-request d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
                         </div>
                         <p class="infinite-scroll-last text-md-center m-auto">You have seen all notes, create some more!</p>
                         <p class="infinite-scroll-error text-md-center m-auto">No more pages to load</p>
@@ -275,5 +486,5 @@
     <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
     <script src="{{ URL('/js/masonry.js') }}"></script>
     <script src="{{ URL('/js/vod.js') }}"></script>
-    
+    <script src="{{ URL('/js/filter.js') }}"></script>
 @endsection
