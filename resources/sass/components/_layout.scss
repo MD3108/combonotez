@@ -37,7 +37,7 @@
         }
     }
     p{
-        font-size: 1.125rem;
+        font-size: $font-size-base;
         max-width: 572px;
     }
     &.--no-head-foot{
@@ -207,7 +207,7 @@ iframe{
         }
     }
     /*Home page*/
-    &.--guide{
+    &.--side-page{
         position: relative;
         .btn.--close{
             position: absolute;
@@ -216,6 +216,57 @@ iframe{
             background-color: transparent;
             box-shadow: none;
         }
+        & .credits{
+            &__content{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: $m-spacing-big;
+            }
+            &__img{
+                max-width: 572px;
+            }
+            & img{
+                border-radius: $border-radius;  
+            }
+        }
+        & .techno{
+            &__content{
+                display: flex;
+                justify-content: center;
+            }
+        }
+        & .list{
+            list-style: none;
+            &.--list-style {
+                list-style: inside;
+                padding-left: 1.25rem ;
+                &.--first{
+                    
+                    & .list__el:first-child{
+                        color: $primary;
+                    }
+                }
+            }
+            .list__el {
+                padding: .75rem 0;
+                 &.--no-p{
+                    margin-left: 0;
+                }
+                & > a.link{
+                    margin-left: 1em;
+                    &::before{
+                        content: "\2022";
+                        color: $primary;
+                        font-weight: bold;
+                        display: inline-block;
+                        font-size: $font-size-base; 
+                        width: 1.25em;
+                        margin-left: 0;
+                    }                    
+                }
+            }
+        }  
     }
 }
 /*Nav bar*/

@@ -126,18 +126,22 @@
                                                     </div>
                                                     <div class="assist">
                                                         <div class="assist__container --a1">
-                                                            <img src="#" alt="#">
-                                                            <div class="assist__move --B">
+                                                            <div class="assist__slot">
+
+                                                            </div>
+                                                            <div class="assist__move">
                                                                 <span>
-                                                                    B
+                                                                    -
                                                                 </span>
                                                             </div>
                                                         </div>
                                                         <div class="assist__container --a2">
-                                                            <img src="#" alt="#">
-                                                            <div class="assist__move --B">
+                                                            <div class="assist__slot">
+
+                                                            </div>
+                                                            <div class="assist__move">
                                                                 <span>
-                                                                    B
+                                                                    -
                                                                 </span>
                                                             </div>
                                                         </div>

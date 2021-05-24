@@ -161,7 +161,7 @@
                                         padding: 1px;
                                         & img{
                                             max-width: 59px;
-                                            width: 2.8vw;
+                                            width: 100%; //2.8vw
                                             height: auto;
                                             background-color: $light-blue;
                                             border: $border-dark-blue;
@@ -201,7 +201,7 @@
                                     & .btn{
                                         &.--fighter{
                                             display: inline-block;
-                                            width: 2.8vw;
+                                            width: 5%;//2.8vw
                                             padding: 0;
                                             height: auto;
                                             padding-top: .3rem;
@@ -267,7 +267,7 @@
                                                     padding: 1px;
                                                     & img{
                                                         max-width: 59px;
-                                                        width: 2.8vw;
+                                                        width: 100%; //2.8vw
                                                         height: auto;
                                                         background-color: $light-blue;
                                                         border: $border-dark-blue;
@@ -282,7 +282,7 @@
                                     & .btn{
                                         &.--assist{
                                             display: inline-block;
-                                            width: 2.8vw;
+                                            width: 5%; //2.8vw
                                             padding: 0;
                                             height: auto;
                                             padding-top: .3rem;
@@ -665,6 +665,19 @@
                                         min-width: 40px;
                                         min-height: 40px;
                                     }
+                                    &__slot{
+                                        width: 40px;
+                                        height: auto;
+                                        min-width: 40px;
+                                        min-height: 40px;
+                                        border-radius: $border-radius;
+                                        background-color: $light-blue;
+                                        border: $border-dark-blue;
+                                        opacity: 0.2;
+                                        & + .assist__move{
+                                            opacity: 0.2;
+                                        }
+                                    }
                                     &__container{
                                         position: relative;
                                         margin-left: 0;
@@ -680,17 +693,21 @@
                                             height: 1.125rem;
                                             line-height: 1.125rem;
                                             padding: 0 .0625rem;
+                                            min-width: 1rem;
                                             &.--A{
                                                 background-color: $red-assist;
                                                 color:$light-blue;
+                                                min-width: none;
                                             }
                                             &.--B{
                                                 background-color: $blue-assist;
                                                 color:$light-blue;
+                                                min-width: none;
                                             }
                                             &.--C{
                                                 background-color: $green-assist;
                                                 color:$light-blue;
+                                                min-width: none;
                                             }
                                         }
                                         &.--a1{

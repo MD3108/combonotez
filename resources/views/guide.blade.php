@@ -9,7 +9,7 @@
         </a>
     </div>
     <div class="container --card">
-        <section class="section --guide">
+        <section class="section --side-page">
             <a href="{{ url('/note') }}" class="btn --close">
                 <svg class="icon icon-close">
                     <use xlink:href="#icon-close"></use>
