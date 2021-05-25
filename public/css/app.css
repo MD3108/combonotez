@@ -1,5 +1,193 @@
 @import url(https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&family=Saira:ital,wght@0,400;0,700;1,400&display=swap);
 @charset "UTF-8";
+@font-face {
+  font-family: "Saira Condensed";
+  src: url("/storage/fonts/woff2/Saira_Condensed-Regular.woff2") format("woff2"), url("/storage/fonts/woff/Saira_Condensed-Regular.woff") format("woff");
+}
+/*
+@font-face {
+    font-family: 'Saira Condensed';
+    src: url('/storage/fonts/woff2/SairaCondensed-Italic.woff2') format('woff2'),
+        url('/storage/fonts/woff/SairaCondensed-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira Condensed';
+    src: url('/storage/fonts/woff2/SairaCondensed-BoldItalic.woff2') format('woff2'),
+        url('/storage/fonts/woff/SairaCondensed-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira Condensed';
+    src: url('/storage/fonts/woff2/SairaCondensed-Bold.woff2') format('woff2'),
+        url('/storage/fonts/woff/SairaCondensed-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}*/
+@font-face {
+  font-family: "Saira";
+  src: url("/storage/fonts/woff2/Saira-Regular.woff2") format("woff2"), url("/storage/fonts/woff/Saira-Regular.woff") format("woff");
+}
+/*
+@font-face {
+    font-family: 'Saira';
+    src: url('/storage/fonts/woff2/Saira-BoldItalic.woff2') format('woff2'),
+        url('/storage/fonts/woff/Saira-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira Condensed';
+    src: url('/storage/fonts/woff2/SairaCondensed-LightItalic.woff2') format('woff2'),
+        url('/storage/fonts/woff/SairaCondensed-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira';
+    src: url('/storage/fonts/woff2/Saira-Medium.woff2') format('woff2'),
+        url('/storage/fonts/woff/Saira-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira';
+    src: url('/storage/fonts/woff2/Saira-Light.woff2') format('woff2'),
+        url('/storage/fonts/woff/Saira-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira Condensed';
+    src: url('/storage/fonts/woff2/SairaCondensed-Regular.woff2') format('woff2'),
+        url('/storage/fonts/woff/SairaCondensed-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira';
+    src: url('/storage/fonts/woff2/Saira-Bold.woff2') format('woff2'),
+        url('/storage/fonts/woff/Saira-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira Condensed';
+    src: url('/storage/fonts/woff2/SairaCondensed-Medium.woff2') format('woff2'),
+        url('/storage/fonts/woff/SairaCondensed-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira';
+    src: url('/storage/fonts/woff2/Saira-Regular.woff2') format('woff2'),
+        url('/storage/fonts/woff/Saira-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira Condensed';
+    src: url('/storage/fonts/woff2/SairaCondensed-MediumItalic.woff2') format('woff2'),
+        url('/storage/fonts/woff/SairaCondensed-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira';
+    src: url('/storage/fonts/woff2/Saira-MediumItalic.woff2') format('woff2'),
+        url('/storage/fonts/woff/Saira-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira';
+    src: url('/storage/fonts/woff2/Saira-LightItalic.woff2') format('woff2'),
+        url('/storage/fonts/woff/Saira-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira';
+    src: url('/storage/fonts/woff2/Saira-LightItalic.woff2') format('woff2'),
+        url('/storage/fonts/woff/Saira-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira';
+    src: url('/storage/fonts/woff2/Saira-Italic.woff2') format('woff2'),
+        url('/storage/fonts/woff/Saira-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira';
+    src: url('/storage/fonts/woff2/Saira-Bold.woff2') format('woff2'),
+        url('/storage/fonts/woff/Saira-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira';
+    src: url('/storage/fonts/woff2/Saira-Light.woff2') format('woff2'),
+        url('/storage/fonts/woff/Saira-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira';
+    src: url('/storage/fonts/woff2/Saira-BoldItalic.woff2') format('woff2'),
+        url('/storage/fonts/woff/Saira-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira';
+    src: url('/storage/fonts/woff2/Saira-Medium.woff2') format('woff2'),
+        url('/storage/fonts/woff/Saira-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}*/
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

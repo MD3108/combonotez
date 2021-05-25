@@ -68,7 +68,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <img class="" src="{{ asset('/storage/images/dwm.png') }}" alt="A cool cat for DwM">
+                            <img class="credits__img" src="{{ asset('/storage/images/dwm.png') }}" alt="A cool cat for DwM">
                         </div>
                         <div class="credits__content --one">
                             <div class="credits__img">

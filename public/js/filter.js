@@ -10,7 +10,6 @@ const tabs = document.querySelectorAll('.filter__tab .tab__title');
 const damageRange = document.getElementById('damageRange');
 const assistSelect = document.querySelectorAll('.part__assists .assist__select');
 const notesGrid = document.querySelector('.grid');
-console.log(assistSelect);
 
 // * ------------------ //
 // * Direct execution* //
@@ -28,10 +27,7 @@ ddOpenClose(filterTitle);
 
 //change coler of assists tab select in DOM
 assistSelect.forEach( (select, idx, selects) => {
-    console.log(select.value);
     select.addEventListener('change', (e) =>{
-        console.log(select);
-        console.log(select.value);
         if (select.value == "0"){
             select.classList.remove('--A');
             select.classList.remove('--B');
