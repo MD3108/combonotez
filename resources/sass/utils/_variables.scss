@@ -87,3 +87,8 @@ $form-range-thumb-focus-box-shadow-width:  $input-focus-width; // For focus box 
 $form-range-thumb-active-bg:               tint-color($primary, 70%);
 $form-range-thumb-disabled-bg:             $light-fade-bg;
 $form-range-thumb-transition:              background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+
+//** How to read section **//
+$opacity-not-visible: .3;
+$opacity-visible: 1;

@@ -116,23 +116,39 @@
                                 2. How to read notes
                             </h4>
                             <div class="read__note">
+                                <div class="note__desc --left">
+                                    <div class="desc__list">
+                                        <div class="desc__el">
+                                            Fighter
+                                        </div>
+                                        <div class="desc__el">
+                                            Assist(s) 
+                                        </div>
+                                        <div class="desc__el">
+                                            Note Name
+                                        </div>
+                                        <div class="desc__el">
+                                            Creator and Date
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="card">
                                     <div class="card__content">
                                         <div class="content__header">
                                             <div class="header__left">
                                                 <div class="l-header__container">
                                                     <div class="fighter">
-                                                        <img src="{{ asset('/storage/images/fighters/ssj-goku.png') }}" alt="Janemba">
+                                                        <img src="{{ asset('/storage/images/fighters/ssj-goku.png') }}" alt="Son Goku">
                                                     </div>
                                                     <div class="assist">
                                                         <div class="assist__container --a1">
-                                                            <div class="assist__slot">
-
-                                                            </div>
-                                                            <div class="assist__move">
-                                                                <span>
-                                                                    -
-                                                                </span>
+                                                            <div class="assist__container --a1">
+                                                                <img src="{{ asset('/storage/images/fighters/ssj-vegeta.png' ) }}" alt="Vegeta">
+                                                                <div class="assist__move --A">
+                                                                    <span>
+                                                                        A
+                                                                    </span>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="assist__container --a2">
@@ -258,6 +274,22 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="note__desc --right">
+                                    <div class="desc__list">
+                                        <div class="desc__el">
+                                            Categories / Damage / Ki
+                                        </div>
+                                        <div class="desc__el">
+                                            Preview
+                                        </div>
+                                        <div class="desc__el">
+                                            Notation
+                                        </div>
+                                        <div class="desc__el">
+                                            User Interactions
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <a href="{{ url('/note') }}" role="button" class="btn btn-primary btn-lg --discover">Discorver now</a>
                         </div>
@@ -370,4 +402,8 @@
             </div>
     </section>
 </div>
+@endsection
+
+@section('cdn')
+    <script src="{{ URL('/js/home.js') }}"></script>
 @endsection

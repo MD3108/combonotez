@@ -10837,10 +10837,6 @@ h3 {
   border-radius: 0.4rem;
   background-color: #EBF6FF;
   border: 1px solid #061C2D;
-  opacity: 0.2;
-}
-.card__content .content__header .header__left .l-header__container .assist__slot + .assist__move {
-  opacity: 0.2;
 }
 .card__content .content__header .header__left .l-header__container .assist__container {
   position: relative;
@@ -11260,40 +11256,123 @@ iframe {
 .section.--how-to-use .discover__read .read__note {
   display: flex;
   min-width: 100%;
-  justify-content: center;
+  justify-content: space-between;
   max-width: 453px;
 }
-.section.--how-to-use .discover__read .read__note .card {
-  width: 453px;
+.section.--how-to-use .discover__read .read__note .note__desc {
+  flex-basis: 25%;
 }
-.section.--how-to-use .discover__read .read__note .card .fighter:hover {
-  position: relative;
+.section.--how-to-use .discover__read .read__note .note__desc .desc__list {
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-right: 1.875rem;
 }
-.section.--how-to-use .discover__read .read__note .card .fighter:hover::before {
-  position: absolute;
-  opacity: 80%;
-  right: 93%;
-  content: "▶";
-  transform: rotate(0deg);
-  font-size: 1.125rem;
-  font-family: "Saira Condensed", condensed;
-  padding: 0.625rem;
-  color: #061C2D;
-  border-radius: 0.4rem;
-  white-space: nowrap;
+.section.--how-to-use .discover__read .read__note .note__desc .desc__el {
+  font-size: 1.5625rem;
+  width: 100%;
+  align-self: center;
+  opacity: 0.3;
+  padding: 0.3125rem;
 }
-.section.--how-to-use .discover__read .read__note .card .fighter:hover::after {
-  position: absolute;
-  opacity: 80%;
-  right: 118%;
-  content: "Main Fighter";
-  font-size: 1.125rem;
-  font-family: "Saira Condensed", condensed;
-  padding: 0.625rem;
+.section.--how-to-use .discover__read .read__note .note__desc .desc__el.--active {
+  font-weight: 700;
+  opacity: 1;
   background-color: #061C2D;
   color: #EBF6FF;
   border-radius: 0.4rem;
-  white-space: nowrap;
+}
+.section.--how-to-use .discover__read .read__note .note__desc.--right .desc__list {
+  padding-right: inherit;
+  padding-left: 3.75rem;
+}
+.section.--how-to-use .discover__read .read__note .card {
+  max-width: 453px;
+  min-width: 453px;
+  flex-basis: 50%;
+}
+.section.--how-to-use .discover__read .read__note .card .fighter {
+  opacity: 0.3;
+}
+.section.--how-to-use .discover__read .read__note .card .fighter:hover {
+  /*
+  position: relative;
+  &::before{
+      position: absolute;
+      opacity: 80%;
+      right: 93%;
+      content: "▶";
+      transform: rotate(0deg);
+      font-size: $font-size-base;
+      font-family: $font-family-sans-serif-condensed;
+      padding: $m-half-gutter;
+      color: $dark-blue;
+      border-radius: $border-radius;
+      white-space: nowrap;
+  }
+  &::after{
+      position: absolute;
+      opacity: 80%;
+      right: 118%;
+      content: "Main Fighter";
+      font-size: $font-size-base;
+      font-family: $font-family-sans-serif-condensed;
+      padding: $m-half-gutter;
+      background-color: $dark-blue;
+      color: $light-blue;
+      border-radius: $border-radius;
+      white-space: nowrap;
+  }
+  */
+}
+.section.--how-to-use .discover__read .read__note .card .fighter.--active {
+  opacity: 1;
+}
+.section.--how-to-use .discover__read .read__note .card .assist {
+  opacity: 0.3;
+}
+.section.--how-to-use .discover__read .read__note .card .assist.--active {
+  opacity: 1;
+}
+.section.--how-to-use .discover__read .read__note .card .r-header__container {
+  opacity: 0.3;
+}
+.section.--how-to-use .discover__read .read__note .card .r-header__container.--active {
+  opacity: 1;
+}
+.section.--how-to-use .discover__read .read__note .card .title.--note {
+  opacity: 0.3;
+}
+.section.--how-to-use .discover__read .read__note .card .title.--note.--active {
+  opacity: 1;
+}
+.section.--how-to-use .discover__read .read__note .card .btn.--vod {
+  opacity: 0.3;
+}
+.section.--how-to-use .discover__read .read__note .card .btn.--vod.--active {
+  opacity: 1;
+}
+.section.--how-to-use .discover__read .read__note .card .body__main {
+  opacity: 0.3;
+}
+.section.--how-to-use .discover__read .read__note .card .body__main .notation {
+  opacity: 1;
+}
+.section.--how-to-use .discover__read .read__note .card .body__main.--active {
+  opacity: 1;
+}
+.section.--how-to-use .discover__read .read__note .card .user__info {
+  opacity: 0.3;
+}
+.section.--how-to-use .discover__read .read__note .card .user__info.--active {
+  opacity: 1;
+}
+.section.--how-to-use .discover__read .read__note .card .interactions {
+  opacity: 0.3;
+}
+.section.--how-to-use .discover__read .read__note .card .interactions.--active {
+  opacity: 1;
 }
 .section.--how-to-use .discover__read .btn-primary.--discover {
   margin: auto;

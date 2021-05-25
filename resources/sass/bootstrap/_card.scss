@@ -673,9 +673,9 @@
                                         border-radius: $border-radius;
                                         background-color: $light-blue;
                                         border: $border-dark-blue;
-                                        opacity: 0.2;
+                                        //opacity: 0.2;
                                         & + .assist__move{
-                                            opacity: 0.2;
+                                            //opacity: 0.2;
                                         }
                                     }
                                     &__container{

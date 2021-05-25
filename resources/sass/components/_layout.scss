@@ -127,12 +127,53 @@ iframe{
                     &__note{
                         display: flex;
                         min-width: 100%;
-                        justify-content: center;
+                        justify-content: space-between;
                         max-width: 453px;
-                        .card{
-                            width: 453px;
+                        
+                        & .note{
+                            &__desc{
+                                flex-basis: 25%;
+                                & .desc{
+                                        &__list{
+                                            display: flex;
+                                            height: 100%;
+                                            flex-wrap: wrap;
+                                            justify-content: space-between;
+                                            padding-right: $m-spacing-smaller;
+                                        }
+                                        &__el{
+                                            font-size: $font-size-title-sub;
+                                            width: 100%;
+                                            align-self: center;
+                                            opacity: $opacity-not-visible;
+                                            padding: $m-quarter-gutter;
+                                            &.--active{
+                                                font-weight: $font-weight-bold;
+                                                opacity: $opacity-visible;
+                                                background-color: #061C2D;
+                                                color: #EBF6FF;
+                                                border-radius: $border-radius
+                                            }
+                                        }
+                                }
+                                &.--right{
+                                    & .desc{
+                                        &__list{
+                                            padding-right: inherit;
+                                            padding-left: $m-spacing;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        & .card{
+                            max-width: 453px;
+                            min-width: 453px;
+                            flex-basis: 50%;
                             & .fighter{
+                                opacity: $opacity-not-visible;
                                 &:hover{
+                                    /*
                                     position: relative;
                                     &::before{
                                         position: absolute;
@@ -160,6 +201,55 @@ iframe{
                                         border-radius: $border-radius;
                                         white-space: nowrap;
                                     }
+                                    */
+                                }
+                                &.--active{
+                                    opacity: $opacity-visible;
+                                }
+                            }
+                            & .assist{
+                                opacity: $opacity-not-visible;
+                                &.--active{
+                                    opacity: $opacity-visible;
+                                }
+                            }
+                            & .r-header__container{
+                                opacity: $opacity-not-visible;
+                                &.--active{
+                                    opacity: $opacity-visible;
+                                }
+                            }
+                            & .title.--note{
+                                opacity: $opacity-not-visible;
+                                &.--active{
+                                    opacity: $opacity-visible;
+                                }
+                            }
+                            & .btn.--vod{
+                                opacity: $opacity-not-visible;
+                                &.--active{
+                                    opacity: $opacity-visible;
+                                }
+                            }
+                            & .body__main{
+                                opacity: $opacity-not-visible;
+                                & .notation{
+                                    opacity: $opacity-visible;
+                                }
+                                &.--active{
+                                    opacity: $opacity-visible;
+                                }
+                            }
+                            & .user__info{
+                                opacity: $opacity-not-visible;
+                                &.--active{
+                                    opacity: $opacity-visible;
+                                }
+                            }
+                            & .interactions{
+                                opacity: $opacity-not-visible;
+                                &.--active{
+                                    opacity: $opacity-visible;
                                 }
                             }
                         }
