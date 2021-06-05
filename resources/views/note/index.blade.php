@@ -14,7 +14,7 @@
                 Combo NoteZ
             </h1>
             @if(session()->has('message'))
-                <div class="alert alert-success mb-3" role="alert">
+                <div class="alert alert-success --notes" role="alert">
                     {{ session()->get('message') }}
                 </div>
             @endif
@@ -59,7 +59,7 @@
                                     <div class="part">
                                        <div class="part__fighters">
                                             @foreach ($fighters as $fighter)
-                                            <input type="checkbox" name="filter-fighter[]" id="ff-{{ $fighter->id }}" value="{{ $fighter->id }}">
+                                            <input type="checkbox" name="fighters[]" id="ff-{{ $fighter->id }}" value="{{ $fighter->id }}">
                                             <label class="fighter" for="ff-{{ $fighter->id }}">
                                                 <img src="{{ asset('/storage/'. $fighter->image_path) }}" alt="{{ $fighter->name }}">
                                             </label>
@@ -75,8 +75,9 @@
                                        <div class="part__assists">
                                             @foreach ($fighters as $fighter)
                                             <div class="assist --filter">
-                                                <select class="assist__select --fighter{{ $fighter->id }}" name="filter-assists[]" id="a-{{ $fighter->id }}">
-                                                    <option value="0">
+                                                <input type="hidden" name="afs[]" value="{{ $fighter->id }}">
+                                                <select class="assist__select --fighter{{ $fighter->id }}" name="assists[]" id="a-{{ $fighter->id }}">
+                                                    <option value="">
                                                         -
                                                     </option>
                                                     @foreach ( config('enum.assists') as $key=>$assist)
@@ -106,7 +107,9 @@
                                                 <label class="title --h4" for="creator">
                                                     Creator of Note(s)
                                                 </label>
-                                                <input type="text" id="creator" maxlength="45" placeholder="Search Username">
+                                                <!-- At the moment I want to use this as Note name search not user name-->
+                                                <input type="text" name="creator" id="creator" maxlength="45" placeholder="Search Username"
+                                                 value="{{ request('creator') }}">
                                             </div>
                                             <div class="other__filters --categories">
                                                 <span class="title --h4">
@@ -158,10 +161,10 @@
                                                                 &nbsp;Damage
                                                             </span>
                                                         </div>
-                                                        <input type="range" class="form-range --damage" value="0" min="0" max="10000" step="100" id="damageRange">
+                                                        <input type="range" name="damage" class="form-range --damage" value="0" min="0" max="10000" step="100" id="damageRange">
                                                     </div>
                                                     <div class="damage__spark">
-                                                        <input type="checkbox" name="classics[]" id="spark" value="1">
+                                                        <input type="checkbox" name="spark" id="spark" value="5">
                                                         <label for="spark">
                                                             <svg class="icon icon-blocked">
                                                                 <use xlink:href="#icon-blocked"></use>
@@ -182,7 +185,7 @@
                                                     <div class="classics__el">
                                                         <input type="checkbox" name="classics[]" id="newest" value="2">
                                                         <label for="newest">
-                                                            Newest
+                                                            Oldest
                                                         </label>
                                                     </div>
                                                     <div class="classics__el">
@@ -193,6 +196,9 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <button class="btn btn-primary" type="submit">
+                                                Apply Filters
+                                            </button>
                                        </div>
                                     </div> 
                                 </div>

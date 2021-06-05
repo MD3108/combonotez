@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use EloquentFilter\Filterable;
 
 class Like extends Model
 {
-    use HasFactory;
+    use HasFactory, Filterable;
 
     public function notes() {
         return $this->belongsToMany(Note::class);

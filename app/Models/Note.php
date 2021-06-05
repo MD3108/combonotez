@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use EloquentFilter\Filterable;
 class Note extends Model
 {
     // ! add to fillable once  "  , 'notation'   "
@@ -29,7 +29,7 @@ class Note extends Model
     //    'notation' => 'json',
     //];
 
-    use HasFactory;
+    use HasFactory, Filterable;
 
     public function user(){
         return $this->belongsTo(User::class);

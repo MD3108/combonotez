@@ -23,11 +23,19 @@ class NotesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $notes = Note::orderBy('updated_at', 'DESC')->paginate(12);
+        //app('debugbar')->info(request()->all());
         $fighters = Fighter::all();
         $categories = Category::all();
+
+        if(empty(request()->all())){
+            $notes = Note::latest()->paginate(12);
+        }
+        else{
+            $notes =  Note::filter($request->all())->paginate(12);
+        }
+        
         abort_if($notes->isEmpty(), 204);
         
         return view('note.index', [
