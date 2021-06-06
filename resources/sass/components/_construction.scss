@@ -1,0 +1,37 @@
+// * Filter
+.card{
+    &.--filter{
+        &.--open{
+            & .disabled{
+                opacity: 0.3;
+                cursor: none;
+                //pointer-events: none;
+                &:hover .classics__el label{
+                    color: transparent;
+                    background-color: transparent;
+                }
+                &:hover{
+                    position: relative;
+                    opacity: 1;
+                    color: transparent;
+                    background-color: transparent;
+                    
+                    &::before{
+                        content: "Available on later date";
+                        background-color: $light-fade-bg;
+                        color: $light-blue;
+                        border-radius: $border-radius;
+                        padding: $m-quarter-gutter;
+                        position: absolute;
+                        text-align: center;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

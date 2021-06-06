@@ -64,18 +64,18 @@ class NoteFilter extends ModelFilter
     public function fighters($fighters){
         // ! Optimize to filter only the main fighter
         $this->related('fighters', function($query) use ($fighters){
-            foreach( $fighters as $fighter ){
-                return $query->whereIn('fighter_note.fighter_id',  $fighters)->latest();
-            };
             //foreach( $fighters as $fighter ){
-            //    return $query->where('fighter_note.fighter_id',  $fighter)->latest();
+            return $query->whereIn('fighter_note.fighter_id',  $fighters)->latest();
             //};
+            //
+            //    return $query->where('fighter_note.fighter_id',  $fighter)->latest();
+            //groupBy('fighter_note.note_id')->orderBy('fighter_note.id', 'ASC')->first()
         });
     }
 
     public function assists($assists){
         
-        // ! Optimize that when only 1 or  2 fighter there are just one or no assists on the note
+        //! Optimize that when only 1 or  2 fighter there are just one or no assists on the note
         //! and select assist of that specific character (idea hidden input with id of fighter)
         $this->related('fighters', function($query) use ($assists){
             $afs = request(['afs']);
@@ -86,7 +86,8 @@ class NoteFilter extends ModelFilter
                         $assistsIdx = $key;
                         foreach($afs as $array){
                             foreach($array as $key=>$af){
-                                return $query->where('fighter_note.fighter_id', $assistsIdx)->where('fighter_note.note_id', '=', 'notes.id')
+                                app('debugbar')->info($af);
+                                return $query->where('fighter_note.fighter_id', $af)->where('fighter_note.note_id', '=', 'notes.id')
                                 ->whereBetween('assistOne', [1, 3])->orWhereBetween('assistTwo', [1, 3])->latest();
                             } 
                         }
@@ -96,7 +97,8 @@ class NoteFilter extends ModelFilter
                         foreach($afs as $array){
                             foreach($array as $key=>$af){
                                 if( $assistsIdx == $key){
-                                    return $query->where('fighter_note.fighter_id', $assistsIdx)->where('fighter_note.note_id', '=', 'notes.id')
+                                    app('debugbar')->info($af);
+                                    return $query->where('fighter_note.fighter_id', $af)->where('fighter_note.note_id', '=', 'notes.id')
                                     ->where('assistOne', '=', $assist)->orWhere('assistTwo', '=', $assist)->latest();
                                 }
                             }

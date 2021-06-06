@@ -176,19 +176,19 @@
                                             </div>
                                             <div class="general__filters --classics">
                                                 <div class="classics__list">
-                                                    <div class="classics__el">
+                                                    <div class="classics__el btn disabled">
                                                         <input type="checkbox" name="classics[]" id="popular" value="1">
                                                         <label for="popular">
                                                             Popular
                                                         </label>
                                                     </div>
-                                                    <div class="classics__el">
+                                                    <div class="classics__el btn">
                                                         <input type="checkbox" name="classics[]" id="newest" value="2">
                                                         <label for="newest">
                                                             Oldest
                                                         </label>
                                                     </div>
-                                                    <div class="classics__el">
+                                                    <div class="classics__el btn disabled">
                                                         <input type="checkbox" name="classics[]" id="favorites" value="3">
                                                         <label for="favorites">
                                                             Favorites

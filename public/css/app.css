@@ -10191,6 +10191,7 @@ h3 {
 .btn {
   transition: all 0.25s ease-out;
   box-shadow: 0 0.333rem 0.444rem rgba(6, 28, 45, 0.1);
+  padding: 0.625rem;
 }
 .btn:hover {
   transform: translateY(0.025rem);
@@ -10221,6 +10222,9 @@ h3 {
   height: 50px;
   background-color: #061C2D;
   border-radius: 50%;
+}
+.btn.classics__el {
+  color: #EBF6FF;
 }
 
 .card {
@@ -10292,6 +10296,7 @@ h3 {
   cursor: pointer;
   margin-left: auto;
   box-shadow: inherit;
+  padding: 0;
 }
 .card.--filter .filter__tab {
   margin-right: calc(.625rem * 4);
@@ -10727,6 +10732,7 @@ h3 {
   position: relative;
   background-color: rgba(235, 246, 255, 0.3);
   border-radius: 100%;
+  max-height: 54px;
   padding: 0.3125rem;
   margin: auto;
   cursor: pointer;
@@ -10765,6 +10771,7 @@ h3 {
 }
 .card.--filter.--open .filter__content .content__part .part__general .general__filters.--classics .classics__el {
   margin-left: 3.125rem;
+  padding: 0.3125rem;
 }
 .card.--filter.--open .filter__content .content__part .part__general .general__filters.--classics .classics__el:first-child {
   margin-left: 0;
@@ -12073,4 +12080,33 @@ body {
 }
 .icon.--fill {
   fill: #061C2D;
+}
+
+.card.--filter.--open .disabled {
+  opacity: 0.3;
+  cursor: none;
+}
+.card.--filter.--open .disabled:hover .classics__el label {
+  color: transparent;
+  background-color: transparent;
+}
+.card.--filter.--open .disabled:hover {
+  position: relative;
+  opacity: 1;
+  color: transparent;
+  background-color: transparent;
+}
+.card.--filter.--open .disabled:hover::before {
+  content: "Available on later date";
+  background-color: rgba(235, 246, 255, 0.3);
+  color: #EBF6FF;
+  border-radius: 0.4rem;
+  padding: 0.3125rem;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
 }

@@ -1,6 +1,7 @@
 .btn{
     transition: all .25s ease-out;
     box-shadow: $box-shadow;
+    padding: $m-half-gutter;
     &-primary{
         //border-color: transparent;
     }
@@ -34,5 +35,8 @@
         background-color: $dark-blue;
         border-radius: 50%;
 
+    }
+    &.classics__el{
+        color: $light-blue;
     }
 }
