@@ -64,7 +64,7 @@
                                                 <img src="{{ asset('/storage/'. $fighter->image_path) }}" alt="{{ $fighter->name }}">
                                             </label>
                                             @endforeach
-                                            <button type="button" class="btn --fighter">
+                                            <button type="button" class="btn --fighter clear-js">
                                                 Clear all
                                             </button>
                                        </div>
@@ -94,7 +94,7 @@
                                                 </label>
                                             </div>
                                             @endforeach
-                                            <button type="button" class="btn --assist">
+                                            <button type="button" class="btn --assist clear-js">
                                                 Clear all
                                             </button>
                                        </div>
@@ -491,9 +491,12 @@
                         @endforeach
                     </div>
                     <div class="page-load-status">
-                        <div class="loader-ellips infinite-scroll-request d-flex justify-content-center">
-                            <div class="spinner-border text-primary" role="status">
-                                <span class="visually-hidden">Loading...</span>
+                        <div class="d-flex justify-content-center">
+
+                            <div class="loader-ellips infinite-scroll-request">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
                             </div>
                         </div>
                         <p class="infinite-scroll-last text-md-center m-auto">You have seen all notes, create some more!</p>

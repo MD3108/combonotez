@@ -444,3 +444,11 @@ iframe{
         text-align: center;
     }
 }
+.loader{
+    &-ellips{
+        & .infinite-scroll-request{
+            display: flex !important;
+            justify-content: center !important;
+        }
+    }
+}

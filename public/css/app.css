@@ -22,13 +22,14 @@
     font-style: italic;
     font-display: swap;
 }
-*/
+
 @font-face {
-  font-family: "Saira Condensed";
-  src: url("/storage/fonts/woff2/SairaCondensed-Bold.woff2") format("woff2"), url("/storage/fonts/woff/SairaCondensed-Bold.woff") format("woff");
-  font-weight: bold;
-  font-display: swap;
-}
+    font-family: 'Saira Condensed';
+    src: url('/storage/fonts/woff2/SairaCondensed-Bold.woff2') format('woff2'),
+        url('/storage/fonts/woff/SairaCondensed-Bold.woff') format('woff');
+    font-weight: bold;
+    font-display: swap;
+}*/
 @font-face {
   font-family: "Saira";
   src: url("/storage/fonts/woff2/Saira-Regular.woff2") format("woff2"), url("/storage/fonts/woff/Saira-Regular.woff") format("woff");
@@ -11573,6 +11574,11 @@ iframe {
 }
 .footer__content {
   text-align: center;
+}
+
+.loader-ellips .infinite-scroll-request {
+  display: flex !important;
+  justify-content: center !important;
 }
 
 .main.--form .section.--form {

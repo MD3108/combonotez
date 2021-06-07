@@ -10,6 +10,8 @@ const tabs = document.querySelectorAll('.filter__tab .tab__title');
 const damageRange = document.getElementById('damageRange');
 const assistSelect = document.querySelectorAll('.part__assists .assist__select');
 const notesGrid = document.querySelector('.grid');
+const clearAll = document.querySelectorAll('.filter .part .clear-js');
+console.log(clearAll);
 
 // * ------------------ //
 // * Direct execution* //
@@ -151,3 +153,21 @@ function ddOpenClose (target){
 function show_value2(x){
  document.getElementById("slider_value2").innerHTML=x;
 }
+
+//* Clear all */
+clearAll.forEach( btn => {
+     btn.addEventListener('click', e => {
+        if(e.currentTarget.classList.contains('--fighter')){
+            document.querySelectorAll('.part__fighters input').forEach(input =>{
+                input.checked = false;
+            });
+        }
+        else{
+            document.querySelectorAll('.part__assists select').forEach(select =>{
+                select.selectedIndex = 0 ;
+                console.log(select);
+                select.classList.remove('--any', '--A', '--B', '--C');
+            });
+        }
+    });
+});
