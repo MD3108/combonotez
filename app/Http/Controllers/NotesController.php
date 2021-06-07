@@ -7,6 +7,7 @@ use App\Models\CategoryNote;
 use App\Models\Fighter;
 use App\Models\FighterNote;
 use App\Models\Like;
+use App\Models\Favorite;
 use Illuminate\Http\Request;
 use App\Models\Note;
 use Illuminate\Http\JsonResponse;
@@ -26,7 +27,6 @@ class NotesController extends Controller
      */
     public function index(Request $request)
     {
-        //app('debugbar')->info(request()->all());
         $fighters = Fighter::all();
         $categories = Category::all();
 
@@ -236,6 +236,34 @@ class NotesController extends Controller
             
             return response()->json([
                 'count' => Note::find(request()->id)->likes->count()
+            ]);
+        }
+    }
+    public function favorite():JsonResponse
+    {
+        $note = Note::find(request()->id);
+        if ($note->isLikedByAuthUser()){
+            $res = Favorite::where([
+                'user_id' => auth()->user()->id,
+                'note_id' => request()->id
+            ])->delete();
+            
+            if ($res){
+                return response()->json([
+                    'count' => Note::find(request()->id)->favorites->count()
+                ]);
+            }
+        }
+        else{
+            $favorite = new Favorite();
+
+            $favorite->user_id = auth()->user()->id;
+            $favorite->note_id = request()->id;
+
+            $favorite->save();
+            
+            return response()->json([
+                'count' => Note::find(request()->id)->favorites->count()
             ]);
         }
     }

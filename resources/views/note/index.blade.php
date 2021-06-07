@@ -188,7 +188,7 @@
                                                             Oldest
                                                         </label>
                                                     </div>
-                                                    <div class="classics__el btn disabled">
+                                                    <div class="classics__el btn">
                                                         <input type="checkbox" name="classics[]" id="favorites" value="3">
                                                         <label for="favorites">
                                                             Favorites
@@ -377,9 +377,31 @@
                                                 <div class="r-footer__container">
                                                     <div class="interactions">
                                                         <div class="interactions__favorites">
-                                                            <svg class="icon icon-favorite">
-                                                                <use xlink:href="#icon-favorite"></use>
-                                                            </svg>
+                                                            <form action="{{ route('notes.favorite') }}" class="f-form-js">
+                                                                @if(isset(Auth::user()->id))
+                                                                <input type="hidden" class="f-user-id-js" value="{{ Auth::user()->id }}">
+                                                                @else
+                                                                <input type="hidden" class="f-user-id-js" value="null">
+                                                                @endif
+                                                                <input type="hidden" class="f-note-id-js" value="{{ $note->id }}">
+                                                                @if(isset(Auth::user()->id))
+                                                                <button type="submit" class="btn --transparent">
+                                                                    <svg class="icon icon-favorite {{ $note->isFavoredByAuthUser() ? '--fill' : '' }}">
+                                                                        <use xlink:href="#icon-favorite"></use>
+                                                                    </svg>
+                                                                </button>
+                                                                @endif
+                                                                @guest
+                                                                <svg class="icon icon-favorite disabled">
+                                                                    <use xlink:href="#icon-favorite"></use>
+                                                                </svg>
+                                                                @endguest
+                                                                @if(session()->has('message'))
+                                                                    <div class="alert alert-primary --f-notes" role="alert">
+                                                                        {{ session()->get('message') }}
+                                                                    </div>
+                                                                @endif
+                                                            </form>
                                                         </div>
                                                         <div class="interactions__likes">
                                                             <form action="{{ route('notes.like') }}" class="form-js">

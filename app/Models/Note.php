@@ -48,7 +48,7 @@ class Note extends Model
     }
 
     public function favorites(){
-        return $this->belongsToMany(Favorite::class);
+        return $this->hasMany(Favorite::class);
     }
 
     public function getDataAttribute($value){
@@ -58,6 +58,16 @@ class Note extends Model
     public function isLikedByAuthUser(){
         if(isset(auth()->user()->id)){
             return $this->likes->where('user_id', auth()->user()->id)->isEmpty() ? false : true ;
+        }
+        else{
+            return response()->json(['error' => 'Unauthorized', 'message' => 'you have to be connected'], 401);
+        }
+    }
+
+    public function isFavoredByAuthUser(){
+        if(isset(auth()->user()->id)){
+            app('debugbar')->info($this->favorites->where('user_id', auth()->user()->id)->isEmpty() ? false : true);
+            return $this->favorites->where('user_id', auth()->user()->id)->isEmpty() ? false : true ;
         }
         else{
             return response()->json(['error' => 'Unauthorized', 'message' => 'you have to be connected'], 401);

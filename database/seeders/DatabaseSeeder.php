@@ -27,8 +27,8 @@ class DatabaseSeeder extends Seeder
             //LikeUserSeeder::class,
 
             FavoriteSeeder::class,
-            FavoriteUserSeeder::class,
-            FavoriteNoteSeeder::class,
+            //FavoriteUserSeeder::class,
+            //FavoriteNoteSeeder::class,
         ]);
     }
 }

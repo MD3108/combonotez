@@ -28,9 +28,15 @@ class NoteFilter extends ModelFilter
 
     public function classics($classics){
         foreach($classics as $classic){
-            //* if oldest is checked order by oldest
+            if($classic == 3){
+                $this->related('favorites', function($query){
+                    $query->where([
+                        'favorites.user_id' => auth()->user()->id,
+                        'user_id' => auth()->user()->id,
+                    ]);
+                });
+            }
             if($classic == 2){
-                //return $query->orderBy('', 'DESC');
                 return $this->oldest();
             }
             if($classic == 1){
@@ -63,12 +69,7 @@ class NoteFilter extends ModelFilter
     public function fighters($fighters){
         // ! Optimize to filter only the main fighter
         $this->related('fighters', function($query) use ($fighters){
-            //foreach( $fighters as $fighter ){
             return $query->whereIn('fighter_note.fighter_id',  $fighters)->latest();
-            //};
-            //
-            //    return $query->where('fighter_note.fighter_id',  $fighter)->latest();
-            //groupBy('fighter_note.note_id')->orderBy('fighter_note.id', 'ASC')->first()
         });
     }
 
