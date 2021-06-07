@@ -176,7 +176,7 @@
                                             </div>
                                             <div class="general__filters --classics">
                                                 <div class="classics__list">
-                                                    <div class="classics__el btn disabled">
+                                                    <div class="classics__el btn">
                                                         <input type="checkbox" name="classics[]" id="popular" value="1">
                                                         <label for="popular">
                                                             Popular
@@ -203,6 +203,17 @@
                                     </div> 
                                 </div>
                             </form>
+                            <div class="alert alert-primary --notes hide ">
+                                <p> 
+                                    Register or login to show love to the Sauce. 
+                                </p>
+                                <button type="button" class="btn-close" aria-label="Close">
+                                    <svg class="icon icon-close --light">
+                                        <use xlink:href="#icon-close"></use>
+                                    </svg>
+                                </button>
+                                <!-- Added with Js if user tries to like with out being authenticated-->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -371,9 +382,33 @@
                                                             </svg>
                                                         </div>
                                                         <div class="interactions__likes">
-                                                            <svg class="icon icon-like">
-                                                                <use xlink:href="#icon-like"></use>
-                                                            </svg>
+                                                            <form action="{{ route('notes.like') }}" class="form-js">
+                                                                @if(isset(Auth::user()->id))
+                                                                <input type="hidden" class="user-id-js" value="{{ Auth::user()->id }}">
+                                                                @else
+                                                                <input type="hidden" class="user-id-js" value="null">
+                                                                @endif
+                                                                <input type="hidden" class="note-id-js" value="{{ $note->id }}">
+                                                                @if(isset(Auth::user()->id))
+                                                                <button type="submit" class="btn --transparent">
+                                                                    <svg class="icon icon-like {{ $note->isLikedByAuthUser() ? '--fill' : '' }}">
+                                                                        <use xlink:href="#icon-like"></use>
+                                                                    </svg>
+                                                                </button>
+                                                                <span class="count-js">{{ $note->likes->count() }}</span>
+                                                                @endif
+                                                                @guest
+                                                                <svg class="icon icon-like disabled">
+                                                                    <use xlink:href="#icon-like"></use>
+                                                                </svg>
+                                                                <span class="count-js">{{ $note->likes->count() }}</span>
+                                                                @endguest
+                                                                @if(session()->has('message'))
+                                                                    <div class="alert alert-success --notes" role="alert">
+                                                                        {{ session()->get('message') }}
+                                                                    </div>
+                                                                @endif
+                                                            </form>
                                                         </div>
                                                         @if (isset(Auth::user()->id) && Auth::user()->id == $note->user_id)
                                                         <div class="interactions__update">
@@ -450,8 +485,10 @@
 
 @section('cdn')
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+    <!--<script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>-->
+    <script src="{{ URL('/js/infinite-scroll.js') }}"></script>
     <script src="{{ URL('/js/masonry.js') }}"></script>
-    <script src="{{ URL('/js/vod.js') }}"></script>
     <script src="{{ URL('/js/filter.js') }}"></script>
+    <script src="{{ URL('/js/like.js') }}"></script>    {{--  --}}
+    <script src="{{ URL('/js/vod.js') }}"></script>
 @endsection

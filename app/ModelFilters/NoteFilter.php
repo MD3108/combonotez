@@ -34,9 +34,8 @@ class NoteFilter extends ModelFilter
                 return $this->oldest();
             }
             if($classic == 1){
-                //$this->related('likes', function($query){
-                //    return $query->where('likes.note_id', '=', 'notes.id')->count()->all()->dd();
-                //});
+                    return $this->withCount('likes')->orderByDesc('likes_count');
+                
             }
             // * Popular and fovorites missing
         }

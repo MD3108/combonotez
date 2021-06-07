@@ -20,14 +20,11 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             //FighterNoteSeeder::class,
             //CategoryNoteSeeder::class,
+            
             NoteSeeder::class,
-
-            
-            
-
             LikeSeeder::class,
-            LikeNoteSeeder::class,
-            LikeUserSeeder::class,
+            //LikeNoteSeeder::class,
+            //LikeUserSeeder::class,
 
             FavoriteSeeder::class,
             FavoriteUserSeeder::class,

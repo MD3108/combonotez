@@ -10226,6 +10226,10 @@ h3 {
 .btn.classics__el {
   color: #EBF6FF;
 }
+.btn.--transparent {
+  box-shadow: none;
+  background-color: transparent;
+}
 
 .card {
   padding: calc(.625rem * 2);
@@ -11135,6 +11139,31 @@ h3 {
 .alert-success.--notes {
   margin-top: 99px;
   margin-bottom: -90px;
+}
+.filter .alert-primary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.filter .alert-primary p {
+  margin-bottom: 0;
+}
+.filter .alert-primary .btn-close {
+  position: relative;
+  top: inherit;
+  right: inherit;
+  border: transparent;
+  background-color: transparent;
+  cursor: pointer;
+}
+.filter .alert-primary .btn-close svg {
+  fill: #061C2D;
+}
+.filter .alert-primary.--notes {
+  left: 0;
+  position: absolute;
+  bottom: -103px;
+  right: 0;
 }
 
 /*::-webkit-scrollbar{
@@ -12056,13 +12085,6 @@ body {
   stroke-miterlimit: 4;
   stroke-width: 1.3333;
   stroke: #061C2D;
-}
-.icon-like.--fill {
-  position: absolute;
-  top: auto;
-  left: 0;
-  bottom: auto;
-  z-index: 10;
 }
 .icon-close.--light {
   fill: #EBF6FF;

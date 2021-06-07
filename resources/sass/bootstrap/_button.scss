@@ -39,4 +39,8 @@
     &.classics__el{
         color: $light-blue;
     }
+    &.--transparent{
+        box-shadow: none;
+        background-color: transparent;
+    }
 }

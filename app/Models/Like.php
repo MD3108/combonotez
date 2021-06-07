@@ -2,19 +2,22 @@
 
 namespace App\Models;
 
+//use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use EloquentFilter\Filterable;
 
 class Like extends Model
 {
-    use HasFactory, Filterable;
+    use HasFactory,Filterable;
 
-    public function notes() {
-        return $this->belongsToMany(Note::class);
+    public function user()
+    {
+        return $this->belongsTo(User::class)->withDefault();
     }
 
-    public function users(){
-        return $this->belongsToMany((User::class));
+    public function likeable()
+    {
+        return $this->morphTo();
     }
 }

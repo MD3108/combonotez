@@ -44,7 +44,7 @@ class Note extends Model
     }
 
     public function likes() {
-        return $this->belongsToMany(Like::class);
+        return $this->hasMany(Like::class);
     }
 
     public function favorites(){
@@ -53,5 +53,14 @@ class Note extends Model
 
     public function getDataAttribute($value){
         return json_decode($value, true);
+    }
+
+    public function isLikedByAuthUser(){
+        if(isset(auth()->user()->id)){
+            return $this->likes->where('user_id', auth()->user()->id)->isEmpty() ? false : true ;
+        }
+        else{
+            return response()->json(['error' => 'Unauthorized', 'message' => 'you have to be connected'], 401);
+        }
     }
 }

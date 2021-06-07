@@ -5,4 +5,29 @@
             margin-bottom: -90px;
         }
     }
+    .filter &-primary{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & p {
+            margin-bottom: 0;
+        }
+        & .btn-close{
+            position: relative;
+            top: inherit;
+            right: inherit;
+            border: transparent;
+            background-color: transparent;
+            cursor: pointer;
+            & svg{
+                fill: $dark-blue;
+            }
+        }
+        &.--notes{
+            left: 0;
+            position: absolute;
+            bottom: -103px;
+            right: 0;
+        }
+    }
 }

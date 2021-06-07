@@ -9,6 +9,7 @@ use App\Models\FighterNote;
 use App\Models\Like;
 use Illuminate\Http\Request;
 use App\Models\Note;
+use Illuminate\Http\JsonResponse;
 use Database\Seeders\FighterNoteSeeder;
 
 class NotesController extends Controller
@@ -208,5 +209,34 @@ class NotesController extends Controller
 
         return redirect('/note')
         ->with('message', 'Your Note has been deleted');
+    }
+
+    public function like():JsonResponse
+    {
+        $note = Note::find(request()->id);
+        if ($note->isLikedByAuthUser()){
+            $res = Like::where([
+                'user_id' => auth()->user()->id,
+                'note_id' => request()->id
+            ])->delete();
+            
+            if ($res){
+                return response()->json([
+                    'count' => Note::find(request()->id)->likes->count()
+                ]);
+            }
+        }
+        else{
+            $like = new Like();
+
+            $like->user_id = auth()->user()->id;
+            $like->note_id = request()->id;
+
+            $like->save();
+            
+            return response()->json([
+                'count' => Note::find(request()->id)->likes->count()
+            ]);
+        }
     }
 }
