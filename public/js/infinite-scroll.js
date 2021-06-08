@@ -2033,7 +2033,6 @@ array.forEach( form => {
             })
         }).then(response =>{
             response.json().then(data => {
-                console.log(data);
                 star.classList.toggle('--fill');
             });
         }).catch(error =>{

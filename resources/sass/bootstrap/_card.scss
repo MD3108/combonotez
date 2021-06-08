@@ -471,7 +471,7 @@
                                                                 border: $form-range-track-border;
                                                             }
                                                             &:focus {
-                                                                outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+                                                                outline: none; 
                                                                 &::-webkit-slider-runnable-track{
                                                                     background: $form-range-track-bg;
                                                                 }
@@ -736,12 +736,10 @@
                                     justify-content: flex-end;
                                     width: 100%;
                                     max-width: 244px;
-                                    //overflow: hidden;
                                     height: auto;
                                     
                                     &__list{
                                         display: flex;
-                                        //justify-content: flex-end;
                                         overflow-x: hidden;
                                         &:hover{
                                             overflow-x: auto;

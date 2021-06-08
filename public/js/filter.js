@@ -11,7 +11,6 @@ const damageRange = document.getElementById('damageRange');
 const assistSelect = document.querySelectorAll('.part__assists .assist__select');
 const notesGrid = document.querySelector('.grid');
 const clearAll = document.querySelectorAll('.filter .part .clear-js');
-console.log(clearAll);
 
 // * ------------------ //
 // * Direct execution* //
@@ -165,7 +164,6 @@ clearAll.forEach( btn => {
         else{
             document.querySelectorAll('.part__assists select').forEach(select =>{
                 select.selectedIndex = 0 ;
-                console.log(select);
                 select.classList.remove('--any', '--A', '--B', '--C');
             });
         }

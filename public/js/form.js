@@ -25,10 +25,8 @@ var fighter3;
 //select all user inserted data in form once final step is reached
 nextBtns[nextBtns.length-1].addEventListener('click', (e) => {
     
-    //var checkedFighters = document.querySelectorAll('.fighters__select input[type=checkbox]:checked');
     var chosenAssist = document.querySelectorAll('.el__move input[type=radio]:checked');
     var chosenCategories = document.querySelectorAll('.categories__container input[type=checkbox]:checked');
-    //var chosenDifficulty = document.querySelector('.difficulty__container input[type=radio]:checked').value;
     var comboName = document.querySelector('.combo__name input[type=text]').value;
     var comboDamage = document.querySelector('.details__damage input[type=number]').value;
     var kiStart = document.querySelector('.details__ki input[name=ki-start]').value;
@@ -37,7 +35,6 @@ nextBtns[nextBtns.length-1].addEventListener('click', (e) => {
     console.log(document.querySelector('.details__youtube input[type=url]'));
 
     //fighters used in combo
-    // ! create a function that adds checked in right order in an array an base of of this array
     for( let i = 0 ; i <= 3 ; i++){
         if(i == 0 && limitToThree[0] != undefined){
             let imgPath = limitToThree[0];
@@ -149,9 +146,6 @@ roster.forEach(fighter=>{
         console.log('limit', limitToThree);
         if (previousFighter == currentFighter.getAttribute('for')){
             
-
-            // ! work here on the remove pin and fighter choice
-            
             if(limitToThree.length == 0){
                 chosenFighters[0].style.backgroundImage = 'inherit';
             }
@@ -171,7 +165,6 @@ roster.forEach(fighter=>{
             limitToThree.pop(fighterPath);
             currentFighter.setAttribute('data-content', `${counterFighter}`);
             previousFighter = '';
-            // !
         }
         else{
             console.log(document.querySelectorAll('.fighters__select input[type=checkbox]:checked').length);
@@ -183,10 +176,6 @@ roster.forEach(fighter=>{
                 notChecked.forEach(checkbox => {
                     checkbox.disabled = true;
                 });
-
-                //limitToThree.splice(2, 1, fighterPath);
-                //currentFighter.previousElementSibling.checked = false;
-                //counterFighter = 2 ;
                 currentFighter.setAttribute('data-content', '3');
                 previousFighter = currentFighter.getAttribute('for');
             }

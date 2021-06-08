@@ -396,9 +396,9 @@
                                                                     <use xlink:href="#icon-favorite"></use>
                                                                 </svg>
                                                                 @endguest
-                                                                @if(session()->has('message'))
+                                                                @if(session()->has('interaction-message'))
                                                                     <div class="alert alert-primary --f-notes" role="alert">
-                                                                        {{ session()->get('message') }}
+                                                                        {{ session()->get('interaction-message') }}
                                                                     </div>
                                                                 @endif
                                                             </form>
@@ -425,9 +425,9 @@
                                                                 </svg>
                                                                 <span class="count-js">{{ $note->likes->count() }}</span>
                                                                 @endguest
-                                                                @if(session()->has('message'))
+                                                                @if(session()->has('interaction-message'))
                                                                     <div class="alert alert-success --notes" role="alert">
-                                                                        {{ session()->get('message') }}
+                                                                        {{ session()->get('interaction-message') }}
                                                                     </div>
                                                                 @endif
                                                             </form>

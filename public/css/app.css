@@ -10218,6 +10218,7 @@ h3 {
   right: calc(.625rem * 2);
   z-index: 20;
   display: flex;
+  justify-content: center;
   align-items: center;
   width: 50px;
   height: 50px;
@@ -10660,7 +10661,6 @@ h3 {
 }
 .card.--filter.--open .filter__content .content__part .part__general .general__filters.--damage .damage__slider input[type=range]:focus {
   outline: none;
-  /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
 }
 .card.--filter.--open .filter__content .content__part .part__general .general__filters.--damage .damage__slider input[type=range]:focus::-webkit-slider-runnable-track {
   background: rgba(235, 246, 255, 0.3);

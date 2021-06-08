@@ -14,8 +14,6 @@ class FavoriteSeeder extends Seeder
      */
     public function run()
     {
-        //Favorite::create([
-        //    'user_id' => 1,
-        //]);
+        
     }
 }

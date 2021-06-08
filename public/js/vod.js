@@ -25,7 +25,6 @@ vodBtn.forEach( (btn, idx)=>{
 if( moreToggler != null || moreMenu != null ){
     moreToggler.forEach( (btn, idx, btns) =>{
         btn.addEventListener('click', (e)=>{
-            console.log(e);
             moreMenu[idx].classList.toggle('--open');
         });
     });
@@ -59,7 +58,6 @@ window.addEventListener('scroll', (e)=>{
     if( moreToggler != null || moreMenu != null ){
         moreToggler.forEach( (btn, idx, btns) =>{
             btn.addEventListener('click', (e)=>{
-                console.log(e);
                 moreMenu[idx].classList.toggle('--open');
             });
         });

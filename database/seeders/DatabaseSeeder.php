@@ -21,12 +21,12 @@ class DatabaseSeeder extends Seeder
             //FighterNoteSeeder::class,
             //CategoryNoteSeeder::class,
             
-            NoteSeeder::class,
-            LikeSeeder::class,
+            //*NoteSeeder::class,
+            //*LikeSeeder::class,
             //LikeNoteSeeder::class,
             //LikeUserSeeder::class,
 
-            FavoriteSeeder::class,
+            //*FavoriteSeeder::class,
             //FavoriteUserSeeder::class,
             //FavoriteNoteSeeder::class,
         ]);

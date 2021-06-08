@@ -121,8 +121,7 @@ class NotesController extends Controller
      */
     public function show($id)
     {
-        //return view('show')
-        //    ->with('note', Note::where('id', $id)->first());
+        
     }
 
     /**
@@ -185,7 +184,6 @@ class NotesController extends Controller
             }
         }
         
-        dd($request->categories);
         foreach( $request->categories as $category){
             if($category != null){
                 $note->categories()->attach((int)$category);

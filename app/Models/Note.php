@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use EloquentFilter\Filterable;
 class Note extends Model
 {
-    // ! add to fillable once  "  , 'notation'   "
     protected $fillable = [ 'name',
                             'notations',
                             'assistOne',
@@ -24,11 +23,6 @@ class Note extends Model
 
     protected $guarded = [];
 
-    // ! remove this if not usable for json
-    //protected $casts = [
-    //    'notation' => 'json',
-    //];
-
     use HasFactory, Filterable;
 
     public function user(){
@@ -36,7 +30,7 @@ class Note extends Model
     }
 
     public function fighters(){
-        return $this->belongsToMany(Fighter::class);//->withPivot(['sort_key'])
+        return $this->belongsToMany(Fighter::class);
     }
 
     public function categories(){
@@ -60,7 +54,7 @@ class Note extends Model
             return $this->likes->where('user_id', auth()->user()->id)->isEmpty() ? false : true ;
         }
         else{
-            return response()->json(['error' => 'Unauthorized', 'message' => 'you have to be connected'], 401);
+            return response()->json(['error' => 'Unauthorized', 'interaction-message' => 'you have to be connected'], 401);
         }
     }
 
@@ -70,7 +64,7 @@ class Note extends Model
             return $this->favorites->where('user_id', auth()->user()->id)->isEmpty() ? false : true ;
         }
         else{
-            return response()->json(['error' => 'Unauthorized', 'message' => 'you have to be connected'], 401);
+            return response()->json(['error' => 'Unauthorized', 'interaction-message' => 'you have to be connected'], 401);
         }
     }
 }

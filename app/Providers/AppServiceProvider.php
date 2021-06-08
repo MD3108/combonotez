@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        /**
+         * Ensure we aren't running into `Specified key was too long; max key length is 767 bytes`
+         *
+         * @see https://peterthaleikis.com/posts/laravel:-specified-key-was-too-long-max-key-length-is-767-bytes/
+         **/
+        Schema::defaultStringLength(191);
     }
 }
